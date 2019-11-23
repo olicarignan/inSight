@@ -2,6 +2,7 @@ import React, {useReducer} from 'react';
 
 export const SET_USERS = 'SET_USERS';
 
+
 export default function dataReducer (state, action)  {
 
   const actions = {
