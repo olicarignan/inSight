@@ -19,9 +19,6 @@ function App() {
   return (
     <div className="App">
       <ul>{userList}</ul>
-      <div>
-        <Calendar></Calendar>
-      </div>
     </div>
   );
 }
