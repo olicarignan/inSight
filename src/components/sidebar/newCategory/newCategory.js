@@ -4,6 +4,7 @@ export default function NewCategory() {
 
   return (
     <div>
+      
       </div>
   )
 }
