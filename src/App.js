@@ -24,7 +24,8 @@ function App() {
       <div>
         <SideBar 
         categories={state.categories}
-        /> 
+        />
+        <Calendar />
       </div>
     </div>
   );
