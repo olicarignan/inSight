@@ -6,9 +6,10 @@ import NewCategory from './newCategory/newCategory';
 export default function SideBar (props) {
 
   return (
-    <aside>
-      <CategoryList>
-      </CategoryList>
+    <aside className="sidebar">
+      <CategoryList
+      categories={props.categories}
+      />
       <NewCategory>
       </NewCategory>
       </aside>

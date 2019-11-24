@@ -4,7 +4,7 @@ import Toggle from "react-toggle";
 
 export default function CategoryListItem(props) {
   return (
-    <li>
+    
       <span className="badge">
         <Toggle
           defaultChecked={console.log("checked")}
@@ -16,8 +16,8 @@ export default function CategoryListItem(props) {
           onClick={() => props.showCategory(props.name)}>
             {props.name}
         </span>
-        <div class="test" onClick={() => console.log('toggle menu')}></div>
+        <div className="test" onClick={() => console.log('toggle menu')}></div>
       </span>
-    </li>
+    
   );
 }

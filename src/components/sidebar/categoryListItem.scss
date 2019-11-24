@@ -148,6 +148,11 @@
   justify-content: space-between;
   background-color: #EF3340;
   color: #FAFAFA;
+  margin: 1em;
+}
+
+.badge:active {
+  -webkit-box-shadow: inset 0 0 3px #63151a;
 }
 
 .categoryTitle {

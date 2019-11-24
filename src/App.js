@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
+import SideBar from './components/sidebar/sidebar'; 
 
 
 function App() {
@@ -15,18 +16,15 @@ function App() {
       {user.first_name} {user.last_name} {user.email}
     </li>
   ))
-  const categoryList = state.categories.map(category => (
-    <li key={category.id}>
-      {category.category_name} {console.log(category)}
-      </li>
-  ))
       
 
   return (
     <div className="App">
       <ul>{userList}</ul>
-      <ul>{categoryList}</ul>
       <div>
+        <SideBar 
+        categories={state.categories}
+        /> 
       </div>
     </div>
   );
