@@ -10,8 +10,7 @@ export default function SideBar (props) {
       <CategoryList
       categories={props.categories}
       />
-      <NewCategory>
-      </NewCategory>
+      <NewCategory />
       </aside>
   )
 }
