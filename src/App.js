@@ -1,5 +1,5 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
 
@@ -7,7 +7,6 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
-import SideBar from './components/sidebar/sidebar';
 
 
 
@@ -28,7 +27,7 @@ function App() {
   return (
     <div className="App">
       <ul>{userList}</ul>
-      <div>
+      <div className="main-container">
         <SideBar 
         categories={state.categories}
         />
