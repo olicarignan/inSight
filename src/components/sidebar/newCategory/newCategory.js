@@ -7,9 +7,8 @@ export default function NewCategory(props) {
   const [categoryName, setCategoryName] = useState(props.categoryName || "");
 
   return (
-    <div>
- react-components
-      <form onSubmit={event => event.preventDefault()} autoComplete="off">
+    <div className="newCategory">
+      <form className="newCategoryForm" onSubmit={event => event.preventDefault()} autoComplete="off">
           <input
             className="category__create-input text--semi-bold"
             categoryName = "categoryName"
@@ -28,9 +27,6 @@ export default function NewCategory(props) {
             Save
           </Button>
         </section>
-
-      
- master
       </div>
   )
 }
