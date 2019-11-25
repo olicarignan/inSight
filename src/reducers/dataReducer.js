@@ -16,7 +16,7 @@ export default function dataReducer (state, action)  {
     }
   }
   if (!actions[action.type]) {
-    throw new Error(`reducer type doesn't exist`);
+    throw new Error(`reducer type doesn't exist: ${action.type}`);
   }
   
   return actions[action.type]
