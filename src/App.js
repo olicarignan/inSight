@@ -7,9 +7,9 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
-import SideBar from './components/sidebar/sidebar';
 
-
+import NewAppointment from './components/appointment/new-appointment-form'
+import { isPropsEqual } from '@fullcalendar/core';
 
 
 function App() {
@@ -32,7 +32,10 @@ function App() {
         <SideBar 
         categories={state.categories}
         />
-        <Calendar />
+        <Calendar/>
+      </div>
+      <div>
+        < NewAppointment />
       </div>
     </div>
     
