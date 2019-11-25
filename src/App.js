@@ -1,9 +1,11 @@
 import React from 'react';
-import './App.css';
+import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
-import SideBar from './components/sidebar/sidebar';
 import Nav from './components/nav/nav';
+import SideBar from './components/sidebar/sidebar'; 
+import LoginPage from './components/login_register/loginPage'
+import RegisterPage from './components/login_register/registerPage'
 
 
 
@@ -27,13 +29,14 @@ function App() {
       <Nav
       users= {userList}
        />
-      <div>
+      <div className="main-container">
         <SideBar 
         categories={state.categories}
         />
         <Calendar />
       </div>
     </div>
+    
   );
 }
 

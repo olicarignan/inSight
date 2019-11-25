@@ -1,2 +1,7 @@
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+
+.calendar {
+  max-width: 80vw;
+    margin: 2em;
+}
