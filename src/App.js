@@ -1,13 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
-
+import SideBar from './components/sidebar/sidebar'; 
+import LoginPage from './components/login_register/loginPage'
+import RegisterPage from './components/login_register/registerPage'
 
 function App() {
 
   const { state, dispatch } = useApplicationData();
+
+  console.log(state)
 
   const userList = state.users.map( user => (
     <li key={user.id}>
@@ -19,6 +22,12 @@ function App() {
   return (
     <div className="App">
       <ul>{userList}</ul>
+      <div>
+        <SideBar 
+        categories={state.categories}
+        />
+        <Calendar />
+      </div>
     </div>
   );
 }
