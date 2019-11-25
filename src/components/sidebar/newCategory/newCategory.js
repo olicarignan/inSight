@@ -8,6 +8,7 @@ export default function NewCategory(props) {
 
   return (
     <div>
+ react-components
       <form onSubmit={event => event.preventDefault()} autoComplete="off">
           <input
             className="category__create-input text--semi-bold"
@@ -27,6 +28,9 @@ export default function NewCategory(props) {
             Save
           </Button>
         </section>
+
+      
+ master
       </div>
   )
 }
