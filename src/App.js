@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
-import SideBar from './components/sidebar/sidebar'; 
+import SideBar from './components/sidebar/sidebar';
+
 
 
 function App() {

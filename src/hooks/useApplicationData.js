@@ -4,7 +4,11 @@ import dataReducer,{ SET_APPLICATION_DATA } from '../reducers/dataReducer';
 
 export default function useApplicationData () {
 
-  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], loading: true}));
+  const [state, dispatch] = useReducer(dataReducer, ({
+    users: [], 
+    categories: [], 
+    loading: true
+  }));
 
   useEffect(() => {
     
