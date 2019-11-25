@@ -4,24 +4,30 @@ import dataReducer,{ SET_APPLICATION_DATA } from '../reducers/dataReducer';
 
 export default function useApplicationData () {
 
-  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], loading: true}));
+  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], appointments: [], notes: [], loading: true}));
 
   useEffect(() => {
     
     const users = axios.get('/api/users');
     const categories = axios.get('/api/categories');
+    const appointments = axios.get('/api/appointments');
+    const notes = axios.get('/api/notes');
+    
 
-    Promise.all([users, categories])
+    Promise.all([users, categories, appointments, notes])
            .then(all => {
              dispatch({
                type: SET_APPLICATION_DATA,
                users: all[0].data,
-               categories: all[1].data
-             })
-           })
-          }, []);
+               categories: all[1].data,
+               appointments: all[2].data,
+               notes: all[3].data
 
-  return {
+              })
+            })
+          }, []);
+          
+          return {
     state,
     dispatch
   }
