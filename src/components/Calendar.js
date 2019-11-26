@@ -28,15 +28,6 @@ export default function Calendar(props) {
     );
   }
 
-function popUp(){
-  return (
-  <ReactTooltip id='clickme' place='right' effect='solid' clickable={true}>
-  <input type='text' placeholder='Type something...' /> 
-  </ReactTooltip>
-
-  )
-}
-
   return (
     <div>
     <FullCalendar
