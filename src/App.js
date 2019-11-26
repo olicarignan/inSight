@@ -8,7 +8,6 @@ import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
 
-
 function App() {
 
   const { state, dispatch } = useApplicationData();
@@ -20,9 +19,6 @@ function App() {
       {user.first_name} {user.last_name} {user.email}
     </li>
   ))
-
-
-      
 
   return (
     <div className="App">
