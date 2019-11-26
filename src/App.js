@@ -15,9 +15,12 @@ import {
 } from "react-router-dom";
 
 
+
 function App() {
 
-  const { state, dispatch } = useApplicationData();
+  const { state, dispatch, addUser } = useApplicationData();
+
+  console.log(state.users[0])
 
 
   const userList = state.users.map( user => (
