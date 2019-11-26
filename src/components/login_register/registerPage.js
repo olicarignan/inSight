@@ -1,8 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import "./registerPage.scss"
+import axios from 'axios';
 
 export default function RegisterPage(props) {
+  const [first_name, setFirstName] = useState('')
+  const [last_name, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('');
+  function onSave(event) {
+    event.preventDefault()
+    if (first_name && last_name && email && password) {
+      const user = {
+        first_name,
+        last_name,
+        email,
+        password
+      }
+       return axios.post('/api/users', user )
+    }
+  }
+
+
   return(
       <body>
         <div className="container">
@@ -11,21 +30,29 @@ export default function RegisterPage(props) {
               <div className="card card-register my-5">
                 <div className="card-body">
                   <h5 className="card-title text-center">Register</h5>
-                  <form className="form-register">
+                  <form className="form-register" onSubmit = {event => onSave(event)}>
                   <div className="form-label-group">
-                      <input type="text" id="inputText" className="form-control" placeholder="First Name" required autofocus/>
+                      <input type="text" name="first_name" value={first_name} onChange={(event) => {
+                        setFirstName(event.target.value)
+                      }} id="inputText" className="form-control" placeholder="First Name" required autofocus/>
                       <label for="inputText">First Name</label>
                     </div>
                   <div className="form-label-group">
-                      <input type="text" id="inputText" className="form-control" placeholder="Last Name" required autofocus/>
+                      <input type="text" name="last_name" value={last_name} onChange={(event) => {
+                        setLastName(event.target.value) 
+                        }} id="inputText" className="form-control" placeholder="Last Name" required autofocus/>
                       <label for="inputText">Last Name</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="email" id="inputEmail" className="form-control" placeholder="Email address" required autofocus/>
+                      <input type="email" name="email" value={email} onChange={(event) => {
+                        setEmail(event.target.value) 
+                        }} id="inputEmail" className="form-control" placeholder="Email address" required autofocus/>
                       <label for="inputEmail">Email address</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="password" id="inputPassword" className="form-control" placeholder="Password" required/>
+                      <input type="password" name="password" value={password} onChange={(event) => {
+                        setPassword(event.target.value) 
+                        }} id="inputPassword" className="form-control" placeholder="Password" required/>
                       <label for="inputPassword">Password</label>
                     </div>
                     <hr className="my-4"/>

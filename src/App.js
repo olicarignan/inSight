@@ -7,16 +7,13 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
-import SideBar from './components/sidebar/sidebar';
-
-
-
 
 function App() {
 
-  const { state, dispatch } = useApplicationData();
+  const { state, dispatch, addUser } = useApplicationData();
 
-  console.log(state)
+  console.log(state.users[0])
+
 
   const userList = state.users.map( user => (
     <li key={user.id}>
@@ -32,6 +29,8 @@ function App() {
         <SideBar 
         categories={state.categories}
         />
+        <LoginPage/>
+        <RegisterPage/>
         <Calendar />
       </div>
     </div>
