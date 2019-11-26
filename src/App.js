@@ -8,7 +8,6 @@ import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
 
-
 function App() {
 
   const { state, dispatch } = useApplicationData();
