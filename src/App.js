@@ -7,6 +7,7 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 
+import NotesList from './components/categoryPage/notesList'
 
 function App() {
 
@@ -31,13 +32,12 @@ function App() {
         categories={state.categories}
         />
         <div className="calendar-div">
-          {/* <Calendar /> */}
+           <Calendar />
           <NotesList
           notes={state.notes} />
         </div>
       </div>
     </div>
-    
   );
 }
 
