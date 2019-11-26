@@ -29,7 +29,7 @@ export default function Calendar(props) {
   }
 
   return (
-    <div>
+    <div className="calendar">
     <FullCalendar
      dateClick={(args) => {
        setShow(true)
