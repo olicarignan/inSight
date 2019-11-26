@@ -19,7 +19,8 @@
     "react-dom": "^16.12.0",
     "react-scripts": "3.2.0",
     "react-toggle": "^4.1.1",
-    "react-tooltip": "^3.11.1"
+    "react-tooltip": "^3.11.1",
+    "reactjs-popup": "^1.5.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -44,8 +45,12 @@
   },
   "proxy": "http://localhost:3001",
   "devDependencies": {
+<<<<<<< HEAD
     "@editorjs/editorjs": "^2.15.1",
     "@editorjs/paragraph": "^2.6.0",
     "react-editor-js": "^1.4.1"
+=======
+    "@editorjs/editorjs": "^2.15.1"
+>>>>>>> 560ad224da81d2a4e7e4f7953d366350dffd6d5f
   }
 }
