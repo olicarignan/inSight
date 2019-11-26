@@ -1,11 +1,9 @@
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
 
-.model{
+.calendar {
+  max-width: 56vw;
+  margin: auto;
+  margin-top: 42px;
   display: flex;
-  width: 100%;
-  justify-content: center;
-  .newappt {
-    width:100%;
-  }
 }
