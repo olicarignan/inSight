@@ -54,11 +54,8 @@ function App() {
         />
         <div className="calendar-div">
           <Calendar />
-<<<<<<< HEAD
           <NotesList
           notes={state.notes} />
-=======
->>>>>>> master
         </div>
       </div>
         <div>

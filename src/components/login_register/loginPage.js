@@ -14,7 +14,7 @@ export default function LoginPage(props) {
         email,
         password
       }
-        console.log(currentUser)
+        return axios.post("", currentUser)
     }
   }
 
