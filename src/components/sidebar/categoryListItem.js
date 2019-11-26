@@ -15,7 +15,7 @@ export default function CategoryListItem(props) {
         />
         <span
           className="categoryTitle"
-          onClick={() => props.showCategory(props.name)}>
+          onClick={() => props.showCategory()}>
             {props.name}
         </span>
         <div className="test" data-event='click' data-tip data-for="clickme" onClick={() => console.log('toggle menu')}>
