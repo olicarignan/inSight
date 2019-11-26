@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useState} from 'react';
 import './App.css';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
@@ -10,6 +10,8 @@ import RegisterPage from './components/login_register/registerPage'
 
 import NewAppointment from './components/appointment/new-appointment-form'
 import { isPropsEqual } from '@fullcalendar/core';
+
+import {Button, Modal} from 'react-bootstrap';
 
 
 function App() {
@@ -23,7 +25,6 @@ function App() {
       {user.first_name} {user.last_name} {user.email}
     </li>
   ))
-      
 
   return (
     <div className="App">
@@ -33,9 +34,6 @@ function App() {
         categories={state.categories}
         />
         <Calendar/>
-      </div>
-      <div>
-        < NewAppointment />
       </div>
     </div>
     

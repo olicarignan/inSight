@@ -1,16 +1,13 @@
-import React from 'react'
+import React, {useState} from 'react'
 import EditorJS from '@editorjs/editorjs';
 import './new-appointment-form.scss'
+import {Button, Modal} from 'react-bootstrap';
 
+export default function NewAppointment(props) {
 
-
-export default function NewAppointment() {
   return(
     <body>
         <div className="container">
-          <div className="row">
-            <div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
-              <div className="card card-register my-5">
                 <div className="card-body">
                   <h5 className="card-title text-center">New Appointment</h5>
                   <form className="form-register">
@@ -50,9 +47,6 @@ export default function NewAppointment() {
                   </form>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
       </body>
   )
 }
