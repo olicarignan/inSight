@@ -13,6 +13,8 @@ export default function dataReducer (state, action)  {
   //     return ;
   //   case SET_USER :
   //     return ;
+  //   default :
+  //     return state;
   // }
 
   const actions = {
