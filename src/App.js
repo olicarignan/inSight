@@ -13,7 +13,6 @@ function App() {
 
   const { state, dispatch } = useApplicationData();
 
-  console.log(state.users[0])
 
   const userList = state.users.map( user => (
     <li key={user.id}>
@@ -31,7 +30,9 @@ function App() {
         categories={state.categories}
         />
         <div className="calendar-div">
-          <Calendar />
+          {/* <Calendar /> */}
+          <NotesList
+          notes={state.notes} />
         </div>
       </div>
     </div>

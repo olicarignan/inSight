@@ -5,12 +5,14 @@ export default function NotesList(props) {
 
   const notes = props.notes;
 
+  console.log(notes)
+
   const notesList = notes.map( note => {
     return (
       <NotesListItem
-      title={note.title}
-      date={note.date}
-      content={note.content}
+      title={note.note_title}
+      date={note.created_at}
+      content={note.note_preview}
       />
     )
   })
