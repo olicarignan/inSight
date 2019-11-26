@@ -21,9 +21,6 @@ function App() {
     </li>
   ))
 
-
-      
-
   return (
     <div className="App">
       <Nav

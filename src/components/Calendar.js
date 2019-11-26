@@ -1,11 +1,36 @@
-import React from 'react'
+import React ,{ useState } from 'react'
 import FullCalendar from '@fullcalendar/react'
 import dayGridPlugin from '@fullcalendar/daygrid'
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
-import ReactTooltip from 'react-tooltip'
-
+<<<<<<< HEAD
+import {Button, Modal} from 'react-bootstrap';
 
 import './Calendar.scss'
+=======
+import ReactTooltip from 'react-tooltip'
+>>>>>>> master
+
+
+import NewAppointment from '../components/appointment/new-appointment-form'
+
+
+export default function Calendar(props) {
+  const [show, setShow] = useState(false);
+  
+  function Example() {
+    
+  
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+  
+    return (
+      <>
+        < Modal show={show} onHide={handleClose}>
+          <NewAppointment/>
+        </ Modal>
+      </>
+    );
+  }
 
 function popUp(){
   return (
@@ -16,8 +41,21 @@ function popUp(){
   )
 }
 
-export default function Calendar() {
   return (
+<<<<<<< HEAD
+    <div>
+    <FullCalendar
+     dateClick={(args) => {
+       setShow(true)
+        console.log(args.date)
+    } }
+     defaultView="dayGridMonth" 
+     plugins={[ dayGridPlugin, interactionPlugin ]}
+     weekends={true} >
+    </FullCalendar>
+    {show ? <Example/> : null}</div>
+
+=======
     <div className="calendar">
       <FullCalendar
       defaultView="dayGridMonth"
@@ -28,5 +66,6 @@ export default function Calendar() {
        weekends={true}
        />
     </div>
+>>>>>>> master
   )
 }
