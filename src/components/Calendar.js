@@ -18,18 +18,15 @@ function popUp(){
 
 export default function Calendar() {
   return (
-    <aside className="calendar">
-      <FullCalendar defaultView="dayGridMonth"
+    <div className="calendar">
+      <FullCalendar
+      defaultView="dayGridMonth"
        plugins={[ dayGridPlugin, interactionPlugin ]}
        dateClick={(args) => {
       
        }}
        weekends={true}
-       events={[
-        { title: 'event 1', date: '2019-11-23' },
-        { title: 'event 2', date: '2019-04-02' }
-      ]} 
        />
-    </aside>
+    </div>
   )
 }
