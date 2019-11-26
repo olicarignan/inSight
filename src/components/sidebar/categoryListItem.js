@@ -19,7 +19,7 @@ export default function CategoryListItem(props) {
             {props.name}
         </span>
         <div className="test" data-event='click' data-tip data-for="clickme" onClick={() => console.log('toggle menu')}>
-        <ReactTooltip place="right" id='clickme' clickable={true} effect="solid">
+        <ReactTooltip place="right" id='clickme' clickable={true} effect="solid" isCapture={true}>
           <button><a href="#">edit</a></button>
           <button><a href="#">delete</a></button>
           </ReactTooltip>
