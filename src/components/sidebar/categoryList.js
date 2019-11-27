@@ -1,6 +1,7 @@
 import React from "react";
 import CategoryListItem from "./categoryListItem";
 
+
 export default function CategoryList(props) {
   
   const categories = props.categories;
@@ -11,7 +12,7 @@ export default function CategoryList(props) {
       key={category.id}
       name={category.category_name}
       colour={props.colour}
-      showCategory={props.showCategory}
+      showCategory={console.log(category.category_name)}
       />
     )
   })
