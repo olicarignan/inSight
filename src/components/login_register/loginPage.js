@@ -27,7 +27,10 @@ export default function LoginPage(props) {
       }
 				return axios.post('/api/login',  currentUser )
 				.then((res) =>{
-          console.log(res.data, "it worked")
+					console.log(res.data, "it worked")
+					console.log(res, "res")
+					console.log(res.data.user, "userdata")
+					console.log('token', res.data.token)
 					setUser(res.data.user);
 					localStorage.setItem('token', res.data.token);
           setSignedUp(true);
