@@ -34,6 +34,9 @@ function App() {
         <LoginPage
         users={state.users} />
       </Route>
+    <Route path="/register">
+        <RegisterPage />
+      </Route>
       <Route path="/main">
       <div className="App">
       <Nav

@@ -15,7 +15,7 @@ export default function LoginPage(props) {
   const [ password, setPassword ] = useState('');
   const [ user, setUser] = useState('');
   const [ signedUp, setSignedUp ] = useState(false);
-
+  const [ register, setRegister ] = useState(false);
 
   function userLogin(event) {
     event.preventDefault()
@@ -39,6 +39,9 @@ export default function LoginPage(props) {
     <div>
     <div>
     {signedUp === true && <Redirect to="/main"/>}
+    </div>
+    <div>
+    {register === true && <Redirect to="/register"/>}
     </div>
 		<body>
 			<div className="container">
@@ -80,6 +83,9 @@ export default function LoginPage(props) {
 									<hr className="my-4" />
 									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
 										Sign in
+									</button>
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" type="button" onClick={() => setRegister(true)}>
+										create an account
 									</button>
 								</form>
 							</div>
