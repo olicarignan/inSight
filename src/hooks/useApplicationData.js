@@ -1,17 +1,40 @@
 import React, { useEffect, useReducer } from 'react';
 import axios from 'axios';
-import dataReducer,{ SET_APPLICATION_DATA, SET_USER_DATA } from '../reducers/dataReducer';
+import dataReducer,{ SET_APPLICATION_DATA,
+                     SET_LOGIN,
+                     SET_LOGOUT,
+                     SET_USER,
+                     SET_USER_DATA } from '../reducers/dataReducer';
 
 export default function useApplicationData () {
+
+
+  function userLogin(user) {
+			return axios.post('/api/login',  user )
+			.then((res) =>{
+        dispatch({type: SET_USER, token: res.data.token, user: user, isAuthenticated: true, loading: false})
+			}).catch((err) => {
+				console.log(err, "err")
+			})
+    }
+  
+
   function addUser(user) {
     return axios
-      .put(`/api/users`, {user})
+      .put(`/api/register`, {user})
       .then(res => {
-        dispatch({type: SET_USER_DATA, user})
+        dispatch({type: SET_USER_DATA, user: {user}})
       })
   }
 
-  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], appointments: [], notes: [], user: {}, loading: true}));
+  const [state, dispatch] = useReducer(dataReducer, ({categories: [], 
+                                                      appointments: [],
+                                                      notes: [], 
+                                                      user: {},
+                                                      users: {}, 
+                                                      token: '', 
+                                                      isAuthenticated: false,
+                                                      loading: true}));
 
   useEffect(() => {
     
@@ -37,6 +60,7 @@ export default function useApplicationData () {
           return {
     state,
     dispatch,
-    addUser
+    addUser,
+    userLogin
   }
 }

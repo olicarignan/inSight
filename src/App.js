@@ -18,13 +18,13 @@ import Editor from './components/textEditor/newText';
 
 function App() {
 
-  const { state, dispatch, addUser } = useApplicationData();
+  const { state, userLogin, dispatch, addUser } = useApplicationData();
 
-  const userList = state.users.map( user => (
-    <li key={user.id}>
-      {user.first_name} {user.last_name} {user.email}
-    </li>
-  ))
+  // const userList = state.users.map( user => (
+  //   <li key={user.id}>
+  //     {user.first_name} {user.last_name} {user.email}
+  //   </li>
+  // ))
 
 
   return (
@@ -32,14 +32,18 @@ function App() {
     <Switch>
       <Route exact path="/">
         <LoginPage
-        users={state.users} />
+        isAuthenticated={state.isAuthenticated}
+        userLogin={userLogin} />
       </Route>
     <Route path="/register">
-        <RegisterPage />
+        <RegisterPage
+        addUser={addUser} />
       </Route>
       <Route path="/main">
       <div className="App">
       <Nav
+      user={state.user}
+
        />
       <div className="main-container">
         <SideBar 
