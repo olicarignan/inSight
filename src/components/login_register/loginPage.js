@@ -26,7 +26,7 @@ export default function LoginPage(props) {
       }
 				return axios.post('/api/login',  currentUser )
 				.then((res) =>{
-          console.log(res.data, "it worked")
+          console.log(res, "it worked")
           setUser(res.data);
           setSignedUp(true);
 				}).catch((err) => {

@@ -4,7 +4,6 @@ import ReactTooltip from 'react-tooltip'
 
 export default function Nav (props) {
 
-  console.log(props.users)
 
   return (
     <nav className='navbar'>

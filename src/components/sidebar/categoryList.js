@@ -12,7 +12,7 @@ export default function CategoryList(props) {
       key={category.id}
       name={category.category_name}
       colour={props.colour}
-      showCategory={console.log(category.category_name)}
+      // showCategory={console.log(category.category_name)}
       />
     )
   })
