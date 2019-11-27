@@ -15,7 +15,8 @@ export default function LoginPage(props) {
   const [ password, setPassword ] = useState('');
   const [ user, setUser] = useState('');
   const [ signedUp, setSignedUp ] = useState(false);
-  const [ register, setRegister ] = useState(false);
+	const [ register, setRegister ] = useState(false);
+	const [ token, setToken ] = useState('');
 
   function userLogin(event) {
     event.preventDefault()
@@ -26,8 +27,9 @@ export default function LoginPage(props) {
       }
 				return axios.post('/api/login',  currentUser )
 				.then((res) =>{
-          console.log(res, "it worked")
-          setUser(res.data);
+          console.log(res.data, "it worked")
+					setUser(res.data.user);
+					localStorage.setItem('token', res.data.token);
           setSignedUp(true);
 				}).catch((err) => {
 					console.log(err, "err")

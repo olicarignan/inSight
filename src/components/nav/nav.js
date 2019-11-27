@@ -4,7 +4,6 @@ import ReactTooltip from 'react-tooltip'
 
 export default function Nav (props) {
 
-
   return (
     <nav className='navbar'>
       <a href="#" className="menuButton" id="menuButton">

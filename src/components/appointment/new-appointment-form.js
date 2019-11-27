@@ -5,40 +5,79 @@ import {Button, Modal} from 'react-bootstrap';
 
 export default function NewAppointment(props) {
 
+  const [startDate, setStartDate] = useState(0)
+  const [startTime, setStartTime] = useState(0)
+  const [endDate, setEndDate] = useState(0)
+  const [endTime, setEndTime] = useState(0)
+  const [appointmentTitle, setAppointmentTitle] = useState('')
+  const [appointmentCategory, setAppointmentCategory] = useState('')
+  const [appointmentNotes, setAppointmentNotes] = useState('')
+
+  function newAppointment(event){
+    event.preventDefault()
+    if(startDate && endDate) {
+      const appointment = {
+        startDate,
+        startTime,
+        endDate,
+        endTime,
+        appointmentTitle,
+        appointmentCategory,
+        appointmentNotes
+      }
+      console.log(appointment)
+    }
+  }
+
+  
   return(
     <body>
         <div className="container">
                 <div className="card-body">
                   <h5 className="card-title text-center">New Appointment</h5>
-                  <form className="form-register">
+                  <form className="form-register" onSubmit={(event) => newAppointment(event)}>
                   <div className="form-label-group">
-                      <input type="date" id="inputStartDate" className="form-control start-date" placeholder="Start Date" required autofocus/>
+                      <input value={startDate}
+                      onChange={(event) => {setStartDate(event.target.value)}}
+                      type="date" id="inputStartDate" className="form-control start-date" placeholder="Start Date" required autofocus/>
                       <label for="inputStartDate">Start Date</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="time" id="inputStartTime" className="form-control start-time" placeholder="Start Time" required autofocus/>
+                      <input value={startTime}
+                      onChange={(event) => {setStartTime(event.target.value)}}
+                      type="time" id="inputStartTime" className="form-control start-time" placeholder="Start Time" required autofocus/>
                       <label for="inputStartTime">Start Time</label>
                     </div>
                     <hr className="my-4"/>
                   <div className="form-label-group">
-                      <input type="date" id="inputEndDate" className="form-control end-date" placeholder="End Date" required autofocus/>
+                      <input value={endDate}
+                      onChange={(event) => {setEndDate(event.target.value)}}
+                      type="date" id="inputEndDate" className="form-control end-date" placeholder="End Date" required autofocus/>
                       <label for="inputEndDate">End Date</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="time" id="inputEndTime" className="form-control end-time" placeholder="End Time" required autofocus/>
+                      <input value={endTime}
+                      onChange={(event) => {setEndTime(event.target.value)}}
+                      type="time" id="inputEndTime" className="form-control end-time" placeholder="End Time" required autofocus/>
                       <label for="inputEndtTime">End Time</label>
                     </div>
                     <hr className="my-4"/>
                     <div className="form-label-group">
-                      <input type="text" id="inputAppointmentTitle" className="form-control appointment-tittle" placeholder="Title" required autofocus/>
+                      <input value={appointmentTitle}
+                      onChange={(event) => {setAppointmentTitle(event.target.value)}}
+                      type="text" id="inputAppointmentTitle" className="form-control appointment-tittle" placeholder="Title" required autofocus/>
                       <label for="inputAppointmentTitle">Title</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="text" id="inputAppointmentCategory" className="form-control appointment-category" placeholder="Category" required autofocus/>
+                      <input value={appointmentCategory}
+                      onChange={(event) => {setAppointmentCategory(event.target.value)}}
+                      type="text" id="inputAppointmentCategory" className="form-control appointment-category" placeholder="Category" required autofocus/>
                       <label for="inputAppointmentCategory">Category</label>
                     </div>
                     <div className="form-label-group">
-                      <input type="text" id="inputNotes" className="form-control appointment-note" placeholder="Notes"/>
+                      <input value={appointmentNotes}
+                      onChange={(event) => {setAppointmentNotes(event.target.value)}}
+                      type="text" id="inputNotes" className="form-control appointment-note" placeholder="Notes"/>
                       <label for="inputNotes">Notes</label>
                     </div>
                     <hr className="my-4"/>
