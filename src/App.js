@@ -14,13 +14,11 @@ import {
   Link
 } from "react-router-dom";
 
-
 import Editor from './components/textEditor/newText';
 
 function App() {
 
   const { state, dispatch, addUser } = useApplicationData();
-
 
   const userList = state.users.map( user => (
     <li key={user.id}>
@@ -49,6 +47,9 @@ function App() {
           <Calendar />
         </div>
       </div>
+        <div>
+          <LoginPage />
+        </div>
     </div>
       </Route>
       <Route path="/category">
