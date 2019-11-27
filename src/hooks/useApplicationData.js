@@ -11,7 +11,7 @@ export default function useApplicationData () {
       })
   }
 
-  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], appointments: [], notes: [], loading: true}));
+  const [state, dispatch] = useReducer(dataReducer, ({users: [], categories: [], appointments: [], notes: [], user: {}, loading: true}));
 
   useEffect(() => {
     

@@ -11,13 +11,21 @@ export default function RegisterPage(props) {
   function onSave(event) {
     event.preventDefault()
     if (first_name && last_name && email && password) {
-      const user = {
+      const newUser = {
         first_name,
         last_name,
         email,
         password
       }
-       return axios.post('/api/users', user )
+      console.log(newUser)
+       return axios.post('/api/register', newUser )
+       .then(res => {
+         console.log(res)
+       })
+       .catch(e => {
+         console.log(e)
+       }
+       )
     }
   }
 

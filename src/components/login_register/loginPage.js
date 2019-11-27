@@ -1,11 +1,21 @@
 import React, { useState } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+  Link
+} from "react-router-dom";
 
 import './loginPage.scss';
 import axios from 'axios';
 
 export default function LoginPage(props) {
 	const [ email, setEmail ] = useState('');
-	const [ password, setPassword ] = useState('');
+  const [ password, setPassword ] = useState('');
+  const [ user, setUser] = useState('');
+  const [ signedUp, setSignedUp ] = useState(false);
+  const [ register, setRegister ] = useState(false);
 
   function userLogin(event) {
     event.preventDefault()
@@ -14,9 +24,11 @@ export default function LoginPage(props) {
         email,
         password
       }
-				axios.post('/api/login',  currentUser )
+				return axios.post('/api/login',  currentUser )
 				.then((res) =>{
-					console.log(res, "it worked")
+          console.log(res.data, "it worked")
+          setUser(res.data);
+          setSignedUp(true);
 				}).catch((err) => {
 					console.log(err, "err")
 				})
@@ -24,6 +36,13 @@ export default function LoginPage(props) {
   }
 
 	return (
+    <div>
+    <div>
+    {signedUp === true && <Redirect to="/main"/>}
+    </div>
+    <div>
+    {register === true && <Redirect to="/register"/>}
+    </div>
 		<body>
 			<div className="container">
 				<div className="row">
@@ -65,6 +84,9 @@ export default function LoginPage(props) {
 									<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
 										Sign in
 									</button>
+                  <button className="btn btn-lg btn-primary btn-block text-uppercase" type="button" onClick={() => setRegister(true)}>
+										create an account
+									</button>
 								</form>
 							</div>
 						</div>
@@ -72,5 +94,6 @@ export default function LoginPage(props) {
 				</div>
 			</div>
 		</body>
+    </div>
 	);
 }

@@ -4,10 +4,8 @@ import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
 import Nav from './components/nav/nav';
 import SideBar from './components/sidebar/sidebar'; 
-
-import LoginPage from './components/login_register/loginPage';
-import RegisterPage from './components/login_register/registerPage';
-
+import LoginPage from './components/login_register/loginPage'
+import RegisterPage from './components/login_register/registerPage'
 import NotesList from './components/categoryPage/notesList';
 import {
   BrowserRouter as Router,
@@ -21,9 +19,6 @@ import Editor from './components/textEditor/newText';
 function App() {
 
   const { state, dispatch, addUser } = useApplicationData();
-
-  console.log(state.users[0])
-
 
   const userList = state.users.map( user => (
     <li key={user.id}>
@@ -39,6 +34,9 @@ function App() {
         <LoginPage
         users={state.users} />
       </Route>
+    <Route path="/register">
+        <RegisterPage />
+      </Route>
       <Route path="/main">
       <div className="App">
       <Nav
@@ -50,8 +48,6 @@ function App() {
         />
         <div className="calendar-div">
           <Calendar />
-          <NotesList
-          notes={state.notes} />
         </div>
       </div>
         <div>
