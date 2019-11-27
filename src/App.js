@@ -6,7 +6,7 @@ import Nav from './components/nav/nav';
 import SideBar from './components/sidebar/sidebar'; 
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
-
+import NotesList from './components/categoryPage/notesList'
 
 function App() {
 
