@@ -4,6 +4,10 @@ import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
 import Nav from './components/nav/nav';
 import SideBar from './components/sidebar/sidebar'; 
+
+import LoginPage from './components/login_register/loginPage';
+import RegisterPage from './components/login_register/registerPage';
+
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 import NotesList from './components/categoryPage/notesList';
@@ -15,6 +19,7 @@ import {
 } from "react-router-dom";
 
 
+import Editor from './components/textEditor/newText';
 
 function App() {
 
