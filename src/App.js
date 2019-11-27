@@ -43,6 +43,7 @@ function App() {
       <div className="App">
       <Nav
       user={state.user}
+
        />
       <div className="main-container">
         <SideBar 
@@ -52,9 +53,6 @@ function App() {
           <Calendar />
         </div>
       </div>
-        <div>
-          <LoginPage />
-        </div>
     </div>
       </Route>
       <Route path="/category">
