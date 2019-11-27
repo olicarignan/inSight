@@ -8,8 +8,6 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage';
 import RegisterPage from './components/login_register/registerPage';
 
-import LoginPage from './components/login_register/loginPage'
-import RegisterPage from './components/login_register/registerPage'
 import NotesList from './components/categoryPage/notesList';
 import {
   BrowserRouter as Router,
@@ -17,7 +15,6 @@ import {
   Route,
   Link
 } from "react-router-dom";
-
 
 import Editor from './components/textEditor/newText';
 
@@ -53,8 +50,13 @@ function App() {
         />
         <div className="calendar-div">
           <Calendar />
+          <NotesList
+          notes={state.notes} />
         </div>
       </div>
+        <div>
+          <LoginPage />
+        </div>
     </div>
       </Route>
       <Route path="/category">
