@@ -14,7 +14,12 @@ export default function LoginPage(props) {
         email,
         password
       }
-        return axios.post("", currentUser)
+				axios.post('/api/login',  currentUser )
+				.then((res) =>{
+					console.log(res, "it worked")
+				}).catch((err) => {
+					console.log(err, "err")
+				})
     }
   }
 
