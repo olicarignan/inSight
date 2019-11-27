@@ -40,7 +40,6 @@ function App() {
       <Route path="/main">
       <div className="App">
       <Nav
-      users= {userList}
        />
       <div className="main-container">
         <SideBar 
@@ -50,9 +49,6 @@ function App() {
           <Calendar />
         </div>
       </div>
-        <div>
-          <LoginPage />
-        </div>
     </div>
       </Route>
       <Route path="/category">
