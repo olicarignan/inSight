@@ -41,7 +41,7 @@ function App() {
     authUser(token).then(res => console.log(res));
   }, [])
 
-
+  console.log(state.user)
 
   return (
     <Router>
