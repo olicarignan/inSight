@@ -26,6 +26,7 @@ export default function LoginPage(props) {
 			return props
 					.userLogin(currentUser)
 					.then(() => {
+            
 							setLoggedIn(true);
 					})
 	}
