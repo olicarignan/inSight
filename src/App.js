@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
@@ -22,15 +22,25 @@ import MainPage from './components/MainPage'
 
 function App() {
 
-  const { state, userLogin, dispatch, addUser } = useApplicationData();
-
-  console.log(state)
+  const { state,
+          userLogin,
+          dispatch, 
+          addUser,
+          userLogout, 
+          authUser } = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
   //     {user.first_name} {user.last_name} {user.email}
   //   </li>
   // ))
+
+  let token = localStorage.getItem('token');
+
+  useEffect(() => {
+    authUser(token).then(res => console.log(res));
+  }, [])
+
 
 
   return (
@@ -41,7 +51,10 @@ function App() {
       <Route path="/register" render={
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
       <PrivateRoute path="/main" component={MainPage} 
-      user={state.user} categories={state.categories}/>
+      user={state.user} 
+      categories={state.categories}
+      userLogout={userLogout}
+      />
       </Switch>
     </Router>
     
