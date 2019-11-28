@@ -19,6 +19,7 @@ export default function dataReducer (state, action)  {
       }
     case SET_LOGIN:
       localStorage.setItem('token', action.token);
+      console.log('SET_LOGIN')
       return {
         ...state,
         token: action.token,

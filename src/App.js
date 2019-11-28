@@ -14,7 +14,11 @@ import {
   Link
 } from "react-router-dom";
 
+import PrivateRoute from './components/PrivateRoute';
+
 import Editor from './components/textEditor/newText';
+
+import MainPage from './components/MainPage'
 
 function App() {
 
@@ -30,36 +34,12 @@ function App() {
   return (
     <Router>
     <Switch>
-      <Route exact path="/">
-        <LoginPage
-        isAuthenticated={state.isAuthenticated}
-        userLogin={userLogin} />
-      </Route>
-    <Route path="/register">
-        <RegisterPage
-        addUser={addUser} />
-      </Route>
-      <Route path="/main">
-      <div className="App">
-      <Nav
-      user={state.user}
-
-       />
-      <div className="main-container">
-        <SideBar 
-        categories={state.categories}
-        />
-        <div className="calendar-div">
-          <Calendar />
-        </div>
-      </div>
-    </div>
-      </Route>
-      <Route path="/category">
-        <Nav/>
-      <NotesList
-          notes={state.notes} />
-      </Route>
+      <Route exact path="/" render={
+        () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
+      <Route path="/register" component={RegisterPage}
+        addUser={addUser}/>
+      <PrivateRoute path="/main" component={MainPage} 
+      user={state.user} categories={state.categories}/>
       </Switch>
     </Router>
     

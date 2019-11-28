@@ -19,8 +19,8 @@ export default function LoginPage(props) {
 
 	const save = (email, password) => {
 		if(email && password) {
-      const currentUser = {
-        email,
+			const currentUser = {
+				email,
         password
 			}
 			return props
@@ -33,10 +33,9 @@ export default function LoginPage(props) {
 }
 
 
-
-
 	return (
     <div>
+			{loggedIn} here
     <div>
     {loggedIn === true && <Redirect to="/main"/>}
     </div>
