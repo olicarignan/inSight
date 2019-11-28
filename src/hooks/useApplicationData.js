@@ -13,11 +13,7 @@ export default function useApplicationData () {
 
 			return axios.post('/api/login',  user )
 			.then((res) =>{
-<<<<<<< HEAD
         console.log(res.data)
-=======
-        console.log(res)
->>>>>>> 075b2903e85b9271697786d97b07856fd4c4ac83
         if (res.status === 200) {
           dispatch({type: SET_USER, token: res.data.token, user: user, isAuthenticated: true, loading: false})
         }
