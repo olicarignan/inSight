@@ -12,13 +12,6 @@ import {
 } from "react-router-dom";
 
 export default function MainPage(props) {
-  const { state, dispatch, addUser } = useApplicationData();
-
-  const userList = state.users.map( user => (
-    <li key={user.id}>
-      {user.first_name} {user.last_name} {user.email}
-    </li>
-  ))
   return (
     <div>
       <div className="App">
@@ -26,7 +19,7 @@ export default function MainPage(props) {
        />
       <div className="main-container">
         <SideBar 
-        categories={state.categories}
+        categories={props.categories}
         />
         <div className="calendar-div">
           <Calendar />

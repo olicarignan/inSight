@@ -22,21 +22,24 @@ import MainPage from './components/MainPage'
 
 function App() {
 
-  const { state, dispatch, addUser } = useApplicationData();
+  const { state, userLogin, dispatch, addUser } = useApplicationData();
 
-  const userList = state.users.map( user => (
-    <li key={user.id}>
-      {user.first_name} {user.last_name} {user.email}
-    </li>
-  ))
+  // const userList = state.users.map( user => (
+  //   <li key={user.id}>
+  //     {user.first_name} {user.last_name} {user.email}
+  //   </li>
+  // ))
 
 
   return (
     <Router>
     <Switch>
-      <Route exact path="/" component={LoginPage}/>
-      <Route path="/register" component={RegisterPage}/>
-      <PrivateRoute path="/main" component={MainPage} />
+      <Route exact path="/" render={
+        () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
+      <Route path="/register" component={RegisterPage}
+        addUser={addUser}/>
+      <PrivateRoute path="/main" component={MainPage} 
+      user={state.user} categories={state.categories}/>
       </Switch>
     </Router>
     

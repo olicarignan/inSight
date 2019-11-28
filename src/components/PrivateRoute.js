@@ -8,12 +8,13 @@ import {
 } from "react-router-dom";
 
 
-const PrivateRoute = ({ component: Component, ...rest }) => {
+const PrivateRoute = ({ component: Component, userLogin ,...rest }) => {
 
   const token = localStorage.getItem('token');
+  console.log('PrivateRoute')
   return (
     <div>
-      <Route {...rest} render={(props) => token ? <Component {...props} /> : <Redirect to='/' />} />
+      <Route {...rest} render={(props) => token ? <Component {...props} {...rest} /> : <Redirect to='/' />} />
     </div>
   );
 }

@@ -11,39 +11,32 @@ import './loginPage.scss';
 import axios from 'axios';
 
 export default function LoginPage(props) {
+
 	const [ email, setEmail ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [ user, setUser] = useState('');
-  const [ signedUp, setSignedUp ] = useState(false);
 	const [ register, setRegister ] = useState(false);
-	const [ token, setToken ] = useState('');
+	const [loggedIn, setLoggedIn] = useState(false);
 
-  function userLogin(event) {
-    event.preventDefault()
-    if(email && password) {
-      const currentUser = {
-        email,
+	const save = (email, password) => {
+		if(email && password) {
+			const currentUser = {
+				email,
         password
-      }
-				return axios.post('/api/login',  currentUser )
-				.then((res) =>{
-					console.log(res.data, "it worked")
-					console.log(res, "res")
-					console.log(res.data.user, "userdata")
-					console.log('token', res.data.token)
-					setUser(res.data.user);
-					localStorage.setItem('token', res.data.token);
-          setSignedUp(true);
-				}).catch((err) => {
-					console.log(err, "err")
-				})
-    }
-  }
+			}
+			return props
+					.userLogin(currentUser)
+					.then(() => {
+						setLoggedIn(true);
+					})
+	}
+}
+
 
 	return (
     <div>
+			{loggedIn} here
     <div>
-    {signedUp === true && <Redirect to="/main"/>}
+    {loggedIn === true && <Redirect to="/main"/>}
     </div>
     <div>
     {register === true && <Redirect to="/register"/>}
@@ -55,7 +48,10 @@ export default function LoginPage(props) {
 						<div className="card card-signin my-5">
 							<div className="card-body">
 								<h5 className="card-title text-center">Sign In</h5>
-								<form className="form-signin" onSubmit={(event) => userLogin(event)}>
+								<form className="form-signin" onSubmit={(event) => {
+									event.preventDefault()
+									save(email, password)
+								}}>
 									<div className="form-label-group">
 										<input
 											type="email"
