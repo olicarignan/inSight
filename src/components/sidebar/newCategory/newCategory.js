@@ -8,7 +8,8 @@ export default function NewCategory(props) {
 
   return (
     <div className="newCategory">
-      <form className="newCategoryForm" onSubmit={event => event.preventDefault()} autoComplete="off">
+      <form className="newCategoryForm" onSubmit={event => {event.preventDefault() 
+            console.log(categoryName)}} autoComplete="off">
           <input
             className="category__create-input text--semi-bold"
             categoryName = "categoryName"
@@ -18,15 +19,13 @@ export default function NewCategory(props) {
             onChange={event => setCategoryName(event.target.value)}
             data-testid="category-name-input"
           />
-        </form>
-        <section className="category__actions">
-          <Button onClick={() => console.log('cancel')} danger>
+          <Button className="category__actions" onClick={() => console.log('cancel')} danger>
             Cancel
           </Button>
-          <Button onClick={() => console.log('save')} confirm>
+          <Button className="category__actions" action='submit' confirm>
             Save
           </Button>
-        </section>
+        </form>
       </div>
   )
 }

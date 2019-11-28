@@ -24,6 +24,8 @@ function App() {
 
   const { state, userLogin, dispatch, addUser } = useApplicationData();
 
+  console.log(state)
+
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
   //     {user.first_name} {user.last_name} {user.email}
@@ -36,8 +38,8 @@ function App() {
     <Switch>
       <Route exact path="/" render={
         () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
-      <Route path="/register" component={RegisterPage}
-        addUser={addUser}/>
+      <Route path="/register" render={
+        () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
       <PrivateRoute path="/main" component={MainPage} 
       user={state.user} categories={state.categories}/>
       </Switch>

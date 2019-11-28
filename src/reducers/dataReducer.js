@@ -16,15 +16,6 @@ export default function dataReducer (state, action)  {
         categories: [...action.categories],
         appointments: [...action.appointments],
         notes: [...action.notes],
-      }
-    case SET_LOGIN:
-      localStorage.setItem('token', action.token);
-      console.log('SET_LOGIN')
-      return {
-        ...state,
-        token: action.token,
-        isAuthenticated: true,
-        loading: false
       };
     case SET_LOGOUT:
       localStorage.removeItem('token');
@@ -37,7 +28,7 @@ export default function dataReducer (state, action)  {
     case SET_USER_DATA: 
        return { 
        ...state,
-       user: action.user ? {...action.users} : null
+       user: action.user ? {...action.user} : null
     };
     case SET_USER:
         localStorage.setItem('token', action.token);

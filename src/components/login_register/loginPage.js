@@ -27,7 +27,6 @@ export default function LoginPage(props) {
 					.userLogin(currentUser)
 					.then(() => {
 							setLoggedIn(true);
-						
 					})
 	}
 }
@@ -35,7 +34,6 @@ export default function LoginPage(props) {
 
 	return (
     <div>
-			{loggedIn} here
     <div>
     {loggedIn === true && <Redirect to="/main"/>}
     </div>
