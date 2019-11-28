@@ -14,48 +14,34 @@ import {
   Link
 } from "react-router-dom";
 
+import PrivateRoute from './components/PrivateRoute';
+
 import Editor from './components/textEditor/newText';
+
+import MainPage from './components/MainPage'
 
 function App() {
 
-  const { state, dispatch, addUser } = useApplicationData();
+  const { state, userLogin, dispatch, addUser } = useApplicationData();
 
-  const userList = state.users.map( user => (
-    <li key={user.id}>
-      {user.first_name} {user.last_name} {user.email}
-    </li>
-  ))
+  console.log(state)
+
+  // const userList = state.users.map( user => (
+  //   <li key={user.id}>
+  //     {user.first_name} {user.last_name} {user.email}
+  //   </li>
+  // ))
 
 
   return (
     <Router>
     <Switch>
-      <Route exact path="/">
-        <LoginPage
-        users={state.users} />
-      </Route>
-    <Route path="/register">
-        <RegisterPage />
-      </Route>
-      <Route path="/main">
-      <div className="App">
-      <Nav
-       />
-      <div className="main-container">
-        <SideBar 
-        categories={state.categories}
-        />
-        <div className="calendar-div">
-          <Calendar />
-        </div>
-      </div>
-    </div>
-      </Route>
-      <Route path="/category">
-        <Nav/>
-      <NotesList
-          notes={state.notes} />
-      </Route>
+      <Route exact path="/" render={
+        () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
+      <Route path="/register" render={
+        () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
+      <PrivateRoute path="/main" component={MainPage} 
+      user={state.user} categories={state.categories}/>
       </Switch>
     </Router>
     

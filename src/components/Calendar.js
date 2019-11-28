@@ -37,7 +37,8 @@ export default function Calendar(props) {
     } }
      defaultView="dayGridMonth" 
      plugins={[ dayGridPlugin, interactionPlugin ]}
-     weekends={true} >
+     weekends={true}
+      >
     </FullCalendar>
     {show ? <Example/> : null}</div>
 

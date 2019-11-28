@@ -4,7 +4,7 @@ import CategoryListItem from "./categoryListItem";
 
 export default function CategoryList(props) {
   
-  const categories = props.categories;
+  const categories =props.categories;
     
   const categoryList = categories.map( category => {
     return (

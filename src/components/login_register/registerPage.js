@@ -2,14 +2,22 @@ import React, { useState } from 'react'
 
 import "./registerPage.scss"
 import axios from 'axios';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+  Link
+} from "react-router-dom";
 
 export default function RegisterPage(props) {
   const [first_name, setFirstName] = useState('')
   const [last_name, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('');
-  function onSave(event) {
-    event.preventDefault()
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  function onSave(first_name, last_name, email, password) {
     if (first_name && last_name && email && password) {
       const newUser = {
         first_name,
@@ -17,20 +25,19 @@ export default function RegisterPage(props) {
         email,
         password
       }
-      console.log(newUser)
-       return axios.post('/api/register', newUser )
-       .then(res => {
-         console.log(res)
-       })
-       .catch(e => {
-         console.log(e)
-       }
-       )
+       return props
+              .addUser(newUser)
+              .then(() => {
+                console.log('yay it worked')
+                setLoggedIn(true);
+              })
     }
   }
 
 
   return(
+    <div>
+      {props.isAuthenticated === true && <Redirect to="/main"/>}
       <body>
         <div className="container">
           <div className="row">
@@ -38,7 +45,9 @@ export default function RegisterPage(props) {
               <div className="card card-register my-5">
                 <div className="card-body">
                   <h5 className="card-title text-center">Register</h5>
-                  <form className="form-register" onSubmit = {event => onSave(event)}>
+                  <form className="form-register" onSubmit = {(event) => {
+                    event.preventDefault();
+                    onSave(first_name, last_name, email, password)}}>
                   <div className="form-label-group">
                       <input type="text" name="first_name" value={first_name} onChange={(event) => {
                         setFirstName(event.target.value)
@@ -72,5 +81,6 @@ export default function RegisterPage(props) {
           </div>
         </div>
       </body>
+      </div>
   )
 }
