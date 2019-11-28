@@ -12,10 +12,13 @@ import {
 } from "react-router-dom";
 
 export default function MainPage(props) {
+  // console.log(props.user)
   return (
     <div>
       <div className="App">
       <Nav
+      user={props.user}
+      userLogout={props.userLogout}
        />
       <div className="main-container">
         <SideBar 

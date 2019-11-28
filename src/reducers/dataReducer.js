@@ -22,6 +22,7 @@ export default function dataReducer (state, action)  {
       return {
         ...state,
         token: null,
+        user: null,
         isAuthenticated: false,
         loading: false
       };
