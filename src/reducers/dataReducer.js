@@ -39,6 +39,7 @@ export default function dataReducer (state, action)  {
        user: action.user ? {...action.users} : null
     };
     case SET_USER:
+        localStorage.setItem('token', action.token);
       return {
         ...state,
         token: action.token,
