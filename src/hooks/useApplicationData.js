@@ -8,14 +8,32 @@ import dataReducer,{ SET_APPLICATION_DATA,
 
 export default function useApplicationData () {
 
+  
+  function authUser(token) {
+    const config = {
+      headers: {'Authorization': "bearer " + token}
+    }; 
+      return axios
+      .get('/api/authenticate', config)
+      .then((res) => {
+        if (res.data) {
+          dispatch({type: SET_USER, token: token, user: res.data, isAuthenticated: true, loading: false})
+        }
+      })
+  }
+
+
+  function userLogout() {
+    dispatch({ type: SET_LOGOUT })
+  }
+
 
   function userLogin(user) {
 
 			return axios.post('/api/login',  user )
 			.then((res) =>{
-        console.log(res.data)
         if (res.status === 200) {
-          dispatch({type: SET_USER, token: res.data.token, user: user, isAuthenticated: true, loading: false})
+          dispatch({type: SET_USER, token: res.data.token, user: res.data.user, isAuthenticated: true, loading: false})
         }
         }
 			).catch((err) => {
@@ -30,7 +48,7 @@ export default function useApplicationData () {
       .then(res => {
         console.log(res)
         if (res.status === 200) {
-          dispatch({type: SET_USER, token: res.data.token, user: user, isAuthenticated: true, loading: false})
+          dispatch({type: SET_USER, token: res.data.token, user: res.data.user, isAuthenticated: true, loading: false})
         }
       })
   }
@@ -69,6 +87,8 @@ export default function useApplicationData () {
     state,
     dispatch,
     addUser,
-    userLogin
+    userLogin,
+    userLogout,
+    authUser
   }
 }
