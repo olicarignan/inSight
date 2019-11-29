@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.scss';
 import useApplicationData from "./hooks/useApplicationData";
 import Calendar from "./components/Calendar"
@@ -35,14 +35,18 @@ function App() {
   //     {user.first_name} {user.last_name} {user.email}
   //   </li>
   // ))
-
-  let token = localStorage.getItem('token');
-
+  
+  const token = localStorage.getItem('token');
+  
+    
   useEffect(() => {
-    authUser(token).then(res => console.log(res));
-  }, [])
+    console.log('aaaaaaa')
 
-  console.log(state.user)
+    authUser(token).then(res => console.log(res));
+
+  }, [token])
+
+  
 
   return (
     <Router>

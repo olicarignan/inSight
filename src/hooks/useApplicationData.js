@@ -4,9 +4,21 @@ import dataReducer,{ SET_APPLICATION_DATA,
                      SET_LOGIN,
                      SET_LOGOUT,
                      SET_USER,
-                     SET_USER_DATA } from '../reducers/dataReducer';
+                     SET_USER_DATA, 
+                     SET_APPOINTMENT} from '../reducers/dataReducer';
 
 export default function useApplicationData () {
+
+  function addAppointment(event){
+    return axios
+      .post('/api/appoitnments', event)
+      .then(res => {
+        console.log(res)
+        if(res.data) {
+          dispatch({type:SET_APPOINTMENT, appointments: res.data})
+        }
+      })
+  }
 
   
   function authUser(token) {
@@ -16,6 +28,7 @@ export default function useApplicationData () {
       return axios
       .get('/api/authenticate', config)
       .then((res) => {
+        console.log(res)
         if (res.data) {
           dispatch({type: SET_USER, token: token, user: res.data, isAuthenticated: true, loading: false})
         }
