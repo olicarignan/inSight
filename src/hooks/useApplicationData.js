@@ -7,6 +7,7 @@ import dataReducer, {
 	SET_USER,
 	SET_USER_DATA,
 	SET_APPOINTMENT
+	
 } from '../reducers/dataReducer';
 
 export default function useApplicationData() {
@@ -95,6 +96,7 @@ export default function useApplicationData() {
 
 
   useEffect(() => {
+    console.log(state)
     const categories = axios.get('/api/categories');
     const appointments = axios.get('/api/appointments');
     const notes = axios.get('/api/notes');
