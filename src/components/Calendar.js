@@ -33,6 +33,7 @@ export default function Calendar(props) {
             setEventState={setEventState}
             eventState={eventState}
             setShow={setShow}
+            addAppointment={props.addAppointment}
             />
         </ Modal>
       </>
