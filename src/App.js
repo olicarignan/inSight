@@ -14,7 +14,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import SET_APPLICATION_DATA from '../src/reducers/dataReducer';
+import { SET_APPLICATION_DATA } from '../src/reducers/dataReducer';
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -45,8 +45,21 @@ function App() {
 
   useEffect(() => {
     authUser(token).then(res => {
+      console.log(res)
+      const categories = axios.get(`/api/categories/${res.id}`);
+      const appointments = axios.get(`/api/appointments/${res.id}`);
+      const notes = axios.get("/api/notes");
+
+    Promise.all([categories, appointments, notes]).then(all => {
+      console.log(all[1].data)
+      dispatch({
+        type: SET_APPLICATION_DATA,
+        categories: all[0].data,
+        appointments: all[1].data,
+        notes: all[2].data
+			});
     });
-    
+    })
   }, [])
   
   console.log(state.appointments)
