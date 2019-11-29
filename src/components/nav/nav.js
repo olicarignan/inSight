@@ -9,7 +9,7 @@ export default function Nav (props) {
       <a href="#" className="menuButton" id="menuButton">
         +
       </a>
-      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{/*props.user.email*/}
+      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{props.user.email}
       <ReactTooltip place="bottom" id="logout" clickable={true} effect="solid" isCapture='true'>
       <button className="logout" onClick={() => {
         console.log('sup')
