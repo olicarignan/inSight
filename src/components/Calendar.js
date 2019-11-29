@@ -8,6 +8,7 @@ import './Calendar.scss'
 
 
 export default function Calendar(props) {
+  const calendarComponentRef = React.createRef()
   const [show, setShow] = useState(false);
   const [eventState, setEventState] = useState({
     calendarWeekends: false,
@@ -17,19 +18,10 @@ export default function Calendar(props) {
   })
 
   const handleDateClick = (arg) => {
-    if (window.confirm('Would you like to add an event to ' + arg.dateStr + ' ?')) {
-      setEventState({  // add new event data
-        calendarEvents: eventState.calendarEvents.concat({ // creates a new array
-          title: 'New Event',
-          start: arg.date,
-        })
-      })
+    setShow(true)
       console.log(eventState)
-    }
   }
 
-
-  
   // allows us to see the modal once a date is clicked
   function AppointmetModal() {
     const handleClose = () => setShow(false);
@@ -37,7 +29,13 @@ export default function Calendar(props) {
     return (
       <>
         < Modal show={show} onHide={handleClose}>
-          <NewAppointment/>
+          <NewAppointment
+            setEventState={setEventState}
+            eventState={eventState}
+            setShow={setShow}
+            addAppointment={props.addAppointment}
+          categories={props.categories}
+          user_id={props.user.id}/>
         </ Modal>
       </>
     );
@@ -49,6 +47,8 @@ export default function Calendar(props) {
      plugins={[ dayGridPlugin, interactionPlugin ]}
      weekends={true}
      dateClick={handleDateClick}
+     ref={calendarComponentRef}
+     events={eventState.calendarEvents}
       >
     </FullCalendar>
     {show ? <AppointmetModal/> : null}

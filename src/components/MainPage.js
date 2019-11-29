@@ -19,22 +19,23 @@ export default function MainPage(props) {
 
   console.log(props.user)
 
-  const {mode, transition, back} = useVisualMode(props.user.email ? SHOW : EMPTY)
+  
 
   return (
     <div>
       <div className="App">
-        {mode === SHOW && ( <Nav
+       <Nav
       user={props.user}
-      userLogout={props.userLogout}
-       />)}
-       {mode === EMPTY && <Nav />}
+      userLogout={props.userLogout}/>
       <div className="main-container">
         <SideBar 
         categories={props.categories}
         />
         <div className="calendar-div">
-          <Calendar />
+          <Calendar
+          categories={props.categories}
+          user={props.user}
+          addAppointment={props.addAppointment} />
         </div>
       </div>
     </div>

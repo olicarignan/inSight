@@ -5,6 +5,7 @@ export const SET_LOGIN = 'SET_LOGIN';
 export const SET_LOGOUT = 'SET_LOGOUT';
 export const SET_USER = 'SET_USER';
 export const SET_USER_DATA = 'SET_USER_DATA';
+export const SET_APPOINTMENT = 'SET_APPOINTMENT';
 
 
 export default function dataReducer (state, action)  {
@@ -40,6 +41,11 @@ export default function dataReducer (state, action)  {
         isAuthenticated: true,
         loading: false
       };
+    case SET_APPOINTMENT:
+      return {
+        ...state,
+        appointments: [...action.appointments]
+      }
     default:
       console.log("Unkown type in reducer");
       return state;

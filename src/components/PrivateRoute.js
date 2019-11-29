@@ -14,7 +14,7 @@ const PrivateRoute = ({ component: Component, userLogin ,...rest }) => {
   console.log('PrivateRoute')
   return (
     <div>
-      <Route {...rest} render={(props) => token ? <Component {...props} {...rest} /> : <Redirect to='/' />} />
+      <Route {...rest} render={(props) => token ? <Component {...props} {...rest} /> : <Redirect to='/'  />} />
     </div>
   );
 }
