@@ -45,25 +45,6 @@ export default function NewAppointment(props) {
 		}
 	}
 
-    if(start_date && end_date) {
-      const category = {
-        category_name,
-        colour,
-        user_id
-      }
-      const appointment = {
-        start_date,
-        start_time,
-        end_date,
-        end_time,
-        appointment_name,
-        category_id,
-        location, 
-        user_id
-      }
-      return props
-      // .addAppointment(appointment)
-    }
   
 
   
