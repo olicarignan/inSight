@@ -51,7 +51,7 @@ function App() {
       console.log(res)
       const categories = axios.get(`/api/categories/${res.id}`);
       const appointments = axios.get(`/api/appointments/${res.id}`);
-      const notes = axios.get("/api/notes");
+      const notes = axios.get(`/api/notes/`);
 
     Promise.all([categories, appointments, notes]).then(all => {
       console.log(all[2])
@@ -67,7 +67,7 @@ function App() {
 
   const categoryList = state.categories.map( category => {
     return (
-      <Route path={`/${category.category_name}`} component={() => <NotesList notes={state.notes}/>}/>
+      <Route path={`/${category.category_name}`} component={() => <NotesList user={state.user} notes={state.notes}/>}/>
     )
   })
 

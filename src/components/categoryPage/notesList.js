@@ -1,5 +1,6 @@
 import React from "react";
 import NotesListItem from './notesListItem';
+import Nav from '../nav/nav';
 import './notesList.scss';
 
 export default function NotesList(props) {
@@ -11,6 +12,8 @@ export default function NotesList(props) {
   const notesList = notes.map( note => {
     return (
       <main>
+        <Nav 
+        user={props.user}/>
       <NotesListItem
       title={note.note_title}
       date={note.created_at}
