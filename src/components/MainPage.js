@@ -34,7 +34,8 @@ export default function MainPage(props) {
         categories={props.categories}
         />
         <div className="calendar-div">
-          <Calendar />
+          <Calendar
+          addAppointment={props.addAppointment} />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@
 .newCategoryForm {
   margin: 1em;
   display: flex;
+  flex-wrap: wrap;
 }
 
 .category__create-input {
