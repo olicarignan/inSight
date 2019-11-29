@@ -3,7 +3,7 @@ import './notesListItem.scss';
 
 export default function NotesListItem(props) {
   return (
-    <main className="note_card">
+    <main className="note_card" onClick={console.log('open note')}>
     <section className="left-side__card"> 
     <h2>
       {props.title}
