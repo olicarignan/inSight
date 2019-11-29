@@ -22,7 +22,9 @@ export default function Calendar(props) {
     return (
       <>
         < Modal show={show} onHide={handleClose}>
-          <NewAppointment/>
+          <NewAppointment
+          categories={props.categories}
+          user_id={props.user.id}/>
         </ Modal>
       </>
     );
