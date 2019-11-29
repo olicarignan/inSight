@@ -15,7 +15,8 @@ export default function NewAppointment(props) {
   const [category_name, setCategoryName] = useState('')
   const [colour, setColour] = useState('')
   const [category_id, setCategoryId] = useState('')
-  // const user_id;
+  const [appointment_small_note, setAppointmentSmallNote] = useState('')
+  const [user_id, setUserId] = useState('')
 
   function newAppointment(event){
     event.preventDefault()
@@ -24,7 +25,7 @@ export default function NewAppointment(props) {
       const category = {
         category_name,
         colour,
-        user_id: user.id
+        user_id
       }
       const appointment = {
         start_date,
@@ -33,9 +34,11 @@ export default function NewAppointment(props) {
         end_time,
         appointment_name,
         category_id,
-        location
+        location, 
+        user_id
       }
-      return (appointment, category)
+      return props
+      .addAppointment(appointment)
     }
   }
 
@@ -78,17 +81,35 @@ export default function NewAppointment(props) {
                       type="text" id="inputAppointmentTitle" className="form-control appointment-tittle" placeholder="Title" required autofocus/>
                       <label for="inputAppointmentTitle">Title</label>
                     </div>
-                    <div className="form-label-group">
+                    {/* <div className="form-label-group">
                       <input value={category_name}
                       onChange={(event) => {setAppointmentCategory(event.target.value)}}
                       type="text" id="inputAppointmentCategory" className="form-control appointment-category" placeholder="Category" required autofocus/>
                       <label for="inputAppointmentCategory">Category</label>
-                    </div>
+                    </div> */}
                     <div className="form-label-group">
                       <input value={location}
                       onChange={(event) => {setAppointmentLocation(event.target.value)}}
+                      type="text" id="inputLocation" className="form-control appointment-location" placeholder="Notes"/>
+                      <label for="inputLocation">Location</label>
+                    </div>
+                    <div className="form-label-group">
+                      <input value={appointment_small_note}
+                      onChange={(event) => {setAppointmentSmallNote(event.target.value)}}
                       type="text" id="inputNotes" className="form-control appointment-note" placeholder="Notes"/>
-                      <label for="inputNotes">Notes</label>
+                      <label for="inputNotes">Little Note</label>
+                    </div>
+                    <div className="form-label-group">
+                      <input value={category_id}
+                      onChange={(event) => {setCategoryId(event.target.value)}}
+                      type="text" id="category_id" className="form-control category-id" placeholder="Notes"/>
+                      <label for="category_id">Category id</label>
+                    </div>
+                    <div className="form-label-group">
+                      <input value={user_id}
+                      onChange={(event) => {setUserId(event.target.value)}}
+                      type="text" id="user_id" className="form-control user-id" placeholder="Notes"/>
+                      <label for="user_id">User id</label>
                     </div>
                     <hr className="my-4"/>
                     <button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Save Appointment</button>

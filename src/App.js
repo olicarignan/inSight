@@ -26,6 +26,7 @@ function App() {
           userLogin,
           dispatch, 
           addUser,
+          addAppointment,
           userLogout, 
           authUser } = useApplicationData();
 
@@ -51,6 +52,7 @@ function App() {
       <Route path="/register" render={
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
       <PrivateRoute path="/main" component={MainPage} 
+      addAppointment={addAppointment}
       user={state.user} 
       categories={state.categories}
       userLogout={userLogout}
