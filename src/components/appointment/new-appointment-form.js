@@ -34,7 +34,7 @@ export default function NewAppointment(props) {
 				appointment_name,
 				category_id,
 				location,
-        user_id,
+        user_id: props.user_id,
         appointment_small_note
 			};
 			return props
@@ -181,7 +181,7 @@ export default function NewAppointment(props) {
 							/>
 							<label for="category_id">Category id</label>
 						</div>
-						<div className="form-label-group">
+						{/* <div className="form-label-group">
 							<input
 								value={user_id}
 								onChange={(event) => {
@@ -193,7 +193,7 @@ export default function NewAppointment(props) {
 								placeholder="Notes"
 							/>
 							<label for="user_id">User id</label>
-						</div>
+						</div> */}
 						<hr className="my-4" />
 						<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
 							Save Appointment
