@@ -8,23 +8,37 @@ export default function NewAppointment(props) {
 	const [ startTime, setStartTime ] = useState(0);
 	const [ endDate, setEndDate ] = useState(0);
 	const [ endTime, setEndTime ] = useState(0);
-	const [ appointmentTitle, setAppointmentTitle ] = useState('');
+	const [ appointmentName, setAppointmentName ] = useState('');
 	const [ appointmentCategory, setAppointmentCategory ] = useState('');
-	const [ appointmentNotes, setAppointmentNotes ] = useState('');
+	const [ location, setAppointmentLocation ] = useState('');
+	const [ category_name, setCategoryName ] = useState('');
+	const [ colour, setColour ] = useState('');
+	const [ category_id, setCategoryId ] = useState('');
+	const [ appointmentSmallNote, setAppointmentSmallNote ] = useState('');
+	const [ user_id, setUserId ] = useState('');
 
 	function newAppointment(event) {
 		event.preventDefault();
+
 		if (startDate && endDate) {
+			const category = {
+				category_name,
+				colour,
+				user_id
+			};
 			const appointment = {
 				startDate,
 				startTime,
 				endDate,
 				endTime,
-				appointmentTitle,
-				appointmentCategory,
-				appointmentNotes
+				appointmentName,
+				category_id,
+				location,
+				user_id
 			};
-			console.log(appointment);
+			return props.addAppointment(appointment).then((res) => {
+				console.log('it worked new appointment form', res);
+			});
 		}
 	}
 
@@ -35,15 +49,17 @@ export default function NewAppointment(props) {
 					<h5 className="card-title text-center">New Appointment</h5>
 					<form
 						className="form-register"
-						onSubmit={(event) =>
+						onSubmit={(event) => {
+							newAppointment(event);
 							props.setEventState({
 								// add new event data
 								calendarEvents: props.eventState.calendarEvents.concat({
 									// creates a new array
-									title: appointmentTitle,
+									title: appointmentName,
 									start: startDate
 								})
-							})}
+							});
+						}}
 					>
 						<div className="form-label-group">
 							<input
@@ -55,6 +71,7 @@ export default function NewAppointment(props) {
 								id="inputStartDate"
 								className="form-control start-date"
 								placeholder="Start Date"
+								required
 								autofocus
 							/>
 							<label for="inputStartDate">Start Date</label>
@@ -69,6 +86,7 @@ export default function NewAppointment(props) {
 								id="inputStartTime"
 								className="form-control start-time"
 								placeholder="Start Time"
+								required
 								autofocus
 							/>
 							<label for="inputStartTime">Start Time</label>
@@ -84,6 +102,7 @@ export default function NewAppointment(props) {
 								id="inputEndDate"
 								className="form-control end-date"
 								placeholder="End Date"
+								required
 								autofocus
 							/>
 							<label for="inputEndDate">End Date</label>
@@ -98,6 +117,7 @@ export default function NewAppointment(props) {
 								id="inputEndTime"
 								className="form-control end-time"
 								placeholder="End Time"
+								required
 								autofocus
 							/>
 							<label for="inputEndtTime">End Time</label>
@@ -105,45 +125,76 @@ export default function NewAppointment(props) {
 						<hr className="my-4" />
 						<div className="form-label-group">
 							<input
-								value={appointmentTitle}
+								value={appointmentName}
 								onChange={(event) => {
-									setAppointmentTitle(event.target.value);
+									setAppointmentName(event.target.value);
 								}}
 								type="text"
 								id="inputAppointmentTitle"
 								className="form-control appointment-tittle"
 								placeholder="Title"
+								required
 								autofocus
 							/>
 							<label for="inputAppointmentTitle">Title</label>
 						</div>
+						{/* <div className="form-label-group">
+                      <input value={category_name}
+                      onChange={(event) => {setAppointmentCategory(event.target.value)}}
+                      type="text" id="inputAppointmentCategory" className="form-control appointment-category" placeholder="Category" required autofocus/>
+                      <label for="inputAppointmentCategory">Category</label>
+                    </div> */}
 						<div className="form-label-group">
 							<input
-								value={appointmentCategory}
+								value={location}
 								onChange={(event) => {
-									setAppointmentCategory(event.target.value);
+									setAppointmentLocation(event.target.value);
 								}}
 								type="text"
-								id="inputAppointmentCategory"
-								className="form-control appointment-category"
-								placeholder="Category"
-								required
-								autofocus
+								id="inputLocation"
+								className="form-control appointment-location"
+								placeholder="Notes"
 							/>
-							<label for="inputAppointmentCategory">Category</label>
+							<label for="inputLocation">Location</label>
 						</div>
 						<div className="form-label-group">
 							<input
-								value={appointmentNotes}
+								value={appointmentSmallNote}
 								onChange={(event) => {
-									setAppointmentNotes(event.target.value);
+									setAppointmentSmallNote(event.target.value);
 								}}
 								type="text"
 								id="inputNotes"
 								className="form-control appointment-note"
 								placeholder="Notes"
 							/>
-							<label for="inputNotes">Notes</label>
+							<label for="inputNotes">Little Note</label>
+						</div>
+						<div className="form-label-group">
+							<input
+								value={category_id}
+								onChange={(event) => {
+									setCategoryId(event.target.value);
+								}}
+								type="text"
+								id="category_id"
+								className="form-control category-id"
+								placeholder="Notes"
+							/>
+							<label for="category_id">Category id</label>
+						</div>
+						<div className="form-label-group">
+							<input
+								value={user_id}
+								onChange={(event) => {
+									setUserId(event.target.value);
+								}}
+								type="text"
+								id="user_id"
+								className="form-control user-id"
+								placeholder="Notes"
+							/>
+							<label for="user_id">User id</label>
 						</div>
 						<hr className="my-4" />
 						<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
