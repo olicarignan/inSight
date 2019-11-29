@@ -24,6 +24,7 @@ export default function LoginPage(props) {
 
 	return (
 		<div>
+			{props.isAuthenticated === true && <Redirect to="/main" />}
 			<div>{loggedIn === true && <Redirect to="/main" />}</div>
 			<div>{register === true && <Redirect to="/register" />}</div>
 			<body>
