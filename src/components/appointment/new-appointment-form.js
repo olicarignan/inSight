@@ -34,78 +34,99 @@ export default function NewAppointment(props) {
 				appointment_name,
 				category_id,
 				location,
-        user_id: props.user_id,
-        appointment_small_note
+				user_id: props.user_id,
+				appointment_small_note
 			};
-			return props
-			.addAppointment(appointment)
-			.then((res) => {
+			return props.addAppointment(appointment).then((res) => {
 				console.log('it worked new appointment form', res);
 			});
 		}
 	}
 
-    if(start_date && end_date) {
-      const category = {
-        category_name,
-        colour,
-        user_id
-      }
-      const appointment = {
-        start_date,
-        start_time,
-        end_date,
-        end_time,
-        appointment_name,
-        category_id,
-        location, 
-        user_id
-      }
-      return props
-      // .addAppointment(appointment)
-    }
-  
-
-  
-  return(
-    <body>
-        <div className="container">
-                <div className="card-body">
-                  <h5 className="card-title text-center">New Appointment</h5>
-                  <form className="form-register" onSubmit={(event) => newAppointment(event)}>
-                  <div className="form-label-group">
-                      <input value={start_date}
-                      onChange={(event) => {setStart_date(event.target.value)}}
-                      type="date" id="inputStartDate" className="form-control start-date" placeholder="Start Date" required autofocus/>
-                      <label for="inputStartDate">Start Date</label>
-                    </div>
-                    <div className="form-label-group">
-                      <input value={start_time}
-                      onChange={(event) => {setstart_time(event.target.value)}}
-                      type="time" id="inputStartTime" className="form-control start-time" placeholder="Start Time" required autofocus/>
-                      <label for="inputStartTime">Start Time</label>
-                    </div>
-                    <hr className="my-4"/>
-                  <div className="form-label-group">
-                      <input value={end_date}
-                      onChange={(event) => {setend_date(event.target.value)}}
-                      type="date" id="inputEndDate" className="form-control end-date" placeholder="End Date" required autofocus/>
-                      <label for="inputEndDate">End Date</label>
-                    </div>
-                    <div className="form-label-group">
-                      <input value={end_time}
-                      onChange={(event) => {setend_time(event.target.value)}}
-                      type="time" id="inputEndTime" className="form-control end-time" placeholder="End Time" required autofocus/>
-                      <label for="inputEndtTime">End Time</label>
-                    </div>
-                    <hr className="my-4"/>
-                    <div className="form-label-group">
-                      <input value={appointment_name}
-                      onChange={(event) => {setappointment_name(event.target.value)}}
-                      type="text" id="inputAppointmentTitle" className="form-control appointment-tittle" placeholder="Title" required autofocus/>
-                      <label for="inputAppointmentTitle">Title</label>
-                    </div>
-                    {/* <div className="form-label-group">
+	return (
+		<body>
+			<div className="container">
+				<div className="card-body">
+					<h5 className="card-title text-center">New Appointment</h5>
+					<form className="form-register" onSubmit={(event) => newAppointment(event)}>
+						<div className="form-label-group">
+							<input
+								value={start_date}
+								onChange={(event) => {
+									setStart_date(event.target.value);
+								}}
+								type="date"
+								id="inputStartDate"
+								className="form-control start-date"
+								placeholder="Start Date"
+								required
+								autofocus
+							/>
+							<label for="inputStartDate">Start Date</label>
+						</div>
+						<div className="form-label-group">
+							<input
+								value={start_time}
+								onChange={(event) => {
+									setstart_time(event.target.value);
+								}}
+								type="time"
+								id="inputStartTime"
+								className="form-control start-time"
+								placeholder="Start Time"
+								required
+								autofocus
+							/>
+							<label for="inputStartTime">Start Time</label>
+						</div>
+						<hr className="my-4" />
+						<div className="form-label-group">
+							<input
+								value={end_date}
+								onChange={(event) => {
+									setend_date(event.target.value);
+								}}
+								type="date"
+								id="inputEndDate"
+								className="form-control end-date"
+								placeholder="End Date"
+								required
+								autofocus
+							/>
+							<label for="inputEndDate">End Date</label>
+						</div>
+						<div className="form-label-group">
+							<input
+								value={end_time}
+								onChange={(event) => {
+									setend_time(event.target.value);
+								}}
+								type="time"
+								id="inputEndTime"
+								className="form-control end-time"
+								placeholder="End Time"
+								required
+								autofocus
+							/>
+							<label for="inputEndtTime">End Time</label>
+						</div>
+						<hr className="my-4" />
+						<div className="form-label-group">
+							<input
+								value={appointment_name}
+								onChange={(event) => {
+									setappointment_name(event.target.value);
+								}}
+								type="text"
+								id="inputAppointmentTitle"
+								className="form-control appointment-tittle"
+								placeholder="Title"
+								required
+								autofocus
+							/>
+							<label for="inputAppointmentTitle">Title</label>
+						</div>
+						{/* <div className="form-label-group">
                       <input value={category_name}
                       onChange={(event) => {setappointment_category(event.target.value)}}
                       type="text" id="inputappointment_category" className="form-control appointment-category" placeholder="C autofocus/>
@@ -178,4 +199,4 @@ export default function NewAppointment(props) {
 			</div>
 		</body>
 	);
-          }
+}
