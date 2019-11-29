@@ -6,19 +6,21 @@ import Nav from './components/nav/nav';
 import SideBar from './components/sidebar/sidebar'; 
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
-import NotesList from './components/categoryPage/notesList';
+import NotesList from './components/categoryPage/NotesList';
 import axios from 'axios';
+import CategoryRoute from './components/CategoryRoute';
+
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import SET_APPLICATION_DATA from '../src/reducers/dataReducer';
+import { SET_APPLICATION_DATA } from '../src/reducers/dataReducer';
 
 import PrivateRoute from './components/PrivateRoute';
 
-import Editor from './components/textEditor/newText';
+import Editor from './components/textEditor/Editor';
 
 import MainPage from './components/MainPage'
 
@@ -31,7 +33,8 @@ function App() {
           addAppointment,
           userLogout, 
           authUser,
-          getAppointmentsForUser } = useApplicationData();
+          addCategory,
+          showCategory} = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -45,11 +48,28 @@ function App() {
 
   useEffect(() => {
     authUser(token).then(res => {
-    });
-    
+      console.log(res)
+      const categories = axios.get(`/api/categories/${res.id}`);
+      const appointments = axios.get(`/api/appointments/${res.id}`);
+      const notes = axios.get("/api/notes");
+
+    Promise.all([categories, appointments, notes]).then(all => {
+      console.log(all[2])
+      dispatch({
+        type: SET_APPLICATION_DATA,
+        categories: all[0].data,
+        appointments: all[1].data,
+        notes: all[2].data
+			});
+    }).catch(error => console.log(error));
+    })
   }, [])
-  
-  console.log(state.appointments)
+
+  const categoryList = state.categories.map( category => {
+    return (
+      <Route path={`/${category.category_name}`} component={() => <NotesList notes={state.notes}/>}/>
+    )
+  })
 
   return (
     <Router>
@@ -58,7 +78,10 @@ function App() {
         () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
       <Route path="/register" render={
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
-      <PrivateRoute path="/main" component={MainPage} 
+        {categoryList}
+      <PrivateRoute path="/main" component={MainPage}
+      showCategory={showCategory}
+      addCategory={addCategory} 
       addAppointment={addAppointment}
       user={state.user} 
       categories={state.categories}

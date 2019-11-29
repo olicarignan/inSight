@@ -8,9 +8,12 @@ export default function SideBar (props) {
   return (
     <aside className="sidebar">
       <CategoryList
+      showCategory={props.showCategory}
       categories={props.categories}
       />
-      <NewCategory />
+      <NewCategory
+      addCategory={props.addCategory}
+      user={props.user} />
       </aside>
   )
 }
