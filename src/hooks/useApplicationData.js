@@ -47,7 +47,7 @@ export default function useApplicationData () {
       .post('/api/register', {user})
       .then(res => {
         if (res.status === 200) {
-          dispatch({type: SET_USER, token: res.data.token, user: res.data.user, isAuthenticated: true, loading: false})
+          dispatch({type: SET_USER, token: res.data.token, user: res.data.newUser, isAuthenticated: true, loading: false})
         }
       })
   }
