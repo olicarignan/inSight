@@ -46,12 +46,13 @@ export default function useApplicationData () {
     return axios
       .post('/api/register', {user})
       .then(res => {
-        console.log(res)
         if (res.status === 200) {
           dispatch({type: SET_USER, token: res.data.token, user: res.data.newUser, isAuthenticated: true, loading: false})
         }
       })
   }
+
+  
 
   const [state, dispatch] = useReducer(dataReducer, ({categories: [], 
                                                       appointments: [],
@@ -89,6 +90,7 @@ export default function useApplicationData () {
     addUser,
     userLogin,
     userLogout,
-    authUser
+    authUser,
+    addAppointment
   }
 }

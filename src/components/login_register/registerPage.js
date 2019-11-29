@@ -35,7 +35,7 @@ export default function RegisterPage(props) {
   }
 
 
-  return(
+  return (
     <div>
       {props.isAuthenticated === true && <Redirect to="/main"/>}
       <body>
