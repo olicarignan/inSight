@@ -9,7 +9,14 @@ export default function NewCategory(props) {
   return (
     <div className="newCategory">
       <form className="newCategoryForm" onSubmit={event => {event.preventDefault() 
-            console.log(categoryName)}} autoComplete="off">
+            const category = {
+              category_name: categoryName,
+              user_id: props.user.id,
+              colour: 'red'
+            }
+            props.addCategory(category, props.user.id)
+            setCategoryName('')
+            }} autoComplete="off">
           <input
             className="category__create-input text--semi-bold"
             categoryName = "categoryName"
@@ -19,7 +26,7 @@ export default function NewCategory(props) {
             onChange={event => setCategoryName(event.target.value)}
             data-testid="category-name-input"
           />
-          <Button className="category__actions" onClick={() => console.log('cancel')} danger>
+          <Button className="category__actions" onClick={() => {console.log('save')}} danger>
             Cancel
           </Button>
           <Button className="category__actions" action='submit' confirm>

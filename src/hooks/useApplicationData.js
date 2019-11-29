@@ -6,20 +6,35 @@ import dataReducer, {
   SET_LOGOUT,
   SET_USER,
   SET_USER_DATA,
-  SET_APPOINTMENT
+	SET_APPOINTMENT,
+	SET_SHOW_CATEGORY
 } from "../reducers/dataReducer";
 
 export default function useApplicationData() {
+
+	function showCategory(category) {
+		dispatch({type: SET_SHOW_CATEGORY, showCategory: true})
+	}
 
   function getAppointmentsForUser(user) {
     return axios.get("/api/appointments", user.id).then(res => {
       console.log(res);
     });
-  }
+	}
+	
+	function addCategory(category, id) {
+		
+		return axios.post(`/api/categories/${id}`, category)
+		            .then((res) => {
+									if(res.data) {
+										state.categories.push(res.data[0])
+									}
+								})
+	}
 
-  function addAppointment(event) {
+  function addAppointment(event, id) {
 
-    return axios.post("/api/appointments", event).then(res => {
+    return axios.post(`/api/appointment/${id}`, event).then(res => {
       console.log(res);
       if (res.data) {
         state.appointments.push(res.data[0]);
@@ -76,7 +91,8 @@ export default function useApplicationData() {
     user: {},
     users: {},
     token: "",
-    isAuthenticated: false,
+		isAuthenticated: false,
+		showCategory: false,
     loading: true
   });
 
@@ -127,6 +143,8 @@ export default function useApplicationData() {
     userLogout,
     addAppointment,
     getAppointmentsForUser,
-    authUser
+		authUser,
+		addCategory,
+		showCategory
   };
 }
