@@ -10,8 +10,9 @@ import dataReducer, {
 } from '../reducers/dataReducer';
 
 export default function useApplicationData() {
+
 	function addAppointment(event) {
-		return axios.post('/api/appoitnments', event).then((res) => {
+		return axios.post('/api/appointments', event).then((res) => {
 			console.log(res);
 			if (res.data) {
 				dispatch({ type: SET_APPOINTMENT, appointments: res.data });

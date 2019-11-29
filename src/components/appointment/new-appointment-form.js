@@ -20,7 +20,7 @@ export default function NewAppointment(props) {
 	function newAppointment(event) {
 		event.preventDefault();
 
-		if (start_date && end_date) {
+		if (start_date) {
 			const category = {
 				category_name,
 				colour,
@@ -37,7 +37,9 @@ export default function NewAppointment(props) {
         user_id,
         appointment_small_note
 			};
-			return props.addAppointment(appointment).then((res) => {
+			return props
+			.addAppointment(appointment)
+			.then((res) => {
 				console.log('it worked new appointment form', res);
 			});
 		}
