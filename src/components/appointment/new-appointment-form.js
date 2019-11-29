@@ -62,11 +62,13 @@ export default function NewAppointment(props) {
 									start: start_date
 								})
 							});
-						}}
+							props.setShow(false)
+						}
+					}
 					>
 						<div className="form-label-group">
 							<input
-								value={start_date}
+								value={start_date.toString()}
 								onChange={(event) => {
 									setStart_date(event.target.value);
 								}}
