@@ -10,6 +10,8 @@ export const SET_APPOINTMENT = 'SET_APPOINTMENT';
 
 export default function dataReducer (state, action)  {
 
+  console.log(action)
+
   switch (action.type) {
     case SET_APPLICATION_DATA:
       return {

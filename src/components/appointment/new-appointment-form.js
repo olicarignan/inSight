@@ -34,12 +34,10 @@ export default function NewAppointment(props) {
 				appointment_name,
 				category_id,
 				location,
-        user_id,
-        appointment_small_note
+				user_id: props.user_id,
+				appointment_small_note
 			};
-			return props
-			.addAppointment(appointment)
-			.then((res) => {
+			return props.addAppointment(appointment).then((res) => {
 				console.log('it worked new appointment form', res);
 			});
 		}
@@ -50,35 +48,21 @@ export default function NewAppointment(props) {
 			<div className="container">
 				<div className="card-body">
 					<h5 className="card-title text-center">New Appointment</h5>
-					<form
-						className="form-register"
-						onSubmit={(event) => {
-							newAppointment(event);
-							props.setEventState({
-								// add new event data
-								calendarEvents: props.eventState.calendarEvents.concat({
-									// creates a new array
-									title: appointment_name,
-									start: start_date
-								})
-							});
-							props.setShow(false)
-						}
-					}
-					>
+					<form className="form-register" onSubmit={(event) => newAppointment(event)}>
 						<div className="form-label-group">
 							<input
-								value={start_date.toString()}
+								value={start_date}
 								onChange={(event) => {
 									setStart_date(event.target.value);
 								}}
 								type="date"
-								id="inputStart_date"
+								id="inputStartDate"
 								className="form-control start-date"
 								placeholder="Start Date"
+								required
 								autofocus
 							/>
-							<label for="inputStart_date">Start Date</label>
+							<label for="inputStartDate">Start Date</label>
 						</div>
 						<div className="form-label-group">
 							<input
@@ -87,12 +71,13 @@ export default function NewAppointment(props) {
 									setstart_time(event.target.value);
 								}}
 								type="time"
-								id="inputstart_time"
+								id="inputStartTime"
 								className="form-control start-time"
 								placeholder="Start Time"
+								required
 								autofocus
 							/>
-							<label for="inputstart_time">Start Time</label>
+							<label for="inputStartTime">Start Time</label>
 						</div>
 						<hr className="my-4" />
 						<div className="form-label-group">
@@ -102,12 +87,13 @@ export default function NewAppointment(props) {
 									setend_date(event.target.value);
 								}}
 								type="date"
-								id="inputend_date"
+								id="inputEndDate"
 								className="form-control end-date"
 								placeholder="End Date"
+								required
 								autofocus
 							/>
-							<label for="inputend_date">End Date</label>
+							<label for="inputEndDate">End Date</label>
 						</div>
 						<div className="form-label-group">
 							<input
@@ -116,9 +102,10 @@ export default function NewAppointment(props) {
 									setend_time(event.target.value);
 								}}
 								type="time"
-								id="inputend_time"
+								id="inputEndTime"
 								className="form-control end-time"
 								placeholder="End Time"
+								required
 								autofocus
 							/>
 							<label for="inputEndtTime">End Time</label>
@@ -134,6 +121,7 @@ export default function NewAppointment(props) {
 								id="inputAppointmentTitle"
 								className="form-control appointment-tittle"
 								placeholder="Title"
+								required
 								autofocus
 							/>
 							<label for="inputAppointmentTitle">Title</label>
@@ -183,7 +171,7 @@ export default function NewAppointment(props) {
 							/>
 							<label for="category_id">Category id</label>
 						</div>
-						<div className="form-label-group">
+						{/* <div className="form-label-group">
 							<input
 								value={user_id}
 								onChange={(event) => {
@@ -195,7 +183,7 @@ export default function NewAppointment(props) {
 								placeholder="Notes"
 							/>
 							<label for="user_id">User id</label>
-						</div>
+						</div> */}
 						<hr className="my-4" />
 						<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
 							Save Appointment
