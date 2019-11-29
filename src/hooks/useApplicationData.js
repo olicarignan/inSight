@@ -91,6 +91,6 @@ export default function useApplicationData () {
     userLogin,
     userLogout,
     authUser,
-    addAppointment
+    // addAppointment
   }
 }

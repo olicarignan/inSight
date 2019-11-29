@@ -38,7 +38,7 @@ export default function NewAppointment(props) {
         user_id
       }
       return props
-      .addAppointment(appointment)
+      // .addAppointment(appointment)
     }
   }
 
