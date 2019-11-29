@@ -1,5 +1,13 @@
 import React from "react";
 import CategoryListItem from "./categoryListItem";
+import NotesList from '../categoryPage/NotesList';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Redirect,
+  Route,
+  Link
+} from "react-router-dom";
 
 
 export default function CategoryList(props) {
@@ -9,10 +17,11 @@ export default function CategoryList(props) {
   const categoryList = categories.map( category => {
     return (
       <CategoryListItem
+      showCategory={props.showCategory}
       key={category.id}
       name={category.category_name}
       colour={props.colour}
-      // showCategory={console.log(category.category_name)}
+      notes={props.notes}
       />
     )
   })
