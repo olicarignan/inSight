@@ -7,12 +7,14 @@ import SideBar from './components/sidebar/sidebar';
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
 import NotesList from './components/categoryPage/notesList';
+import axios from 'axios';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import SET_APPLICATION_DATA from '../src/reducers/dataReducer';
 
 import PrivateRoute from './components/PrivateRoute';
 
@@ -28,7 +30,8 @@ function App() {
           addUser,
           addAppointment,
           userLogout, 
-          authUser } = useApplicationData();
+          authUser,
+          getAppointmentsForUser } = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -36,15 +39,17 @@ function App() {
   //   </li>
   // ))
   
+  // const token = localStorage.getItem('token');
+  
   const token = localStorage.getItem('token');
-  
-    
-  useEffect(() => {
-    console.log('aaaaaaa')
-    authUser(token).then(res => console.log(res));
-  }, [token])
 
+  useEffect(() => {
+    authUser(token).then(res => {
+    });
+    
+  }, [])
   
+  console.log(state.appointments)
 
   return (
     <Router>
