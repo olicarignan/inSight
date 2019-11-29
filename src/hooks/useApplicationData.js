@@ -11,23 +11,21 @@ import dataReducer, {
 
 export default function useApplicationData() {
 
+  function getAppointmentsForUser(user) {
+
+    return axios
+                .get('/api/appointments', user.id)
+                .then((res) => {
+                  console.log(res)
+                })
+  }
+
 	function addAppointment(event) {
 		return axios.post('/api/appointments', event).then((res) => {
 			console.log(res);
 			if (res.data) {
-				dispatch({ type: SET_APPOINTMENT, appointments: res.data });
-			}
-		});
-	}
-
-	function authUser(token) {
-		const config = {
-			headers: { Authorization: 'bearer ' + token }
-		};
-		return axios.get('/api/authenticate', config).then((res) => {
-			console.log(res);
-			if (res.data) {
-				dispatch({ type: SET_USER, token: token, user: res.data, isAuthenticated: true, loading: false });
+        state.appointments.push(res.data[0])
+        console.log(state.appointments)
 			}
 		});
 	}
@@ -78,24 +76,40 @@ export default function useApplicationData() {
 		token: '',
 		isAuthenticated: false,
 		loading: true
-	});
+  });
+  
 
-	useEffect(() => {
-		const users = axios.get('/api/users');
-		const categories = axios.get('/api/categories');
-		const appointments = axios.get('/api/appointments');
-		const notes = axios.get('/api/notes');
+   function authUser(token) {
+    const config = {
+      headers: { Authorization: 'bearer ' + token }
+    };
+    return axios.get('/api/authenticate', config).then((res) => {
+      console.log(res);
+      if (res.data) {
+        dispatch({ type: SET_USER, token: token, user: res.data, isAuthenticated: true, loading: false });
+      } else {
+        console.log('something wrong')
+      }
+    });
+  }
 
-		Promise.all([ users, categories, appointments, notes ]).then((all) => {
-			dispatch({
-				type: SET_APPLICATION_DATA,
-				users: all[0].data,
-				categories: all[1].data,
-				appointments: all[2].data,
-				notes: all[3].data
-			});
-		});
-	}, []);
+
+  useEffect(() => {
+    const categories = axios.get('/api/categories');
+    const appointments = axios.get('/api/appointments');
+    const notes = axios.get('/api/notes');
+    
+    Promise.all([categories, appointments, notes ]).then((all) => {
+      dispatch({
+        type: SET_APPLICATION_DATA,
+        categories: all[0].data,
+        appointments: all[1].data,
+        notes: all[2].data
+      });
+    });
+    
+  }, [])
+
 
 	return {
 		state,
@@ -103,7 +117,8 @@ export default function useApplicationData() {
 		addUser,
 		userLogin,
 		userLogout,
-		authUser,
-		addAppointment
+    addAppointment,
+    getAppointmentsForUser,
+    authUser
 	};
 }
