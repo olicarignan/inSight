@@ -28,8 +28,7 @@ function App() {
           addUser,
           addAppointment,
           userLogout, 
-          authUser,
-          addAppointment } = useApplicationData();
+          authUser } = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
