@@ -42,7 +42,6 @@ function App() {
   useEffect(() => {
     console.log('aaaaaaa')
     authUser(token).then(res => console.log(res));
-
   }, [token])
 
   
