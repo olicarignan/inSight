@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import './appointment-info-card.scss';
 
 export default function AppointmentInfoCard(props) {
-  console.log(props.calendarEvents)
+	console.log(props.eventInfo)
+	console.log(props.HandleEventClick)
 	return (
 		<body>
 			<div class="container">
 				<div class="card-body">
-					<h5 class="card-title text-center">{}</h5>
+	<h5 class="card-title text-center">asfas</h5>
 					<form class="form-signin">
 						<div class="form-label-group">
 							<h6 class="text-center">event details</h6>

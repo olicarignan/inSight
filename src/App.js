@@ -55,7 +55,7 @@ function App() {
       const notes = axios.get(`/api/notes/`);
 
     Promise.all([categories, appointments, notes]).then(all => {
-      console.log(all[2])
+      console.log(all[0])
       dispatch({
         type: SET_APPLICATION_DATA,
         categories: all[0].data,
@@ -94,6 +94,7 @@ function App() {
       user={state.user} 
       categories={state.categories}
       userLogout={userLogout}
+      appointments={state.appointments}
       />
       </Switch>
     </Router>
