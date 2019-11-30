@@ -7,43 +7,76 @@ import NewAppointment from '../components/appointment/new-appointment-form';
 import AppointmentInfoCard from './appointment/appointment-info-card';
 import './Calendar.scss'
 
+import Swal from 'sweetalert2'
+
 
 export default function Calendar(props) {
   const calendarComponentRef = React.createRef()
 
   const [show, setShow] = useState(false); // this is for the new appointment
-  const [showEventInfo, setShowEventInfo] = useState(false);// this is the appointment info cards
-  // const [eventState, setEventState] = useState({
-  //   calendarWeekends: false,
-  //   calendarEvents: [ // initial event data
-  //     { title: '',
-  //      start: "HH:mm",
-  //      allDay : false }
-  //   ]
-  // }) // this is for the events in the calendar
+  const [showEventInfo, setShowEventInfo] = useState(false); // this is not needed it anymore with Swal alert
   
   const handleDateClick = (arg) => {
     setShow(true)
-      // console.log(eventState)
   }
 
-
   const HandleEventClick = (info) => {
-    console.log(info.event)
-    setShowEventInfo(true)
+    let eventInfo = info.event;
+    // setShowEventInfo(true)
     // console.log(info.event)
+    Swal.fire({
+      title: eventInfo.title,
+      html:
+        `<div class="table-responsive">
+      <table class="table">
+      <tbody>
+      <td>Title</td>
+      <td><strong>` +
+      eventInfo.title +
+        `</strong></td>
+      </tr>
+      <tr >
+      <td>Start Time</td>
+      <td><strong>
+      ` +
+      eventInfo.title +
+        `
+      </strong></td>
+      </tr>
+      </tbody>
+      </table>
+      </div>`,
+
+      customClass: {
+        confirmButton: 'confirm-button-class',
+        cancelButton: 'cancel-button-class',
+      },
+      showCloseButton:true,
+      closeButton:"hi",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Remove Event",
+      cancelButtonText: "Close"
+    }).then(result => {
+      if (result.value) {
+        eventInfo.remove(); // It will remove event from the calendar
+        Swal.fire("Deleted!", "Your Event has been deleted.", "success");
+        if(result.value) {
+        }
+      }
+    });
   }
 
   function AppointmentInfoModal() {
     return (
       <>
        <Modal.Dialog showEventInfo={showEventInfo} >
+        
         <AppointmentInfoCard
-        // calendarEvents={eventState.calendarEvents}
-
+        HandleEventClick={HandleEventClick}
         setShowEventInfo={setShowEventInfo}
         setShow={setShow}
-        // eventState={eventState}
         />
        </Modal.Dialog>
       </>
@@ -59,21 +92,21 @@ export default function Calendar(props) {
           <NewAppointment
             // setEventState={setEventState}
             // eventState={eventState}
-            setShow={setShow}
-            addAppointment={props.addAppointment}
-          categories={props.categories}
-          user_id={props.user.id}
-          appointments={props.appointments}/>
+           setShow={setShow}
+           addAppointment={props.addAppointment}
+           categories={props.categories}
+           user_id={props.user.id}
+           appointments={props.appointments}/>
         </ Modal>
       </>
     );
   }
+
+
   return (
     <div className="calendar">
     <FullCalendar
-    eventClick={HandleEventClick}
-      
-
+     eventClick={HandleEventClick}
      defaultView="dayGridMonth" 
      plugins={[ dayGridPlugin, interactionPlugin ]}
      weekends={true}
