@@ -62,6 +62,7 @@ export default function NewAppointment(props) {
 									start: start_date
 								})
 							});
+							props.setShow(false)
 						}}
 					>
 						<div className="form-label-group">
