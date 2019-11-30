@@ -56,7 +56,7 @@ export default function NewAppointment(props) {
 							newAppointment(event);
 							props.setEventState({
 								// add new event data
-								calendarEvents: props.eventState.calendarEvents.concat(props.eventList)
+								calendarEvents: props.eventState.calendarEvents.concat()
 							});
 							props.setShow(false)
 						}}
