@@ -21,16 +21,6 @@ export default function Calendar(props) {
   //      allDay : false }
   //   ]
   // }) // this is for the events in the calendar
-
-  const eventList =  props.appointments.map(appointment => {
-    return {
-      title: appointment.appointment_name,
-      start: appointment.start_date,
-      allDay: false
-    }
-  })
-
-  console.log(eventList)
   
   const handleDateClick = (arg) => {
     setShow(true)
@@ -93,7 +83,6 @@ export default function Calendar(props) {
       >
     </FullCalendar>
     <div>
-      {console.log(eventState.calendarEvents,"events")}
     { showEventInfo ? <AppointmentInfoModal/> : null}
     </div>
     <div>

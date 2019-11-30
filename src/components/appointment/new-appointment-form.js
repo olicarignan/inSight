@@ -54,10 +54,6 @@ export default function NewAppointment(props) {
 						className="form-register"
 						onSubmit={(event) => {
 							newAppointment(event);
-							props.setEventState({
-								// add new event data
-								calendarEvents: props.eventState.calendarEvents.concat()
-							});
 							props.setShow(false)
 						}}
 					>
