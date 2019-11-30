@@ -34,7 +34,8 @@ function App() {
           userLogout, 
           authUser,
           addCategory,
-          showCategory} = useApplicationData();
+          showCategory,
+          setCalendarEvents} = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -60,10 +61,16 @@ function App() {
         categories: all[0].data,
         appointments: all[1].data,
         notes: all[2].data
-			});
-    }).catch(error => console.log(error));
+      });
+      return all[1]
+    }).then(res => {
+      setCalendarEvents(res.data)
+    })
+    .catch(error => console.log(error));
     })
   }, [])
+
+  console.log(state)
 
   const categoryList = state.categories.map( category => {
     return (
@@ -80,6 +87,7 @@ function App() {
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
         {categoryList}
       <PrivateRoute path="/main" component={MainPage}
+      calendarEvents={state.calendarEvents}
       showCategory={showCategory}
       addCategory={addCategory} 
       addAppointment={addAppointment}
