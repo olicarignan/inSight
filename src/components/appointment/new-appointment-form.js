@@ -48,8 +48,23 @@ export default function NewAppointment(props) {
 			<div className="container">
 				<div className="card-body">
 					<h5 className="card-title text-center">New Appointment</h5>
-					<form className="form-register" onSubmit={(event) => newAppointment(event)}>
-						<div className="form-label-group">
+
+					<form
+						className="form-register"
+						onSubmit={(event) => {
+							newAppointment(event);
+							props.setEventState({
+								// add new event data
+								calendarEvents: props.eventState.calendarEvents.concat({
+									// creates a new array
+									title: appointment_name,
+									start: start_date
+								})
+							});
+							props.setShow(false)
+						}}
+					>
+  <div className="form-label-group">
 							<input
 								value={start_date}
 								onChange={(event) => {
