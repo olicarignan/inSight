@@ -6,7 +6,6 @@ import { Button, Modal } from 'react-bootstrap';
 import NewAppointment from '../components/appointment/new-appointment-form';
 import AppointmentInfoCard from './appointment/appointment-info-card';
 import './Calendar.scss'
-import AppointmentInfoCard from './appointment/appointment-info-card';
 
 
 export default function Calendar(props) {
