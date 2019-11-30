@@ -40,9 +40,8 @@ export default function NewAppointment(props) {
 			console.log(appointment)
 			return props.addAppointment(appointment).then((res) => {
 				console.log('it worked new appointment form', res);
-			});
+			}).catch(e => console.log(e))
 		}
-
 
 	return (
 		<body>
