@@ -32,9 +32,9 @@ export default function useApplicationData() {
 								})
 	}
 
-  function addAppointment(event, id) {
-
-    return axios.post(`/api/appointment/${id}`, event).then(res => {
+  function addAppointment(event) {
+		console.log(event.user_id)
+    return axios.post(`/api/appointments/${event.user_id}`, event).then(res => {
       console.log(res);
       if (res.data) {
         state.appointments.push(res.data[0]);
