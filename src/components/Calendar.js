@@ -8,6 +8,7 @@ import AppointmentInfoCard from './appointment/appointment-info-card';
 import './Calendar.scss'
 
 import Swal from 'sweetalert2'
+import axios from 'axios';
 
 
 export default function Calendar(props) {
@@ -22,6 +23,7 @@ export default function Calendar(props) {
 
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
+    console.log(eventInfo)
     // setShowEventInfo(true)
     // console.log(info.event)
     Swal.fire({
@@ -60,10 +62,12 @@ export default function Calendar(props) {
       cancelButtonText: "Close"
     }).then(result => {
       if (result.value) {
-        eventInfo.remove(); // It will remove event from the calendar
+        axios.delete(`/api/appointments/${props.user_id}`).then((res) =>{
+          console.log("im inside the axios delete")
+        })
+        console.log("after axios")
+        eventInfo.remove()
         Swal.fire("Deleted!", "Your Event has been deleted.", "success");
-        if(result.value) {
-        }
       }
     });
   }

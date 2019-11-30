@@ -121,6 +121,7 @@ export default function useApplicationData() {
 		let calendarEvents = appointments.map(appointment => {
 			console.log(appointment)
 			return {
+        id: appointment.id,
 				title: appointment.appointment_name,
 				start: new Date(appointment.start_date),
 				end: new Date(appointment.end_date),
