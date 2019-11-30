@@ -6,23 +6,28 @@ import { Button, Modal } from 'react-bootstrap';
 import NewAppointment from '../components/appointment/new-appointment-form';
 import AppointmentInfoCard from './appointment/appointment-info-card';
 import './Calendar.scss'
+import AppointmentInfoCard from './appointment/appointment-info-card';
 
 
 export default function Calendar(props) {
   const calendarComponentRef = React.createRef()
-  const [show, setShow] = useState(false);
+
+  const [show, setShow] = useState(false); // this is for the new appointment
   const [showEventInfo, setShowEventInfo] = useState(false);// this is the appointment info cards
   const [eventState, setEventState] = useState({
     calendarWeekends: false,
     calendarEvents: [ // initial event data
-      { title: 'Event Now', start: new Date() }
+      { title: '',
+       start: "HH:mm",
+       allDay : false }
     ]
-  })
+  }) // this is for the events in the calendar
 
   const handleDateClick = (arg) => {
     setShow(true)
       console.log(eventState)
   }
+
 
   const HandleEventClick = (info) => {
     setShowEventInfo(true)
@@ -35,6 +40,7 @@ export default function Calendar(props) {
        <Modal.Dialog showEventInfo={showEventInfo} >
         <AppointmentInfoCard
         calendarEvents={eventState.calendarEvents}
+
         setShowEventInfo={setShowEventInfo}
         setShow={setShow}
         eventState={eventState}
@@ -46,11 +52,9 @@ export default function Calendar(props) {
 
   // allows us to see the modal once a date is clicked
   function AppointmetModal() {
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
     return (
       <>
-        < Modal show={show} onHide={handleClose}>
+        < Modal show={show}>
           <NewAppointment
             setEventState={setEventState}
             eventState={eventState}
@@ -66,6 +70,7 @@ export default function Calendar(props) {
     <div className="calendar">
     <FullCalendar
     eventClick={HandleEventClick}
+
      defaultView="dayGridMonth" 
      plugins={[ dayGridPlugin, interactionPlugin ]}
      weekends={true}

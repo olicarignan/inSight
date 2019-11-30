@@ -118,3 +118,23 @@ export default App;
 
       {/*setShow(true)*/}
       {/*console.log(args.date)*/}
+
+
+      		<body>
+				<div class="card-body">
+					<h5 class="card-title text-center">Event title</h5>
+          <form class="form-signin"></form>
+					<hr class="my-4" />
+					<h6 class="text-center">event details</h6>
+					<hr class="my-4" />
+					<h6 class="text-center">event details</h6>
+					<hr class="my-4" />
+					<h6 class="text-center">event details</h6>
+				</div>
+				<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
+					edit
+				</button>
+				<button className="btn btn-lg btn-danger btn-block text-uppercase" onClick={() => props.setShow(false)}>
+					Cancel
+				</button>
+		</body>
