@@ -16,12 +16,22 @@ export default function Calendar(props) {
   const [eventState, setEventState] = useState({
     calendarWeekends: false,
     calendarEvents: [ // initial event data
-      { title: '',
-       start: "HH:mm",
+      { title: "",
+       start: new Date(),
        allDay : false }
     ]
   }) // this is for the events in the calendar
 
+  const eventList =  props.appointments.map(appointment => {
+    return {
+      title: appointment.appointment_name,
+      start: appointment.start_date,
+      allDay: false
+    }
+  })
+
+  console.log(eventList)
+  
   const handleDateClick = (arg) => {
     setShow(true)
       console.log(eventState)
@@ -55,12 +65,14 @@ export default function Calendar(props) {
       <>
         < Modal show={show}>
           <NewAppointment
+          eventList={eventList}
             setEventState={setEventState}
             eventState={eventState}
             setShow={setShow}
             addAppointment={props.addAppointment}
           categories={props.categories}
-          user_id={props.user.id}/>
+          user_id={props.user.id}
+          appointments={props.appointments}/>
         </ Modal>
       </>
     );
@@ -69,6 +81,7 @@ export default function Calendar(props) {
     <div className="calendar">
     <FullCalendar
     eventClick={HandleEventClick}
+      
 
      defaultView="dayGridMonth" 
      plugins={[ dayGridPlugin, interactionPlugin ]}
@@ -76,9 +89,11 @@ export default function Calendar(props) {
      dateClick={() => handleDateClick()}
      ref={calendarComponentRef}
      events={eventState.calendarEvents}
+     appointments={props.appointments}
       >
     </FullCalendar>
     <div>
+      {console.log(eventState.calendarEvents,"events")}
     { showEventInfo ? <AppointmentInfoModal/> : null}
     </div>
     <div>
