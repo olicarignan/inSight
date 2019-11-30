@@ -40,6 +40,7 @@ export default function MainPage(props) {
         />
         <div className="calendar-div">
           <Calendar
+          calendarEvents={props.calendarEvents}
           categories={props.categories}
           user={props.user}
           addAppointment={props.addAppointment} />

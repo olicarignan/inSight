@@ -1,13 +1,12 @@
 import React, { useEffect, useReducer } from "react";
 import axios from "axios";
 import dataReducer, {
-  SET_APPLICATION_DATA,
-  SET_LOGIN,
   SET_LOGOUT,
   SET_USER,
-  SET_USER_DATA,
-	SET_APPOINTMENT,
-	SET_SHOW_CATEGORY
+	SET_SHOW_CATEGORY,
+	SET_ADD_CATEGORY,
+	SET_ADD_APPOINTMENT,
+	SET_CALENDAR_EVENTS
 } from "../reducers/dataReducer";
 
 export default function useApplicationData() {
@@ -27,24 +26,24 @@ export default function useApplicationData() {
 		return axios.post(`/api/categories/${id}`, category)
 		            .then((res) => {
 									if(res.data) {
-										state.categories.push(res.data[0])
+										dispatch({type: SET_ADD_CATEGORY, category: res.data[0]})
 									}
 								})
 	}
 
+
   function addAppointment(event) {
+
 		console.log(event.user_id)
     return axios.post(`/api/appointments/${event.user_id}`, event).then(res => {
-      console.log(res);
+      console.log(res.data);
       if (res.data) {
-        state.appointments.push(res.data[0]);
-        console.log(state.appointments);
+        dispatch({type: SET_ADD_APPOINTMENT, appointment: res.data[0]})
       }
     });
   }
 
   function userLogout() {
-
     dispatch({ type: SET_LOGOUT });
   }
 
@@ -116,7 +115,20 @@ export default function useApplicationData() {
         console.log("something wrong");
       }
     });
-  }
+	}
+	
+	function setCalendarEvents(appointments) {
+		let calendarEvents = appointments.map(appointment => {
+			console.log(appointment)
+			return {
+				title: appointment.appointment_name,
+				start: new Date(appointment.start_date),
+				end: new Date(appointment.end_date),
+				allDay: false
+			}
+		})
+		dispatch({type:SET_CALENDAR_EVENTS, calendarEvents})
+	}
 
   // useEffect(() => {
 
@@ -145,6 +157,7 @@ export default function useApplicationData() {
     getAppointmentsForUser,
 		authUser,
 		addCategory,
-		showCategory
+		showCategory,
+		setCalendarEvents
   };
 }

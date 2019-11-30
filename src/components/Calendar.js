@@ -13,22 +13,23 @@ export default function Calendar(props) {
 
   const [show, setShow] = useState(false); // this is for the new appointment
   const [showEventInfo, setShowEventInfo] = useState(false);// this is the appointment info cards
-  const [eventState, setEventState] = useState({
-    calendarWeekends: false,
-    calendarEvents: [ // initial event data
-      { title: '',
-       start: "HH:mm",
-       allDay : false }
-    ]
-  }) // this is for the events in the calendar
+  // const [eventState, setEventState] = useState({
+  //   calendarWeekends: false,
+  //   calendarEvents: [ // initial event data
+  //     { title: '',
+  //      start: "HH:mm",
+  //      allDay : false }
+  //   ]
+  // }) // this is for the events in the calendar
 
   const handleDateClick = (arg) => {
     setShow(true)
-      console.log(eventState)
+      // console.log(eventState)
   }
 
 
   const HandleEventClick = (info) => {
+    console.log(info.event)
     setShowEventInfo(true)
     // console.log(info.event)
   }
@@ -38,16 +39,17 @@ export default function Calendar(props) {
       <>
        <Modal.Dialog showEventInfo={showEventInfo} >
         <AppointmentInfoCard
-        calendarEvents={eventState.calendarEvents}
+        // calendarEvents={eventState.calendarEvents}
 
         setShowEventInfo={setShowEventInfo}
         setShow={setShow}
-        eventState={eventState}
+        // eventState={eventState}
         />
        </Modal.Dialog>
       </>
     );
   }
+  console.log(props)
 
   // allows us to see the modal once a date is clicked
   function AppointmetModal() {
@@ -55,8 +57,8 @@ export default function Calendar(props) {
       <>
         < Modal show={show}>
           <NewAppointment
-            setEventState={setEventState}
-            eventState={eventState}
+            // setEventState={setEventState}
+            // eventState={eventState}
             setShow={setShow}
             addAppointment={props.addAppointment}
           categories={props.categories}
@@ -75,7 +77,7 @@ export default function Calendar(props) {
      weekends={true}
      dateClick={() => handleDateClick()}
      ref={calendarComponentRef}
-     events={eventState.calendarEvents}
+     events={props.calendarEvents}
       >
     </FullCalendar>
     <div>

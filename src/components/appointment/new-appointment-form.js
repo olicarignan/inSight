@@ -40,9 +40,8 @@ export default function NewAppointment(props) {
 			console.log(appointment)
 			return props.addAppointment(appointment).then((res) => {
 				console.log('it worked new appointment form', res);
-			});
+			}).catch(e => console.log(e))
 		}
-
 
 	return (
 		<body>
@@ -54,14 +53,14 @@ export default function NewAppointment(props) {
 						className="form-register"
 						onSubmit={(event) => {
 							newAppointment(event);
-							props.setEventState({
-								// add new event data
-								calendarEvents: props.eventState.calendarEvents.concat({
-									// creates a new array
-									title: appointment_name,
-									start: start_date
-								})
-							});
+							// props.setEventState({
+							// 	// add new event data
+							// 	// calendarEvents: props.eventState.calendarEvents.concat({
+							// 	// 	// creates a new array
+							// 	// 	title: appointment_name,
+							// 	// 	start: start_date
+							// 	// })
+							// });
 							props.setShow(false)
 						}}
 					>
