@@ -1,0 +1,32 @@
+.layout {
+  margin-top: px;
+  display: flex;
+  width: 80%;
+  position: absolute;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.notes_list {
+  width: 90%;
+}
+
+.notes__add-button {
+  position: -webkit-sticky;
+  position: sticky;
+  margin-top: 7vh;
+  width: 10%;
+  align-self: center;
+
+}
+
+.nav {
+  position: absolute;
+}
+
+.page {
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+}

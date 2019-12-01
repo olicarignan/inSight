@@ -6,7 +6,8 @@ import Nav from './components/nav/nav';
 import SideBar from './components/sidebar/sidebar'; 
 import LoginPage from './components/login_register/loginPage'
 import RegisterPage from './components/login_register/registerPage'
-import NotesList from './components/categoryPage/NotesList'
+import ShowNotes from './components/categoryPage/ShowNotes'
+import Editor from './components/textEditor/Editor'
 import axios from 'axios';
 import CategoryRoute from './components/CategoryRoute';
 
@@ -19,9 +20,6 @@ import {
 import { SET_APPLICATION_DATA } from '../src/reducers/dataReducer';
 
 import PrivateRoute from './components/PrivateRoute';
-
-import Editor from './components/textEditor/Editor';
-
 import MainPage from './components/MainPage'
 
 function App() {
@@ -83,12 +81,20 @@ function App() {
     return categoryToggle
   })
 
+  const notesList = state.notes.map( note => {
+    return (
+      <Route path={`/notes/${note.id}`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} note={note}/>}/>
+    )
+  })
+
 
   const categoryList = state.categories.map( category => {
     return (
-      <Route path={`/${category.category_name}`} component={() => <NotesList user={state.user} notes={state.notes}/>}/>
+      <Route path={`/categories/${category.id}`} component={() => <ShowNotes navButton={navButton} setNavButton={setNavButton}user={state.user} notes={state.notes}/>}/>
     )
   })
+
+  const [ navButton, setNavButton ] = useState('+')
 
   return (
     <Router>
@@ -98,7 +104,9 @@ function App() {
       <Route path="/register" render={
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
         {categoryList}
+        {notesList}
       <PrivateRoute path="/main" component={MainPage}
+      navButton={navButton}
       deleteCategory={deleteCategory}
       deleteAppointment={deleteAppointment}
       categoryToggleState={categoryToggleState}
