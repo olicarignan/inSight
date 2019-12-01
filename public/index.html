@@ -31,6 +31,29 @@
     <title>inSight</title>
   </head>
   <body>
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/7.5.0/firebase-analytics.js"></script>
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyA_kR5Dlh6ljl8XmKUP4ryAAtJ_b6AwO2A",
+    authDomain: "insight-f6cb8.firebaseapp.com",
+    databaseURL: "https://insight-f6cb8.firebaseio.com",
+    projectId: "insight-f6cb8",
+    storageBucket: "insight-f6cb8.appspot.com",
+    messagingSenderId: "145148467694",
+    appId: "1:145148467694:web:ae501519fdfcfec8f396ff",
+    measurementId: "G-FDDYXVVKDG"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  firebase.analytics();
+</script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <!--

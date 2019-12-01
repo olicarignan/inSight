@@ -159,11 +159,13 @@ export default function useApplicationData() {
 
 	
 	function setCalendarEvents(appointments) {
+		console.log(appointments)
 		let calendarEvents = appointments.map(appointment => {
 
 			if (appointment.toggle === true) {
 				console.log(appointment)
 				return {
+					category_name: appointment.category_name,
 					id: appointment.id,
 					title: appointment.appointment_name,
 					start: new Date(appointment.start_date),

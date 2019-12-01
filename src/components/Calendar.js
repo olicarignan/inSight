@@ -23,7 +23,7 @@ export default function Calendar(props) {
 
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
-    console.log(eventInfo)
+    console.log(eventInfo.extendedProps.category_name)
     // setShowEventInfo(true)
     // console.log(info.event)
     Swal.fire({

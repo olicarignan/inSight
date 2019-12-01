@@ -19,8 +19,13 @@
   padding: 2rem;
 }
 
-.dropdown {
-  width: !important 100%;
+.btn:not(:disabled):not(.disabled) {
+  width: 100%;
+}
+
+element.style {
+  width: 100%;
+  margin-left: 1.2em;
 }
 
 .form-register {
