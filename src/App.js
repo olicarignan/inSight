@@ -67,6 +67,7 @@ function App() {
       });
       return all[1]
     }).then(res => {
+      console.log(res.data)
       setCalendarEvents(res.data)
     })
     .catch(error => console.log(error));

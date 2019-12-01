@@ -17,6 +17,7 @@ export default function NewAppointment(props) {
 	const [ appointment_small_note, setappointment_small_note ] = useState('');
 	const [ user_id, setUserId ] = useState('');
 
+
 	function newAppointment(event) {
 		event.preventDefault();
 
@@ -27,6 +28,7 @@ export default function NewAppointment(props) {
 		// 		user_id
 		// 	};
 			const appointment = {
+				category_name,
 				start_date,
 				end_date,
 				appointment_name,
@@ -42,8 +44,6 @@ export default function NewAppointment(props) {
 				console.log('it worked new appointment form', res);
 			}).catch(e => console.log(e))
 		}
-
-		console.log(props.categories)
 
 		const categoryOptions = props.categories.map(category => {
 			return (
@@ -193,7 +193,7 @@ export default function NewAppointment(props) {
                {category_name}
              </Dropdown.Toggle>
            
-             <Dropdown.Menu>
+             <Dropdown.Menu className='dropdown'>
 							 {categoryOptions}
              </Dropdown.Menu>
 						 
