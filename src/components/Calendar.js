@@ -23,7 +23,12 @@ export default function Calendar(props) {
 
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
-    console.log(eventInfo)
+    let categoryName = props.categories.filter(category => {
+      if(category.id === eventInfo.groupId) {
+        eventInfo.url = category.category_name
+      }
+    })
+    console.log("event infooooooo",eventInfo)
     // setShowEventInfo(true)
     // console.log(info.event)
     Swal.fire({
@@ -41,7 +46,23 @@ export default function Calendar(props) {
       <td>Start Time</td>
       <td><strong>
       ` +
-      eventInfo.title +
+      eventInfo.start +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>End Time</td>
+      <td><strong>
+      ` +
+      eventInfo.end +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>Category</td>
+      <td><strong>
+      ` +
+      categoryName +
         `
       </strong></td>
       </tr>

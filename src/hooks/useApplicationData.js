@@ -170,7 +170,7 @@ export default function useApplicationData() {
 					end: new Date(appointment.end_date),
 					allDay: appointment.allDay,
 					groupId: appointment.category_id,
-					toggle: appointment.toggle
+          toggle: appointment.toggle
 				} 
 				} else {
 					return {};
