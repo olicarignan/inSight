@@ -6,7 +6,8 @@ import Nav from '../nav/nav';
 import Dante from 'Dante2';
 import './newText.scss';
 
-  
+export default function Editor(props) {
+
 const  [ text, setText ] = useState(" ")
 
   props.setNavButton('back to notes')
