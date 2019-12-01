@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import EditorJS from '@editorjs/editorjs';
 import './new-appointment-form.scss';
-import { Button, Modal } from 'react-bootstrap';
+import { Button, Modal, Dropdown } from 'react-bootstrap';
 
 export default function NewAppointment(props) {
 	const [ start_date, setStart_date ] = useState(0);
@@ -11,9 +11,9 @@ export default function NewAppointment(props) {
 	const [ appointment_name, setappointment_name ] = useState('');
 	const [ appointment_category, setappointment_category ] = useState('');
 	const [ location, setAppointmentLocation ] = useState('');
-	const [ category_name, setCategoryName ] = useState('');
 	const [ colour, setColour ] = useState('');
 	const [ category_id, setCategoryId ] = useState('');
+	const [ category_name, setCategoryName] = useState('categories')
 	const [ appointment_small_note, setappointment_small_note ] = useState('');
 	const [ user_id, setUserId ] = useState('');
 
@@ -43,6 +43,16 @@ export default function NewAppointment(props) {
 			}).catch(e => console.log(e))
 		}
 
+		console.log(props.categories)
+
+		const categoryOptions = props.categories.map(category => {
+			return (
+				<Dropdown.Item onClick={() => {
+					setCategoryId(category.id)
+				  setCategoryName(category.category_name)}}>{category.category_name}</Dropdown.Item>
+			)
+		})
+
 	return (
 		<body>
 			<div className="container">
@@ -71,7 +81,7 @@ export default function NewAppointment(props) {
 							/>
 							<label for="inputStartDate">Start Date</label>
 						</div>
-						<div className="form-label-group">
+						{/* <div className="form-label-group">
 							<input
 								value={start_time}
 								onChange={(event) => {
@@ -85,7 +95,7 @@ export default function NewAppointment(props) {
 								autofocus
 							/>
 							<label for="inputStartTime">Start Time</label>
-						</div>
+						</div> */}
 						<hr className="my-4" />
 						<div className="form-label-group">
 							<input
@@ -101,7 +111,7 @@ export default function NewAppointment(props) {
 								autofocus
 							/>
 							<label for="inputEndDate">End Date</label>
-						</div>
+						{/* </div>
 						<div className="form-label-group">
 							<input
 								value={end_time}
@@ -116,7 +126,7 @@ export default function NewAppointment(props) {
 								autofocus
 							/>
 							<label for="inputEndtTime">End Time</label>
-						</div>
+						</div> */}
 						<hr className="my-4" />
 						<div className="form-label-group">
 							<input
@@ -165,7 +175,7 @@ export default function NewAppointment(props) {
 							/>
 							<label for="inputNotes">Little Note</label>
 						</div>
-						<div className="form-label-group">
+						{/* <div className="form-label-group">
 							<input
 								value={category_id}
 								onChange={(event) => {
@@ -177,7 +187,17 @@ export default function NewAppointment(props) {
 								placeholder="Notes"
 							/>
 							<label for="category_id">Category id</label>
-						</div>
+						</div> */}
+						<Dropdown className='dropdown'>
+             <Dropdown.Toggle variant="success" id="dropdown-basic">
+               {category_name}
+             </Dropdown.Toggle>
+           
+             <Dropdown.Menu>
+							 {categoryOptions}
+             </Dropdown.Menu>
+						 
+           </Dropdown>
 						{/* <div className="form-label-group">
 							<input
 								value={user_id}
@@ -201,6 +221,7 @@ export default function NewAppointment(props) {
 						>
 							Cancel
 						</button>
+						</div>
 					</form>
 				</div>
 			</div>

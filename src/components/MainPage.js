@@ -21,7 +21,6 @@ const EMPTY = 'EMPTY';
 
 export default function MainPage(props) {
 
-  console.log(props.user)
 
   
 
@@ -33,6 +32,7 @@ export default function MainPage(props) {
       userLogout={props.userLogout}/>
       <div className="main-container">
         <SideBar
+        deleteCategory={props.deleteCategory}
         categoryToggleState={props.categoryToggleState}
         appointments={props.appointments}
         setToggle={props.setToggle}
@@ -43,6 +43,8 @@ export default function MainPage(props) {
         />
         <div className="calendar-div">
           <Calendar
+          categories={props.categories}
+          deleteAppointment={props.deleteAppointment}
           calendarEvents={props.calendarEvents}
           categories={props.categories}
           user={props.user}

@@ -36,7 +36,9 @@ function App() {
           addCategory,
           showCategory,
           setCalendarEvents,
-          setToggle} = useApplicationData();
+          setToggle,
+          deleteAppointment,
+          deleteCategory} = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -80,8 +82,6 @@ function App() {
     return categoryToggle
   })
 
-  console.log(categoryToggleState)
-
 
   const categoryList = state.categories.map( category => {
     return (
@@ -98,6 +98,8 @@ function App() {
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
         {categoryList}
       <PrivateRoute path="/main" component={MainPage}
+      deleteCategory={deleteCategory}
+      deleteAppointment={deleteAppointment}
       categoryToggleState={categoryToggleState}
       appointments={state.appointments}
       setToggle={setToggle}
