@@ -4,7 +4,7 @@ import ReactTooltip from 'react-tooltip'
 
 export default function Nav (props) {
 
-  console.log(props)
+  let {user, notes, userLogout} = props;
 
   const navButton = (buttonState) => {
     if (buttonState === '+') {
@@ -38,11 +38,11 @@ export default function Nav (props) {
   return (
     <nav className='navbar'>
      {navButton(props.navButton)}
-      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{props.user.email}
+      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{user.email}
       <ReactTooltip place="bottom" id="logout" clickable={true} effect="solid" isCapture='true'>
       <button className="logout" onClick={() => {
         console.log('sup')
-        props.userLogout()}}><a className="logout" href="#">logout</a></button>
+        userLogout()}}><a className="logout" href="#">logout</a></button>
       </ReactTooltip>
       </a>
       </nav>

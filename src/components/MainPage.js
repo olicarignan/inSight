@@ -49,9 +49,6 @@ export default function MainPage(props) {
           addAppointment={props.addAppointment} />
         </div>
       </div>
-        {/* <div>
-          <Editor/>  
-        </div>  */}
     </div>
   </div>
   );
