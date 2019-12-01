@@ -62,9 +62,11 @@ export default function Calendar(props) {
       cancelButtonText: "Close"
     }).then(result => {
       if (result.value) {
-        axios.delete(`/api/appointments/${props.user_id}`).then((res) =>{
-          console.log("im inside the axios delete")
-        })
+        props.deleteAppointment(eventInfo.id)
+        // axios.delete(`/api/appointments/${props.user_id}`).then((res) =>{
+        //   console.log("im inside the axios delete")
+        // })
+
         console.log("after axios")
         eventInfo.remove()
         Swal.fire("Deleted!", "Your Event has been deleted.", "success");
@@ -96,6 +98,7 @@ export default function Calendar(props) {
           <NewAppointment
             // setEventState={setEventState}
             // eventState={eventState}
+           categories={props.categories}
            setShow={setShow}
            addAppointment={props.addAppointment}
            categories={props.categories}

@@ -23,9 +23,9 @@ export default function CategoryList(props) {
       }
     })
 
-    console.log(category)
     return (
       <CategoryListItem
+      deleteCategory={props.deleteCategory}
       appointments={props.appointments}
       showCategory={props.showCategory}
       key={category.id}
