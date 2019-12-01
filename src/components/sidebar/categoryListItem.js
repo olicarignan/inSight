@@ -31,7 +31,7 @@ export default function CategoryListItem(props) {
           onClick={() => props.showCategory(props.name)}>
             {props.name}
         </span> */}
-        <Link to={`/${props.name}`} >{props.name}</Link>
+        <Link to={`/categories/${props.category.id}`} >{props.name}</Link>
         <div className="test" data-event='click' data-tip data-for="clickme" onClick={() => console.log('toggle menu')}>
         <ReactTooltip place="right" id='clickme' clickable={true} effect="solid" isCapture={true}>
           <button onClick={() => console.log('edit')}>edit</button>
