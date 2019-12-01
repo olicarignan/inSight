@@ -1,11 +1,8 @@
 
 import React, { useState } from 'react';
 import { EDITOR_JS_TOOLS } from './editor-tools.js';
-import React, {useState} from 'react';
 import EditorJs from 'react-editor-js';
-import { EDITOR_JS_TOOLS } from './editor-tools.js'
 import Nav from '../nav/nav';
-import "./newText.scss"
 import Dante from 'Dante2';
 import './newText.scss';
 
