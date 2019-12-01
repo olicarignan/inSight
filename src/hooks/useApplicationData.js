@@ -146,6 +146,7 @@ export default function useApplicationData() {
 	
 	function setCalendarEvents(appointments) {
 		let calendarEvents = appointments.map(appointment => {
+
 			if (appointment.toggle === true) {
 				console.log(appointment)
 				return {
