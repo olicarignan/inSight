@@ -28,7 +28,7 @@ export default function Nav (props) {
         )
     } else if (buttonState === 'back to category') {
       return (
-        <a href={`/categories/${props.category.category_id}`} className="menuButton" id="menuButton">
+        <a href={`/categories/${props.category_id}`} className="menuButton" id="menuButton">
         ⟵
       </a>
         )

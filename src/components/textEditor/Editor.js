@@ -16,37 +16,18 @@ export default function Editor(props) {
 `;
 
 let saveHandler = (editorContext, content) => {
-	console.log(editorContext, content)
+  console.log(editorContext, content)
 	if (props.onChange) {
 		props.onChange(content)
-	}
+  }
+}
+  
   
   if (props.note) {
     props.setNavButton('back to notes')
   } else {
     props.setNavButton('back to category')
   }
-
-  console.log(props)
-
-  return(
-    <main>
-    <Nav
-    category={props.category}
-    note={props.note}
-    user={props.user}
-    navButton={props.navButton}
-    />
-    <form className="text-editor" onSubmit={(event) => event.preventDefault() }>
-    
-    <Dante content={null}  />
-     
-      <button className="text-editor-button" onClick={() => console.log("save")}> Save </button>
-      <button className="text-editor-button-delete btn-danger" onClick={() => console.log("delete")} >Delete</button>
-    </form>
-    </main>
-  )
-}
 
 	return (
 		<main>

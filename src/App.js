@@ -96,7 +96,7 @@ function App() {
 
   const newNoteByCategory = state.categories.map( category => {
     return (
-      <Route path={`/categories/${category.id}/new`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} category={category}/>}/>
+      <Route path={`/categories/${category.id}/new`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} category_id={category.id}/>}/>
     )
   })
 
