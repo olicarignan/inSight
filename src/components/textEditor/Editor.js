@@ -8,13 +8,18 @@ import './newText.scss';
 
 export default function Editor(props) {
 
+  if (props.note) {
+    props.setNavButton('back to notes')
+  } else {
+    props.setNavButton('back to category')
+  }
 
-  props.setNavButton('back to notes')
   console.log(props)
 
   return(
     <main>
     <Nav
+    category={props.category}
     note={props.note}
     user={props.user}
     navButton={props.navButton}
