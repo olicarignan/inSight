@@ -49,8 +49,11 @@ export default function MainPage(props) {
           categories={props.categories}
           user={props.user}
           addAppointment={props.addAppointment} />
-        </div> 
+        </div>
       </div>
+        <div>
+          <Editor/>  
+        </div> 
     </div>
   </div>
   );
