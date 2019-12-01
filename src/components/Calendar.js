@@ -113,6 +113,7 @@ export default function Calendar(props) {
   return (
     <div className="calendar">
     <FullCalendar
+     timeZone={"EST"}
      eventClick={HandleEventClick}
      defaultView="dayGridMonth" 
      plugins={[ dayGridPlugin, interactionPlugin ]}
