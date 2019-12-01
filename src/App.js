@@ -53,10 +53,10 @@ function App() {
       console.log(res)
       const categories = axios.get(`/api/categories/${res.id}`);
       const appointments = axios.get(`/api/appointments/${res.id}`);
-      const notes = axios.get(`/api/notes/`);
+      const notes = axios.get(`/api/notes/${res.id}`);
 
     Promise.all([categories, appointments, notes]).then(all => {
-      console.log(all[0])
+      console.log(all)
       dispatch({
         type: SET_APPLICATION_DATA,
         categories: all[0].data,
@@ -90,9 +90,16 @@ function App() {
 
   const categoryList = state.categories.map( category => {
     return (
-      <Route path={`/categories/${category.id}`} component={() => <ShowNotes navButton={navButton} setNavButton={setNavButton}user={state.user} notes={state.notes}/>}/>
+      <Route path={`/categories/${category.id}`} component={() => <ShowNotes navButton={navButton} setNavButton={setNavButton}user={state.user} category={category} notes={state.notes}/>}/>
     )
   })
+
+  const newNoteByCategory = state.categories.map( category => {
+    return (
+      <Route path={`/categories/${category.id}/new`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} category={category}/>}/>
+    )
+  })
+
 
   const [ navButton, setNavButton ] = useState('+')
 
@@ -103,6 +110,7 @@ function App() {
         () => <LoginPage  userLogin={userLogin} isAuthenticated={state.isAuthenticated} />}/>
       <Route path="/register" render={
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
+        {newNoteByCategory}
         {categoryList}
         {notesList}
       <PrivateRoute path="/main" component={MainPage}
