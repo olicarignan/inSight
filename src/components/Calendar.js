@@ -24,7 +24,6 @@ export default function Calendar(props) {
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
     console.log(eventInfo.extendedProps.category_name)
-    // setShowEventInfo(true)
     // console.log(info.event)
     Swal.fire({
       title: eventInfo.title,
@@ -32,16 +31,43 @@ export default function Calendar(props) {
         `<div class="table-responsive">
       <table class="table">
       <tbody>
-      <td>Title</td>
-      <td><strong>` +
-      eventInfo.title +
-        `</strong></td>
-      </tr>
       <tr >
       <td>Start Time</td>
       <td><strong>
       ` +
-      eventInfo.title +
+      eventInfo.start +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>End Time</td>
+      <td><strong>
+      ` +
+      eventInfo.end +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>Category</td>
+      <td><strong>
+      ` +
+      eventInfo.extendedProps.category_name +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>Location</td>
+      <td><strong>
+      ` +
+      eventInfo.extendedProps.location +
+        `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>Note</td>
+      <td><strong>
+      ` +
+      eventInfo.extendedProps.small_note +
         `
       </strong></td>
       </tr>

@@ -165,6 +165,8 @@ export default function useApplicationData() {
 			if (appointment.toggle === true) {
 				console.log(appointment)
 				return {
+          location: appointment.location,
+          small_note: appointment.appointment_small_note,
 					category_name: appointment.category_name,
 					id: appointment.id,
 					title: appointment.appointment_name,
@@ -172,7 +174,7 @@ export default function useApplicationData() {
 					end: new Date(appointment.end_date),
 					allDay: appointment.allDay,
 					groupId: appointment.category_id,
-					toggle: appointment.toggle
+          toggle: appointment.toggle
 				} 
 				} else {
 					return {};
