@@ -6,7 +6,8 @@ import dataReducer, {
 	SET_SHOW_CATEGORY,
 	SET_ADD_CATEGORY,
 	SET_ADD_APPOINTMENT,
-	SET_CALENDAR_EVENTS
+	SET_CALENDAR_EVENTS,
+	SET_TOGGLE
 } from "../reducers/dataReducer";
 
 export default function useApplicationData() {
@@ -92,7 +93,8 @@ export default function useApplicationData() {
     token: "",
 		isAuthenticated: false,
 		showCategory: false,
-    loading: true
+		loading: true,
+		calendarEvents: []
   });
 
   function authUser(token) {
@@ -116,19 +118,51 @@ export default function useApplicationData() {
       }
     });
 	}
+
+	function setToggle(category) {
+		axios.get((`/api/appointments/${state.user.id}/category/${category.id}`)).then(res => {
+			let toggleTrue = res.data.filter(appointment => {
+				if(appointment.toggle === true) {
+					axios.put(`/api/appointments/${state.user.id}/category/${category.id}/true`)
+							 .then((res) => {
+								 let appointment = res.data
+								 let calendarEvents = state.calendarEvents
+								 dispatch({type:SET_TOGGLE, appointment, calendarEvents})
+							 })
+							 .catch(e => {console.log(e)})
+				} else {
+					axios.put(`/api/appointments/${state.user.id}/category/${category.id}/false`)
+							 .then((res) => {
+								 let appointment = res.data
+								 let calendarEvents = state.calendarEvents
+								 dispatch({type: SET_TOGGLE, appointment, calendarEvents})
+							 })
+							 .catch(e => {console.log(e)})
+				}
+			})
+		}).then(setCalendarEvents(state.appointments))
+	}
+
 	
 	function setCalendarEvents(appointments) {
 		let calendarEvents = appointments.map(appointment => {
-			console.log(appointment)
-			return {
-				title: appointment.appointment_name,
-				start: new Date(appointment.start_date),
-				end: new Date(appointment.end_date),
-				allDay: false
-			}
-		})
-		dispatch({type:SET_CALENDAR_EVENTS, calendarEvents})
-	}
+			if (appointment.toggle === true) {
+				console.log(appointment)
+				return {
+					id: appointment.id,
+					title: appointment.appointment_name,
+					start: new Date(appointment.start_date),
+					end: new Date(appointment.end_date),
+					allDay: appointment.allDay,
+					groupId: appointment.category_id,
+					toggle: appointment.toggle
+				} 
+				} else {
+					return {};
+				}
+			})
+			dispatch({type:SET_CALENDAR_EVENTS, calendarEvents})
+		}
 
   // useEffect(() => {
 
@@ -158,6 +192,7 @@ export default function useApplicationData() {
 		authUser,
 		addCategory,
 		showCategory,
-		setCalendarEvents
+		setCalendarEvents,
+		setToggle
   };
 }

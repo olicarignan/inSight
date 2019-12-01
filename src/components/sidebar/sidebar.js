@@ -8,8 +8,11 @@ export default function SideBar (props) {
   return (
     <aside className="sidebar">
       <CategoryList
+      categoryToggleState={props.categoryToggleState}
+      appointments={props.appointments}
       showCategory={props.showCategory}
       categories={props.categories}
+      setToggle={props.setToggle}
       />
       <NewCategory
       addCategory={props.addCategory}
