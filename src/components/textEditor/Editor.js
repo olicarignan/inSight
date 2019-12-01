@@ -8,7 +8,6 @@ import './newText.scss';
 
 export default function Editor(props) {
 
-const  [ text, setText ] = useState(" ")
 
   props.setNavButton('back to notes')
   console.log(props)
@@ -22,7 +21,7 @@ const  [ text, setText ] = useState(" ")
     />
     <form className="text-editor" onSubmit={(event) => event.preventDefault() }>
     
-    <Dante content={null}  />;
+    <Dante content={null}  />
      
       <button className="text-editor-button" onClick={() => console.log("save")}> Save </button>
       <button className="text-editor-button-delete btn-danger" onClick={() => console.log("delete")} >Delete</button>
