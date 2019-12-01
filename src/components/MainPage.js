@@ -15,19 +15,17 @@ import {
 } from "react-router-dom";
 import NewAppointment from './appointment/new-appointment-form';
 
-
 const SHOW = 'SHOW'
 const EMPTY = 'EMPTY';
 
 export default function MainPage(props) {
-
-
   
 
   return (
     <div>
       <div className="App">
        <Nav
+       navButton={props.navButton}
       user={props.user}
       userLogout={props.userLogout}/>
       <div className="main-container">
