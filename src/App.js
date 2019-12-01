@@ -35,7 +35,8 @@ function App() {
           authUser,
           addCategory,
           showCategory,
-          setCalendarEvents} = useApplicationData();
+          setCalendarEvents,
+          setToggle} = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -72,6 +73,16 @@ function App() {
 
   console.log(state)
 
+  const categoryToggleState = state.appointments.map(appointment => {
+    let categoryToggle = {}
+    let category = appointment.category_id;
+    categoryToggle[category] = appointment.toggle
+    return categoryToggle
+  })
+
+  console.log(categoryToggleState)
+
+
   const categoryList = state.categories.map( category => {
     return (
       <Route path={`/${category.category_name}`} component={() => <NotesList user={state.user} notes={state.notes}/>}/>
@@ -87,6 +98,9 @@ function App() {
         () => <RegisterPage addUser={addUser} isAuthenticated={state.isAuthenticated} />}/>
         {categoryList}
       <PrivateRoute path="/main" component={MainPage}
+      categoryToggleState={categoryToggleState}
+      appointments={state.appointments}
+      setToggle={setToggle}
       calendarEvents={state.calendarEvents}
       showCategory={showCategory}
       addCategory={addCategory} 

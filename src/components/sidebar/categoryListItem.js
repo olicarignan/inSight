@@ -14,13 +14,17 @@ import {
 
 export default function CategoryListItem(props) {
 
+  // const [toggle, setToggle] = useState(true)
   return (
-    
       <span className="badge">
         <Toggle
-          defaultChecked={console.log("checked")}
+        defaultChecked={props.toggle}
+          onChange={function(e) {if(e.target.checked) {
+            props.setToggle(props.category)
+          } else {
+            props.setToggle(props.category)
+          }}}
           icons={false}
-          onChange={() => console.log("checked")}
         />
         {/* <span
           className="categoryTitle"

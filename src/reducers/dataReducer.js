@@ -8,6 +8,7 @@ export const SET_SHOW_CATEGORY = 'SET_SHOW_CATEGORY'
 export const SET_CALENDAR_EVENTS = 'SET_CALENDAR_EVENTS';
 export const SET_ADD_CATEGORY = 'SET_ADD_CATEGORY';
 export const SET_ADD_APPOINTMENT = 'SET_ADD_APPOINTMENT';
+export const SET_TOGGLE = 'SET_TOGGLE';
 
 
 export default function dataReducer (state, action)  {
@@ -60,6 +61,13 @@ export default function dataReducer (state, action)  {
         ...state,
         calendarEvents: [...action.calendarEvents]
       }
+    case SET_TOGGLE: {
+      return {
+        ...state,
+        appointments: [...state.appointments, action.appointment],
+        calendarEvents: [...action.calendarEvents]
+      }
+    }
     default:
       console.log("Unkown type in reducer");
       return state;

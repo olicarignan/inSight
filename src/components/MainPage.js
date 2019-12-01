@@ -33,6 +33,9 @@ export default function MainPage(props) {
       userLogout={props.userLogout}/>
       <div className="main-container">
         <SideBar
+        categoryToggleState={props.categoryToggleState}
+        appointments={props.appointments}
+        setToggle={props.setToggle}
         showCategory={props.showCategory} 
         user={props.user}
         addCategory={props.addCategory}

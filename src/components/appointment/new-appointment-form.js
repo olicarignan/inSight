@@ -28,14 +28,14 @@ export default function NewAppointment(props) {
 		// 	};
 			const appointment = {
 				start_date,
-				start_time,
 				end_date,
-				end_time,
 				appointment_name,
 				category_id,
 				location,
+				toggle: true,
 				user_id: props.user_id,
-				appointment_small_note
+				appointment_small_note,
+				allday: false
 			};
 			console.log(appointment)
 			return props.addAppointment(appointment).then((res) => {
@@ -62,7 +62,7 @@ export default function NewAppointment(props) {
 								onChange={(event) => {
 									setStart_date(event.target.value);
 								}}
-								type="date"
+								type="datetime-local"
 								id="inputStartDate"
 								className="form-control start-date"
 								placeholder="Start Date"
@@ -93,7 +93,7 @@ export default function NewAppointment(props) {
 								onChange={(event) => {
 									setend_date(event.target.value);
 								}}
-								type="date"
+								type="datetime-local"
 								id="inputEndDate"
 								className="form-control end-date"
 								placeholder="End Date"
