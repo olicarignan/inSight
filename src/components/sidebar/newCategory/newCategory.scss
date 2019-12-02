@@ -24,24 +24,28 @@
   box-shadow: 0 0 2px 1pt blue;
 }
 
+#dropdown-basic {
+  width: 100%;
+  border-radius: 10vw;
+  flex-grow: 1;
+}
+
 .category__actions {
   display: flex;
   justify-content: space-between;
   margin: 1em;
-  Button{
     width: 8em;
     margin-top: -0.5em;
     border-radius: 5vw;
     font-weight: 600;
-  }
-  Button:hover {
-    background-color: lightgray;
-  }
-  Button:active {
-    -webkit-box-shadow: inset 0 0 3px darkgrey;
-  }
-  Button:focus {
-    outline: none;
-    box-shadow: 0 0 2px 1pt blue;
-  }
+}
+.category__actions:hover {
+  background-color: lightgray;
+}
+.category__actions:active {
+  -webkit-box-shadow: inset 0 0 3px darkgrey;
+}
+.category__actions:focus {
+  outline: none;
+  box-shadow: 0 0 2px 1pt blue;
 }

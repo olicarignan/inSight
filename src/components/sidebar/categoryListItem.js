@@ -14,9 +14,11 @@ import {
 
 export default function CategoryListItem(props) {
 
+  console.log(props)
+
   // const [toggle, setToggle] = useState(true)
   return (
-      <span className="badge">
+      <span className="badge" id={props.colour}>
         <Toggle
         defaultChecked={props.toggle}
           onChange={function(e) {if(e.target.checked) {
@@ -32,10 +34,12 @@ export default function CategoryListItem(props) {
             {props.name}
         </span> */}
         <Link to={`/categories/${props.category.id}`} >{props.name}</Link>
-        <div className="test" data-event='click' data-tip data-for="clickme" onClick={() => console.log('toggle menu')}>
-        <ReactTooltip place="right" id='clickme' clickable={true} effect="solid" isCapture={true}>
+        <div className="test" data-event='click' data-tip data-for={props.category.id.toString()} onClick={() => console.log('toggle menu',props.category.category_name)}>
+        <ReactTooltip place="right" id={props.category.id.toString()} clickable={true} effect="solid" isCapture={true}>
           <button onClick={() => console.log('edit')}>edit</button>
-          <button onClick={() => props.deleteCategory(props.category)}>delete</button>
+          <button onClick={() => {
+            console.log('delete category', props.category.category_name)
+                        props.deleteCategory(props.category)}}>delete</button>
           </ReactTooltip>
         </div>
       </span>

@@ -5,6 +5,8 @@ import NewCategory from './newCategory/newCategory';
 
 export default function SideBar (props) {
 
+  console.log(props)
+
   return (
     <aside className="sidebar">
       <CategoryList
@@ -16,6 +18,7 @@ export default function SideBar (props) {
       setToggle={props.setToggle}
       />
       <NewCategory
+      colours={props.colours}
       addCategory={props.addCategory}
       user={props.user} />
       </aside>

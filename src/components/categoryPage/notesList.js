@@ -9,18 +9,22 @@ export default function NotesList(props) {
   console.log(props)
 
   const notesList = notes.map( note => {
-    return (
-      <div>
-      <NotesListItem className='noteslist'
-      deleteNote={props.deleteNote}
-      note={note}
-      id={note.id}
-      title={note.note_title}
-      date={note.created_at}
-      content={note.note_preview}
-      />
-      </div>
-    )
+    if (note.category_id === props.category.id) {
+      return (
+        <div>
+        <NotesListItem className='noteslist'
+        category={props.category}
+        deleteNote={props.deleteNote}
+        note={note}
+        id={note.id}
+        title={note.note_title}
+        date={note.created_at}
+        content={note.note_preview}
+        />
+        </div>
+      )
+
+    }
   })
   return notesList;
 }

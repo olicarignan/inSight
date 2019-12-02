@@ -67,11 +67,13 @@ function App() {
       return all[1]
     }).then(res => {
       console.log(res.data)
-      setCalendarEvents(res.data)
+      // setCalendarEvents(res.data)
     })
     .catch(error => console.log(error));
     })
   }, [])
+
+  const colours = ['red', 'blue', 'yellow', 'purple', 'green'];
 
   console.log(state)
 
@@ -115,6 +117,7 @@ function App() {
         {categoryList}
         {notesList}
       <PrivateRoute path="/main" component={MainPage}
+      colours={colours}
       navButton={navButton}
       deleteCategory={deleteCategory}
       deleteAppointment={deleteAppointment}
