@@ -7,6 +7,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import Axios from "axios";
 
 export default function NotesListItem(props) {
   console.log(props)
@@ -14,7 +15,7 @@ export default function NotesListItem(props) {
     <main className="note_card" onClick={console.log('open note')}>
     <section className="left-side__card"> 
     <h2>
-      <Link to={`/notes/${props.id}`}>{props.title}</Link>
+      <Link to={`/notes/note/${props.id}`}>{props.title}</Link>
     </h2>
     <p>{props.content}</p>
     </section>
@@ -23,15 +24,11 @@ export default function NotesListItem(props) {
       <div className="icons">
       <img
       className="edit_button"
-      src="/edit-solid.svg"
-      alt="edit"
-      onClick={() => console.log('edit')}
-      ></img>
-      <img
-      className="edit_button"
       src="/trash-solid.svg"
       alt="delete" 
-      onClick={() => console.log('delete')}
+      onClick={() => {
+        props.deleteNote(props.note.category_id, props.id)
+      }}
       ></img>
       </div>
     </section>

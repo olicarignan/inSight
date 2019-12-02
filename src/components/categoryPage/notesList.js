@@ -6,12 +6,14 @@ export default function NotesList(props) {
 
   const notes = props.notes;
 
-  console.log(notes)
+  console.log(props)
 
   const notesList = notes.map( note => {
     return (
       <div>
       <NotesListItem className='noteslist'
+      deleteNote={props.deleteNote}
+      note={note}
       id={note.id}
       title={note.note_title}
       date={note.created_at}
