@@ -30,6 +30,7 @@ export default function MainPage(props) {
       userLogout={props.userLogout}/>
       <div className="main-container">
         <SideBar
+        colours={props.colours}
         deleteCategory={props.deleteCategory}
         categoryToggleState={props.categoryToggleState}
         appointments={props.appointments}

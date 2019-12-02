@@ -31,7 +31,7 @@ export default function CategoryList(props) {
       key={category.id}
       category={category}
       name={category.category_name}
-      colour={props.colour}
+      colour={category.colour}
       notes={props.notes}
       setToggle={props.setToggle}
       toggle={category.toggle}

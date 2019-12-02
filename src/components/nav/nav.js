@@ -32,7 +32,7 @@ export default function Nav (props) {
   return (
     <nav className='navbar'>
      {navButton(props.navButton)}
-      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{user.email}
+      <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{user.first_name}
       <ReactTooltip place="bottom" id="logout" clickable={true} effect="solid" isCapture='true'>
       <button className="logout" onClick={() => {
         console.log('sup')

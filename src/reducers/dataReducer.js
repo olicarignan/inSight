@@ -9,6 +9,8 @@ export const SET_CALENDAR_EVENTS = 'SET_CALENDAR_EVENTS';
 export const SET_ADD_CATEGORY = 'SET_ADD_CATEGORY';
 export const SET_ADD_APPOINTMENT = 'SET_ADD_APPOINTMENT';
 export const SET_TOGGLE = 'SET_TOGGLE';
+export const SET_DELETE_CATEGORY = 'SET_DELETE_CATEGORY';
+export const SET_DELETE_NOTE = 'SET_DELETE_NOTE';
 
 
 export default function dataReducer (state, action)  {
@@ -66,6 +68,24 @@ export default function dataReducer (state, action)  {
         ...state,
         appointments: [...state.appointments, action.appointment],
         calendarEvents: [...action.calendarEvents]
+      }
+    }
+    case SET_DELETE_CATEGORY: {
+
+      const updatedCategories = state.categories.filter(category => category.id !== action.category_id)
+
+      return {
+        ...state,
+        categories: updatedCategories
+      }
+    }
+    case SET_DELETE_NOTE: {
+
+      const updatedNotes = state.notes.filter(note => note.id !== action.note_id)
+
+      return {
+        ...state,
+        notes: updatedNotes
       }
     }
     default:

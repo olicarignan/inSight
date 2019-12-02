@@ -7,7 +7,9 @@ import dataReducer, {
 	SET_ADD_CATEGORY,
 	SET_ADD_APPOINTMENT,
 	SET_CALENDAR_EVENTS,
-	SET_TOGGLE
+  SET_TOGGLE,
+  SET_DELETE_CATEGORY,
+  SET_DELETE_NOTE
 } from "../reducers/dataReducer";
 
 export default function useApplicationData() {
@@ -34,13 +36,16 @@ export default function useApplicationData() {
 
 	function deleteCategory(category) {
 		return axios.delete(`/api/categories/${state.user.id}/categories/${category.id}`)
-								.then(res => console.log(res, ' category deleted'))
+                .then(res => {console.log(category.category_name, ' category deleted')
+                dispatch({type: SET_DELETE_CATEGORY, category_id: category.id})})
 								.catch(error => console.log(error))
   }
   
   function deleteNote(category_id, note_id) {
     return axios.delete(`/api/notes/${state.user.id}/categories/${category_id}/${note_id}`)
-         .then(res => console.log('note deleted'))
+         .then(res => {
+           dispatch({type: SET_DELETE_NOTE, note_id: note_id})
+           console.log('note deleted')})
   }
 
 	function deleteAppointment(appointment_id) {
@@ -59,7 +64,9 @@ export default function useApplicationData() {
     return axios.post(`/api/appointments/${appointment.user_id}`, appointment).then(res => {
       console.log(res.data);
       if (res.data) {
+        console.log('adding appointment')
         dispatch({type: SET_ADD_APPOINTMENT, appointment: res.data[0]})
+        setCalendarEvents(res.data)
       }
     });
   }

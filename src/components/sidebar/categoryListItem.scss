@@ -146,9 +146,28 @@
   border-radius: 5vw;
   display: flex;
   justify-content: space-between;
-  background-color: #EF3340;
   color: #FAFAFA;
   margin: 1em;
+}
+
+#red{
+  background-color: #F23E4A;
+}
+
+#blue{
+  background-color: #36A7D1;
+}
+
+#yellow{
+  background-color: #F9CE20
+}
+
+#purple{
+  background-color: #702870
+}
+
+#green {
+  background-color: #33CA7F
 }
 
 .badge:active {

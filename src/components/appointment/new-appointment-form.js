@@ -11,13 +11,12 @@ export default function NewAppointment(props) {
 	const [ appointment_name, setappointment_name ] = useState('');
 	const [ appointment_category, setappointment_category ] = useState('');
 	const [ location, setAppointmentLocation ] = useState('');
-	const [ colour, setColour ] = useState('');
 	const [ category_id, setCategoryId ] = useState('');
 	const [ category_name, setCategoryName] = useState('categories')
 	const [ appointment_small_note, setappointment_small_note ] = useState('');
 	const [ user_id, setUserId ] = useState('');
 
-
+	console.log(props)
 	function newAppointment(event) {
 		event.preventDefault();
 
@@ -55,7 +54,7 @@ export default function NewAppointment(props) {
 
 	return (
 		<body>
-			<div className="container">
+			<div className="container"> 
 				<div className="card-body">
 					<h5 className="card-title text-center">New Appointment</h5>
 
