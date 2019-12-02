@@ -1,6 +1,7 @@
 import React ,{ useState } from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
+import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from "@fullcalendar/interaction"; // needed for dayClick
 import { Button, Modal } from 'react-bootstrap';
 import NewAppointment from '../components/appointment/new-appointment-form';
@@ -141,12 +142,18 @@ export default function Calendar(props) {
     <FullCalendar
      timeZone={"EST"}
      eventClick={HandleEventClick}
-     defaultView="dayGridMonth" 
-     plugins={[ dayGridPlugin, interactionPlugin ]}
+     defaultView="timeGridWeek" 
+     header={{
+      right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
+      left: 'prev,next today',
+     }}
+     plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
      weekends={true}
      dateClick={() => handleDateClick()}
      ref={calendarComponentRef}
      events={props.calendarEvents}
+     allDayDefault={false}
+     themeSystem="Litera"
       >
     </FullCalendar>
     <div>
