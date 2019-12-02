@@ -1,5 +1,6 @@
 @import '~@fullcalendar/core/main.css';
 @import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
 
 .calendar {
   max-width: 56vw;
@@ -23,3 +24,10 @@
 .swal2-confirm{
   border-radius: 5rem;
 }
+
+
+// .fc-day:hover{
+//   -webkit-transform: rotateZ(-30deg);
+//   -ms-transform: rotateZ(-30deg);
+//   transform: rotateZ(-30deg);
+// }
