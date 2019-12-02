@@ -31,6 +31,7 @@ export default function ShowNotes (props) {
               src="/plus.svg"
               alt="Add Note"/></Link>
         <NotesList className="notes_list"
+        deleteNote={props.deleteNote}
         user={props.user} 
         notes={props.notes} />
         </main>

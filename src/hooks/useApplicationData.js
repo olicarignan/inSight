@@ -36,7 +36,12 @@ export default function useApplicationData() {
 		return axios.delete(`/api/categories/${state.user.id}/categories/${category.id}`)
 								.then(res => console.log(res, ' category deleted'))
 								.catch(error => console.log(error))
-	}
+  }
+  
+  function deleteNote(category_id, note_id) {
+    return axios.delete(`/api/notes/${state.user.id}/categories/${category_id}/${note_id}`)
+         .then(res => console.log('note deleted'))
+  }
 
 	function deleteAppointment(appointment_id) {
 		console.log(appointment_id);
@@ -214,6 +219,7 @@ export default function useApplicationData() {
 		setCalendarEvents,
 		setToggle,
 		deleteAppointment,
-		deleteCategory
+    deleteCategory,
+    deleteNote
   };
 }

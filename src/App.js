@@ -36,7 +36,8 @@ function App() {
           setCalendarEvents,
           setToggle,
           deleteAppointment,
-          deleteCategory} = useApplicationData();
+          deleteCategory,
+          deleteNote} = useApplicationData();
 
   // const userList = state.users.map( user => (
   //   <li key={user.id}>
@@ -83,20 +84,20 @@ function App() {
 
   const notesList = state.notes.map( note => {
     return (
-      <Route path={`/notes/${note.id}`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} note={note}/>}/>
+      <Route path={`/notes/note/${note.id}`} component={() => <Editor note={note} navButton={navButton} setNavButton={setNavButton} user={state.user} category_id={note.category_id}/>}/>
     )
   })
 
 
   const categoryList = state.categories.map( category => {
     return (
-      <Route path={`/categories/${category.id}`} component={() => <ShowNotes navButton={navButton} setNavButton={setNavButton}user={state.user} category={category} notes={state.notes}/>}/>
+      <Route path={`/categories/${category.id}`} component={() => <ShowNotes deleteNote={deleteNote} navButton={navButton} setNavButton={setNavButton}user={state.user} category={category} notes={state.notes}/>}/>
     )
   })
 
   const newNoteByCategory = state.categories.map( category => {
     return (
-      <Route path={`/categories/${category.id}/new`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} category={category}/>}/>
+      <Route path={`/categories/${category.id}/new`} component={() => <Editor navButton={navButton} setNavButton={setNavButton} user={state.user} category_id={category.id}/>}/>
     )
   })
 
