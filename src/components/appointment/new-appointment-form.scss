@@ -115,7 +115,7 @@ element.style {
 
 .colour_picker_red::before{
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #F23E4A; /* Change the color */
+  color: #FF727C; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -123,7 +123,7 @@ element.style {
   
 .colour_picker_blue::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #36A7D1; /* Change the color */
+  color: #71D0F2; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -131,7 +131,7 @@ element.style {
 
 .colour_picker_yellow::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #F9CE20; /* Change the color */
+  color: #FFDF60; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -139,7 +139,7 @@ element.style {
 
 .colour_picker_purple::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #702870; /* Change the color */
+  color: #D88FD8; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */
@@ -147,7 +147,7 @@ element.style {
 
 .colour_picker_green::before {
   content: "\2022";  /* Add content: \2022 is the CSS Code/unicode for a bullet */
-  color: #33CA7F; /* Change the color */
+  color: #85E5B5; /* Change the color */
   font-weight: bold; /* If you want it to be bold */
   display: inline-block; /* Needed to add space between the bullet and the text */
   width: 1em; /* Also needed for space (tweak if needed) */

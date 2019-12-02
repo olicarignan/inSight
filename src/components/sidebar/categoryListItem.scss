@@ -147,32 +147,33 @@
   display: flex;
   justify-content: space-between;
   color: #FAFAFA;
-  margin: 1em;
+  margin: 2em;
   animation: expand .7s ease-in-out;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.4)
 }
 
 #red{
-  background-color: #F23E4A;
+  background-color: #FF727C;
 }
 
 #blue{
-  background-color: #36A7D1;
+  background-color: #71D0F2;
 }
 
 #yellow{
-  background-color: #F9CE20
+  background-color: #FFDF60
 }
 
 #purple{
-  background-color: #702870
+  background-color: #D88FD8
 }
 
 #green {
-  background-color: #33CA7F
+  background-color: #85E5B5
 }
 
 .badge:active {
-  -webkit-box-shadow: inset 0 0 3px #63151a;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2)
 }
 
 .categoryTitle {

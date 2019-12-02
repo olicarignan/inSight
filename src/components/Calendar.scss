@@ -9,9 +9,9 @@
   display: flex;
 }
 
-.fc-title:hover {
+// .fc-title:hover {
   
-}
+// }
 
 .confirm-button-class{
   border-radius: 5rem;
@@ -25,9 +25,17 @@
   border-radius: 5rem;
 }
 
+.fc-day {
+  margin: 1em !important;
+  border-radius: 1em;
+  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.4);
+  background-color: white;
+}
 
-// .fc-day:hover{
-//   -webkit-transform: rotateZ(-30deg);
-//   -ms-transform: rotateZ(-30deg);
-//   transform: rotateZ(-30deg);
-// }
+
+.fc-day:hover {
+
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-30deg);
+}
