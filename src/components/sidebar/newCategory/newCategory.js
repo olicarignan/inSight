@@ -52,7 +52,7 @@ export default function NewCategory(props) {
               user_id: props.user.id,
               colour: colour
             }
-            if (category.category_name && category.user_id && category.colour) {
+            if (category.category_name && category.colour) {
               props.addCategory(category, props.user.id)
               setCategoryName('')
             } else {

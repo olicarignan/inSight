@@ -58,7 +58,7 @@
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
-  background-color: #63151a;
+  background-color: rgba(135, 135, 135, 0.5);
   opacity: 1;
 }
 
@@ -175,6 +175,7 @@
 }
 
 .categoryTitle {
+  margin: auto;
   font-size: 1.6em;
   cursor: pointer;
 }
