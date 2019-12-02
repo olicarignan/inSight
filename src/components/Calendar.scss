@@ -23,3 +23,15 @@
 .swal2-confirm{
   border-radius: 5rem;
 }
+
+.fc-event-container:hover {
+  -webkit-transform: rotateZ(-30deg);
+  -ms-transform: rotateZ(-30deg);
+  transform: rotateZ(-30deg);
+}
+
+// .fc-day:hover{
+//   -webkit-transform: rotateZ(-30deg);
+//   -ms-transform: rotateZ(-30deg);
+//   transform: rotateZ(-30deg);
+// }
