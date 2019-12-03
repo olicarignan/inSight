@@ -6,6 +6,7 @@
   border-radius: 1vw;
   padding: 1vw;
   height: 10em;
+  animation: expand .7s ease-in-out;
   h2{
     color: white;
   }
@@ -69,5 +70,13 @@
   img {
     height: 3em;
     color: white;
+  }
+}
+
+@keyframes expand {
+  from {
+    transform: scale(0);
+    opacity: 0;
+    background: #5470B0;
   }
 }

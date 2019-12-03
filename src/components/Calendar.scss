@@ -27,7 +27,11 @@
 
 
 // .fc-day:hover{
-//   -webkit-transform: rotateZ(-30deg);
-//   -ms-transform: rotateZ(-30deg);
-//   transform: rotateZ(-30deg);
+//   background-color: red;
+
 // }
+
+.day-highlight {
+  background-color: red !important;
+  color: red !important;
+}

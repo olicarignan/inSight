@@ -56,16 +56,10 @@ export default function Editor(props) {
 						}}
 						content={props.note ? props.note.note_content : ''}
 						read_only={false}
+						body_placeholder={'Do what you will'}
+						title_placeholder={'asdasfa'}
 				/>
 				</Container>
-
-				<button className="text-editor-button" onClick={() => console.log('save')}>
-					{' '}
-					Save{' '}
-				</button>
-				<button className="text-editor-button-delete btn-danger" onClick={() => console.log('delete')}>
-					Delete
-				</button>
 			</form>
 			</div>
 		</main>

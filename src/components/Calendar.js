@@ -24,8 +24,8 @@ export default function Calendar(props) {
 
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
-    console.log(eventInfo.extendedProps.category_name)
-    // console.log(info.event)
+    // console.log(eventInfo.extendedProps.category_name)
+    console.log(eventInfo)
     Swal.fire({
       title: eventInfo.title,
       html:
@@ -70,6 +70,12 @@ export default function Calendar(props) {
       ` +
       eventInfo.extendedProps.small_note +
         `
+      </strong></td>
+      </tr>
+      <tr >
+      <td>Take Notes</td>
+      <td><strong>
+      <a href="/categories/${eventInfo.groupId}/new">Star Writing</a>
       </strong></td>
       </tr>
       </tbody>
@@ -145,6 +151,7 @@ export default function Calendar(props) {
      defaultView="timeGridWeek" 
      header={{
       right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
+      center: 'title',
       left: 'prev,next today',
      }}
      plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
@@ -153,7 +160,6 @@ export default function Calendar(props) {
      ref={calendarComponentRef}
      events={props.calendarEvents}
      allDayDefault={false}
-     themeSystem="Litera"
       >
     </FullCalendar>
     <div>
