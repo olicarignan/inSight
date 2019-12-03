@@ -1,5 +1,15 @@
 .text_editor_container {
-  position: absolute;
   margin-top: 40px;
-  margin-left: 60px;;
+  margin-left: 60px;
+  margin: auto;
+  box-sizing: inherit;
+  height: 100vh;
+}
+
+.mw6{
+  height: 100% !important;
+}
+
+.graf::placeholder{
+  background: none;
 }

@@ -64,10 +64,10 @@ function App() {
         appointments: all[1].data,
         notes: all[2].data
       });
-      return [all[1], all[0]]
+      return all[1]
     }).then(res => {
       console.log(res)
-      setCalendarEvents(res[0].data, res[1].data)
+      setCalendarEvents(res.data)
     })
     .catch(error => console.log(error));
     })
@@ -78,6 +78,7 @@ function App() {
   console.log(state)
 
   const categoryToggleState = state.appointments.map(appointment => {
+    
     let categoryToggle = {}
     let category = appointment.category_id;
     categoryToggle[category] = appointment.toggle

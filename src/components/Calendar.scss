@@ -85,7 +85,7 @@
 }
 
 .td {
-  margin-right: 3em;
+  width: 1em !important;
 }
 
 .fc {
@@ -96,7 +96,12 @@
   display: flex;
 }
 
+h2 {
+  color: white;
+}
+
 .fc-day {
+  width: 0.5em !important;
   margin-top: -10em;
   margin-left: 5em;
   border-spacing: 5em !important;

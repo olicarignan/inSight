@@ -59,17 +59,18 @@ export default function dataReducer (state, action)  {
         showCategory: true
       }
     case SET_CALENDAR_EVENTS:
+
       return {
         ...state,
         calendarEvents: [...action.calendarEvents]
       }
-    case SET_TOGGLE: {
-      return {
-        ...state,
-        appointments: [...state.appointments, action.appointment],
-        calendarEvents: [...action.calendarEvents]
-      }
-    }
+    // case SET_TOGGLE: {
+      
+    //   return {
+    //     ...state,
+    //     appointments: stateAppointments
+    //   }
+    // }
     case SET_DELETE_CATEGORY: {
 
       const updatedCategories = state.categories.filter(category => category.id !== action.category_id)
