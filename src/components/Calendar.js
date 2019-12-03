@@ -17,7 +17,24 @@ export default function Calendar(props) {
 
   const [show, setShow] = useState(false); // this is for the new appointment
   const [showEventInfo, setShowEventInfo] = useState(false); // this is not needed it anymore with Swal alert
-  
+
+  // const [viewHeight, setViewHeight] = useState(475)
+
+  // const handleHeight = () => {
+  //   const windowWidth = window.innerWidth
+
+  //   if (windowWidth === 400) {
+  //     setViewHeight(700)
+  //     console.log("alfjakhfa")
+  //     return viewHeight
+  //   } else {
+  //     setViewHeight(475)
+  //     return viewHeight
+  //   }
+  // }
+
+
+    
   const handleDateClick = (arg) => {
     setShow(true)
   }
@@ -146,6 +163,7 @@ export default function Calendar(props) {
   return (
     <div className="calendar">
     <FullCalendar
+     windowResize={console.log("window size changed", window.innerWidth)}
      timeZone={"EST"}
      eventClick={HandleEventClick}
      defaultView="timeGridWeek" 
