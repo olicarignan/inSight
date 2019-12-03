@@ -66,6 +66,7 @@ function App() {
       });
       return [all[1], all[0]]
     }).then(res => {
+
       console.log(res)
       setCalendarEvents(res[0].data, res[1].data)
     })
