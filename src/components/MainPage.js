@@ -5,6 +5,7 @@ import Nav from '../components/nav/nav';
 import SideBar from '../components/sidebar/sidebar'; 
 import useVisualMode from '../hooks/useVisualMode';
 import Editor from './textEditor/Editor'
+import './MainPage.scss'
 
 import {
   BrowserRouter as Router,

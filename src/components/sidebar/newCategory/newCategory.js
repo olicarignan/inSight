@@ -8,6 +8,7 @@ export default function NewCategory(props) {
 
   const [ colour, setColour ] = useState('pick a colour');
   const [categoryName, setCategoryName] = useState("");
+  const [formState, setFormState] = useState('')
 
   const colourOptions = props.colours.map(colour => {
     if (colour === 'red') {
@@ -45,8 +46,9 @@ export default function NewCategory(props) {
   })
 
   return (
-    <div className="newCategory">
+    <div className="newCategory" id={formState}>
       <form className="newCategoryForm" onSubmit={event => {event.preventDefault() 
+            setFormState('')
             const category = {
               category_name: categoryName,
               user_id: props.user.id,
@@ -60,6 +62,7 @@ export default function NewCategory(props) {
             }
             }} autoComplete="off">
           <input
+          onClick={() => setFormState('opened')}
             className="category__create-input text--semi-bold"
             categoryName = "categoryName"
             type="text"
@@ -68,7 +71,7 @@ export default function NewCategory(props) {
             onChange={event => setCategoryName(event.target.value)}
             data-testid="category-name-input"
           />
-          <div>
+          <div className='dropdown-wrapper'>
           <Dropdown className='dropdown'>
              <Dropdown.Toggle variant="success" id="dropdown-basic">
                {colour}
@@ -80,12 +83,14 @@ export default function NewCategory(props) {
 						 
            </Dropdown>
            </div>
-          <Button className="category__actions" onClick={() => setCategoryName('')} action='none' danger>
+           <div className='button-wrapper'>
+          <Button className="category__actions" onClick={() => setCategoryName('')} action='none'>
             Cancel
           </Button>
-          <Button className="category__actions" action='submit' confirm>
+          <Button className="category__actions" action='submit'>
             Save
           </Button>
+          </div>
         </form>
       </div>
   )

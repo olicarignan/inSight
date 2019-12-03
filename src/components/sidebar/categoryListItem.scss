@@ -42,7 +42,7 @@
   height: 24px;
   padding: 0;
   border-radius: 30px;
-  background-color: #ffa1a7;
+  background-color: rgba(135, 135, 135, 0.5);
   opacity: 0.6;
   -webkit-transition: all 0.2s ease;
   -moz-transition: all 0.2s ease;
@@ -54,7 +54,7 @@
 }
 
 .react-toggle--checked .react-toggle-track {
-  background-color: #63151a;
+  background-color: rgba(237, 237, 237, 0.5);
 }
 
 .react-toggle--checked:hover:not(.react-toggle--disabled) .react-toggle-track {
@@ -153,24 +153,25 @@
 }
 
 #red{
-  background-color: #FF727C;
+  background: linear-gradient(#FCAB88, #FC8450) !important;
 }
 
 #blue{
-  background-color: #71D0F2;
+  background: linear-gradient(#7CB9D6, #3FA7D6) !important;
 }
 
 #yellow{
-  background-color: #FFDF60
+  background: linear-gradient(#F9C05C, #F9B236) !important;
 }
 
 #purple{
-  background-color: #D88FD8
+  background: linear-gradient(#F7B7A5, #F7987E) !important;
 }
 
 #green {
-  background-color: #85E5B5
+  background: linear-gradient(#8ACCA9, #59CD90) !important;
 }
+
 
 .badge:active {
   box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.2)

@@ -147,6 +147,7 @@ export default function Calendar(props) {
       right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
       left: 'prev,next today',
      }}
+     aspectRatio="2"
      plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
      weekends={true}
      dateClick={() => handleDateClick()}

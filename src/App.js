@@ -64,10 +64,10 @@ function App() {
         appointments: all[1].data,
         notes: all[2].data
       });
-      return all[1]
+      return [all[1], all[0]]
     }).then(res => {
-      console.log(res.data)
-      setCalendarEvents(res.data)
+      console.log(res)
+      setCalendarEvents(res[0].data, res[1].data)
     })
     .catch(error => console.log(error));
     })

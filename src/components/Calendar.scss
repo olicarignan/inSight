@@ -3,15 +3,66 @@
 @import '~@fullcalendar/timegrid/main.css';
 
 .calendar {
-  max-width: 56vw;
-  margin: 1 auto;
-  margin-top: 42px;
+  max-width: 75vw;
+  margin-top: 74px;
   display: flex;
+  background-color: white;
+  border-radius: 4em;
 }
 
-// .fc-title:hover {
-  
-// }
+.fc-toolbar {
+  margin-top: -10vh;
+  button {
+    background-color: white;
+    color: #091A27;
+  }
+  button:hover {
+    background-color: white;
+    color: #091A27;
+  }
+  .fc-today-button{
+    opacity: 1;
+    background-color: white;
+    color: #091A27;
+  }
+  .fc-button-active{
+    background-color: lightgrey !important;
+    color: #091A27 !important;
+  }
+
+
+}
+
+.fc-day-number{
+  margin-right: 5em;
+  margin-top: 3em;
+  font-weight: 1000;
+}
+
+.fc-day-top {
+  visibility: none !important;
+}
+
+.fc-event{
+  border-radius: 1em;
+}
+
+.fc-head-container {
+  margin-top: -5em !important;
+}
+
+.fc-today {
+  background: #FCA079 !important;
+
+  border: none !important;
+  border-radius: 2em !important;
+  font-weight: bold;
+} 
+
+.fc td, .fc th {
+  border-style: none !important;
+  margin: 5px !important;
+}
 
 .confirm-button-class{
   border-radius: 5rem;
@@ -25,17 +76,35 @@
   border-radius: 5rem;
 }
 
+.fc-row table {
+  border-spacing: 5em !important;
+  height: 5vh;
+  width: 70vw;
+  padding: 10px;
+  margin: 1em;
+}
+
+.td {
+  margin-right: 3em;
+}
+
+.fc {
+  border: none;
+}
+
+.table{
+  display: flex;
+}
+
 .fc-day {
-  margin: 1em !important;
-  border-radius: 1em;
-  box-shadow: 0 0.5rem 1rem 0 rgba(0, 0, 0, 0.4);
+  margin-top: -10em;
+  margin-left: 5em;
+  border-spacing: 5em !important;
   background-color: white;
+  border-radius: 1em;
 }
 
 
 .fc-day:hover {
-
-  -webkit-transform: rotateZ(-30deg);
-  -ms-transform: rotateZ(-30deg);
-  transform: rotateZ(-30deg);
+  background-color: aquamarine
 }
