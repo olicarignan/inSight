@@ -148,7 +148,7 @@ export default function Calendar(props) {
     <FullCalendar
      timeZone={"EST"}
      eventClick={HandleEventClick}
-     defaultView="timeGridWeek" 
+     defaultView="dayGridMonth" 
      header={{
       right: 'timeGridDay,timeGridWeek,dayGridMonth,listWeek',
       center: 'title',
