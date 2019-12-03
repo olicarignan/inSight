@@ -3,9 +3,9 @@ import useApplicationData from "../hooks/useApplicationData";
 import Calendar from "../components/Calendar";
 import Nav from '../components/nav/nav';
 import SideBar from '../components/sidebar/sidebar'; 
-import NotesList from './categoryPage/NotesList'
 import useVisualMode from '../hooks/useVisualMode';
 import Editor from './textEditor/Editor'
+import './MainPage.scss'
 
 import {
   BrowserRouter as Router,

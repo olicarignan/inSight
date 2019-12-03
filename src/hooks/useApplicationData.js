@@ -62,12 +62,10 @@ export default function useApplicationData() {
 
 		console.log(appointment.user_id)
     return axios.post(`/api/appointments/${appointment.user_id}`, appointment).then(res => {
-      console.log(res.data);
-      if (res.data) {
+      console.log(res);
         console.log('adding appointment')
         dispatch({type: SET_ADD_APPOINTMENT, appointment: res.data[0]})
         setCalendarEvents(res.data)
-      }
     });
   }
 
@@ -146,37 +144,104 @@ export default function useApplicationData() {
 	}
 
 	function setToggle(category) {
-		axios.get((`/api/appointments/${state.user.id}/category/${category.id}`)).then(res => {
-			let toggleTrue = res.data.filter(appointment => {
-				if(appointment.toggle === true) {
-					axios.put(`/api/appointments/${state.user.id}/category/${category.id}/true`)
-							 .then((res) => {
-								 let appointment = res.data
-								 let calendarEvents = state.calendarEvents
-								 dispatch({type:SET_TOGGLE, appointment, calendarEvents})
-							 })
-							 .catch(e => {console.log(e)})
-				} else {
-					axios.put(`/api/appointments/${state.user.id}/category/${category.id}/false`)
-							 .then((res) => {
-								 let appointment = res.data
-								 let calendarEvents = state.calendarEvents
-								 dispatch({type: SET_TOGGLE, appointment, calendarEvents})
-							 })
-							 .catch(e => {console.log(e)})
-				}
-			})
-		}).then(setCalendarEvents(state.appointments))
+
+    const appointments = [...state.appointments];
+    console.log(appointments)
+    let filteredAppointments = appointments.filter(appointment => appointment.category_id === category.id)
+    console.log(filteredAppointments)
+    const updatedAppointments = filteredAppointments.map(appointment => {
+      if (appointment.toggle === true) {
+        appointment.toggle = false
+      } else {
+        appointment.toggle = true
+      }
+      return appointment
+    })
+    console.log(updatedAppointments)
+    
+
+		// axios.get((`/api/appointments/${state.user.id}/category/${category.id}`)).then(res => {
+		// 	let toggleTrue = res.data.filter(appointment => {
+		// 		if(appointment.toggle === true) {
+		// 			axios.put(`/api/appointments/${state.user.id}/category/${category.id}/true`)
+		// 					 .then((res) => {
+		// 						 let appointment = res.data
+		// 						 let calendarEvents = state.calendarEvents
+		// 						 dispatch({type:SET_TOGGLE, appointment, calendarEvents})
+		// 					 })
+		// 					 .catch(e => {console.log(e)})
+		// 		} else {
+		// 			axios.put(`/api/appointments/${state.user.id}/category/${category.id}/false`)
+		// 					 .then((res) => {
+		// 						 let appointment = res.data
+		// 						 let calendarEvents = state.calendarEvents
+		// 						 dispatch({type: SET_TOGGLE, appointment, calendarEvents})
+		// 					 })
+		// 					 .catch(e => {console.log(e)})
+		// 		}
+		// 	})
+		// }).then(setCalendarEvents(state.appointments))
 	}
+  
+  // function setNewCalendarEvents(appointments, stateAppointments) {
+
+	// 	let calendarEvents = appointments.map(appointment => {
+      // let category = categories.filter(category => category.id === appointment.category_id)
+      // let colour;
+      // if (category[0].colour === 'red') {
+      //   colour = '#FF727C'
+      // } else if ( category[0].colour === 'blue') {
+      //   colour = '#71D0F2'
+      // } else if ( category[0].colour === 'yellow') {
+      //   colour = '#FFDF60'
+      // } else if ( category[0].colour === 'purple') {
+      //   colour = '#D88FD8'
+      // } else if ( category[0].colour === 'green') {
+      //   colour = '#85E5B5'
+      // }
+	// 		if (appointment.toggle === true) {
+
+	// 			return {
+          // color: colour,
+  //         location: appointment.location,
+  //         small_note: appointment.appointment_small_note,
+	// 				category_name: appointment.category_name,
+	// 				id: appointment.id,
+	// 				title: appointment.appointment_name,
+	// 				start: new Date(appointment.start_date),
+	// 				end: new Date(appointment.end_date),
+	// 				allDay: appointment.allDay,
+	// 				groupId: appointment.category_id,
+  //         toggle: appointment.toggle
+	// 			} 
+	// 			} else {
+	// 				return {};
+	// 			}
+  //     })
+  //     calendarEvents.concat(stateAppointments)
+	// 		dispatch({type:SET_UPDATE_CALENDAR_EVENTS, calendarEvents})
+	// 	}
 
 	
 	function setCalendarEvents(appointments) {
-		console.log(appointments)
 		let calendarEvents = appointments.map(appointment => {
-
+      // let category = categories.filter(category => category.id === appointment.category_id)
+      // let colour;
+      // if (category[0].colour === 'red') {
+      //   colour = '#FF727C'
+      // } else if ( category[0].colour === 'blue') {
+      //   colour = '#71D0F2'
+      // } else if ( category[0].colour === 'yellow') {
+      //   colour = '#FFDF60'
+      // } else if ( category[0].colour === 'purple') {
+      //   colour = '#D88FD8'
+      // } else if ( category[0].colour === 'green') {
+      //   colour = '#85E5B5'
+      // }
 			if (appointment.toggle === true) {
-				console.log(appointment)
+
 				return {
+          // color: colour,
           location: appointment.location,
           small_note: appointment.appointment_small_note,
 					category_name: appointment.category_name,

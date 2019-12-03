@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from '../nav/nav';
-import NotesList from './NotesList';
+import NotesList from './notesList';
 import './ShowNotes.scss';
 import {
   BrowserRouter as Router,

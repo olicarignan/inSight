@@ -1,6 +1,5 @@
 import React from "react";
 import CategoryListItem from "./categoryListItem";
-import NotesList from '../categoryPage/NotesList';
 import {
   BrowserRouter as Router,
   Switch,
