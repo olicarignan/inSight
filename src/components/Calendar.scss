@@ -36,10 +36,10 @@
 }
 .fc-content {
   z-index: -1;
-  margin-top: -6em !important;
-  padding-top: 1em;
+  margin-top: -3em !important;
+  padding-top: 3em;
   padding-left: 1em;
-  height: 5em !important;
+  height: 4em !important;
 }
 
 .fc-day-number{
@@ -62,8 +62,9 @@
 }
 
 .fc-today {
-  background: #FCA079 !important;
-
+  margin-left: none !important;
+  margin-top: 3em !important;
+  background: #ffdcce !important;
   border: none !important;
   border-radius: 2em !important;
   font-weight: bold;
@@ -100,6 +101,11 @@
 
 .fc {
   border: none;
+}
+
+.fc-day-grid{
+  
+  margin: -2em !important;
 }
 
 .table{

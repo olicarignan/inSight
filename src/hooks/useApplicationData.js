@@ -62,10 +62,10 @@ export default function useApplicationData() {
 
 		console.log(appointment.user_id)
     return axios.post(`/api/appointments/${appointment.user_id}`, appointment).then(res => {
-      console.log(res);
-        console.log('adding appointment')
         dispatch({type: SET_ADD_APPOINTMENT, appointment: res.data[0]})
-        setCalendarEvents(res.data)
+        const updatedAppointments = [...state.appointments]
+        updatedAppointments.push(res.data[0])
+        setCalendarEvents(updatedAppointments, state.categories)
     });
   }
 
