@@ -39,7 +39,8 @@
   margin-top: -3em !important;
   padding-top: 3em;
   padding-left: 1em;
-  height: 4em !important;
+  height: 1.5em !important;
+
 }
 
 .fc-day-number{
@@ -62,8 +63,6 @@
 }
 
 .fc-today {
-  margin-left: none !important;
-  margin-top: 3em !important;
   background: #ffdcce !important;
   border: none !important;
   border-radius: 2em !important;
@@ -104,8 +103,7 @@
 }
 
 .fc-day-grid{
-  
-  margin: -2em !important;
+  margin-left: 1em !important;
 }
 
 .table{
@@ -117,11 +115,10 @@ h2 {
 }
 
 .fc-day {
-  width: 0.5em !important;
-  margin-top: -10em;
-  border-spacing: 5em !important;
-  background-color: white;
-  border-radius: 1em;
+  // margin-top: -10em;
+  // border-spacing: 5em !important;
+  background-color: white !important;
+  // border-radius: 1em;
 }
 
 
