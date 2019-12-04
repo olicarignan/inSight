@@ -180,7 +180,8 @@ export default function Calendar(props) {
       center: 'title',
       left: 'prev,next today',
      }}
-     aspectRatio="2"
+     allDaySlot={false}
+     aspectRatio={2}
      plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
      weekends={true}
      dateClick={() => handleDateClick()}
