@@ -10,6 +10,7 @@ export default function RegisterPage(props) {
 	const [ email, setEmail ] = useState('');
 	const [ password, setPassword ] = useState('');
 	const [ loggedIn, setLoggedIn ] = useState(false);
+	const [ login, setLogin ] = useState(false);
 
 	function onSave(first_name, last_name, email, password) {
 		if (first_name && last_name && email && password) {
@@ -29,7 +30,11 @@ export default function RegisterPage(props) {
 	return (
 		<div>
 			{props.isAuthenticated === true && <Redirect to="/main" />}
+			<div>{login === true && <Redirect to="/" />}</div>
 			<body className='main'>
+			<img className="logo"
+				src='/logo.svg'
+				alt='logo'></img>
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
@@ -112,6 +117,12 @@ export default function RegisterPage(props) {
 											type="submit"
 										>
 											Register
+										</button>
+										<button
+											className="btn btn-lg btn-primary btn-block text-uppercase"
+											onClick={() => setLogin(true)}
+										>
+											I already have an account
 										</button>
 									</form>
 								</div>

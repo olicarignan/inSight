@@ -1,10 +1,10 @@
 .navbar {
   position: fixed;
   width: 100%;
-  z-index: 1000;
+  z-index: 900;
   height: 40px;
-  background: white;
-  box-shadow: 0px 2px 3px 0px rgba(120,120,120,1);
+  background-color: #091927;
+  box-shadow: 0px 1px 2px 0px rgba(255,255,255,1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -16,10 +16,14 @@
 a {
   margin-top: -14px;
   font-size: 30px;
-  color:black;
+  color: white
+}
+
+.logout{
+  color: #091927;
 }
 a:hover {
-  color: black;
+  color: grey;
   text-decoration: none;
 }
 // #menuButton{

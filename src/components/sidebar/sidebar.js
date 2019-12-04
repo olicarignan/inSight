@@ -9,6 +9,7 @@ export default function SideBar (props) {
 
   return (
     <aside className="sidebar">
+      <h2 className="planner">Planner</h2>
       <CategoryList
       className='category_list'
       deleteCategory={props.deleteCategory}

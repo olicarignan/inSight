@@ -25,11 +25,11 @@ export default function ShowNotes (props) {
         user={props.user}/>
         </nav>
             <body className='page'>
-        <main className='layout'>
         <Link to={`/categories/${props.category.id}/new`}>
          <img className="notes__add-button"
               src="/plus.svg"
               alt="Add Note"/></Link>
+        <main className='layout'>
         <NotesList className="notes_list"
         category={props.category}
         deleteNote={props.deleteNote}

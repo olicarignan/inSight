@@ -15,10 +15,10 @@ export default function NotesListItem(props) {
   day = day.slice(0, 2);
 
   return (
-    <main className="note_card" id={props.category.colour}onClick={console.log('open note')}>
+    <main className="note_card" onClick={console.log('open note')}>
     <section className="left-side__card"> 
     <h2>
-      <Link to={`/notes/note/${props.id}`}>{props.title}</Link>
+      <Link className='title' to={`/notes/note/${props.id}`}>{props.title}</Link>
     </h2>
     <p>{props.content}</p>
     </section>
@@ -26,7 +26,7 @@ export default function NotesListItem(props) {
       <h4>{`${day}/${month}/${year}`}</h4>
       <div className="icons">
       <img
-      className="edit_button"
+      className="delete_button"
       src="/trash-solid.svg"
       alt="delete" 
       onClick={() => {

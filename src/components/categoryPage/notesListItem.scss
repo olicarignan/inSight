@@ -1,46 +1,42 @@
 .note_card {
-  width: 100%;
+  background-color: rgb(224, 224, 224) !important;
+  width: 30vw;
   display: flex;
   justify-content: space-between;
+  margin-top: 2em;
   margin: 1vw;
   border-radius: 1vw;
   padding: 1vw;
   height: 10em;
   animation: expand .7s ease-in-out;
+  .title{
+    color: #091927;
+  }
   h2{
-    color: white;
+    max-width: 60%;
+    max-height: 60%;
+    overflow: hidden;
+    font-family: Helvetica, sans-serif;
+    color: #091927 !important;
   }
   p{
-    color: white;
+    max-width: 60%;
+    max-height: 30%;
+    overflow: hidden;
+    color: #232b31;
   }
   h4{
-    color: white;
-    margin-left: 4em;
+    color: #091927;
   }
 }
 
-#red{
-  background-color: #F23E4A;
-}
-
-#blue{
-  background-color: #36A7D1;
-}
-
-#yellow{
-  background-color: #F9CE20
-}
-
-#purple{
-  background-color: #702870
-}
-
-#green {
-  background-color: #33CA7F
+.delete_button{
+  width: 2em;
+  margin-left: 4em;
 }
 
 .left-side__card {
-  flex-grow: 1;
+  max-width: 20vw;
 }
 
 .note_card:hover{
@@ -55,6 +51,8 @@
 }
 
 .right-side__card {
+  margin-right: 2em;
+  max-width: 20%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -69,7 +67,7 @@
   align-content: flex-end;
   img {
     height: 3em;
-    color: white;
+    color: #091927;
   }
 }
 

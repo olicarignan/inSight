@@ -4,8 +4,17 @@
 }
 
 .main{
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
   background-color: #091A27 !important;
-  height: 100vh;
+  height: 100%;
+}
+
+.logo{
+  margin-top: -3em;
+  width: 40vw;
+  margin-bottom: -9em;
 }
 
 .card-register {
@@ -50,6 +59,10 @@
 .form-label-group>input,
 .form-label-group>label {
   padding: var(--input-padding-y) var(--input-padding-x);
+}
+
+.btn {
+  background-color: #091927 !important
 }
 
 .form-label-group>label {

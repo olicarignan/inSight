@@ -28,6 +28,9 @@ export default function LoginPage(props) {
 			<div>{loggedIn === true && <Redirect to="/main" />}</div>
 			<div>{register === true && <Redirect to="/register" />}</div>
 			<body className='main'>
+				<img className="logo"
+				src='/logo.svg'
+				alt='logo'></img>
 				<div className="container">
 					<div className="row">
 						<div className="col-sm-9 col-md-7 col-lg-5 mx-auto">
