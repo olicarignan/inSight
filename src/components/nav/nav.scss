@@ -22,3 +22,15 @@ a:hover {
   color: black;
   text-decoration: none;
 }
+// #menuButton{
+//   display: none;
+// }
+
+@media only screen 
+  and (max-device-width: 480px)
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) {
+    // #menuButton{
+    //   display: block;
+    // }
+}
