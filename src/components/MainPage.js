@@ -42,6 +42,8 @@ export default function MainPage(props) {
         />
         <div className="calendar-div">
           <Calendar
+          viewHeight={props.viewHeight}
+          setViewHeight={props.setViewHeight}
           categories={props.categories}
           deleteAppointment={props.deleteAppointment}
           calendarEvents={props.calendarEvents}

@@ -17,7 +17,31 @@ export default function Calendar(props) {
 
   const [show, setShow] = useState(false); // this is for the new appointment
   const [showEventInfo, setShowEventInfo] = useState(false); // this is not needed it anymore with Swal alert
-  
+
+  const [cssId, setCssId] = useState('')
+
+  // const handleHeight = () => {
+  //   const windowWidth = window.innerWidth
+
+  //   if (windowWidth === 400) {
+  //     setViewHeight(700)
+  //     console.log("alfjakhfa")
+  //     return viewHeight
+  //   } else {
+  //     setViewHeight(475)
+  //     return viewHeight
+  //   }
+  // }
+
+  if (window.innerWidth <= 400){
+    props.setViewHeight(500)
+    // props.setCssId('mobile')
+  } else {
+    props.setViewHeight(450)
+    // props.setCssId('desktop')
+  }
+
+    
   const handleDateClick = (arg) => {
     setShow(true)
   }
@@ -146,6 +170,8 @@ export default function Calendar(props) {
   return (
     <div className="calendar">
     <FullCalendar
+    height={props.viewHeight}
+     windowResize={console.log("window size changed", window.innerWidth)}
      timeZone={"EST"}
      eventClick={HandleEventClick}
      defaultView="dayGridMonth" 
@@ -161,6 +187,7 @@ export default function Calendar(props) {
      ref={calendarComponentRef}
      events={props.calendarEvents}
      allDayDefault={false}
+     allDaySlot={false}
       >
     </FullCalendar>
     <div>
