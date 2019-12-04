@@ -4,8 +4,16 @@
 }
 
 .main{
+  display: flex;
+  justify-content: center;
+  flex-flow: wrap;
   background-color: #091A27 !important;
-  height: 100vh;
+  height: 100vh !important;
+}
+
+.logo{
+  width: 40vw;
+  margin-bottom: -6em;
 }
 
 .card-signin {

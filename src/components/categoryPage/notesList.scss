@@ -1,5 +1,6 @@
 .noteslist {
-  width: 100vw;
+  width: 90vw;
   display: flex;
-  justify-content: center;
+  flex-flow: wrap;
+  justify-content: space-evenly;
 }
