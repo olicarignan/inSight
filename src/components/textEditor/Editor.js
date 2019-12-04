@@ -45,10 +45,8 @@ export default function Editor(props) {
 			<Nav note={props.note} user={props.user} navButton={props.navButton} />
 		</div>
 		<div className="text_editor_container">
-			<form className="text-editor" onSubmit={(event) => event.preventDefault()}>
 				<Container>
 				<Dante
-						body_placeholder={"hello"}
 						data_storage={{
               interval: 500,
 							save_handler: saveHandler,
@@ -57,10 +55,8 @@ export default function Editor(props) {
 						content={props.note ? props.note.note_content : ''}
 						read_only={false}
 						body_placeholder={'Do what you will'}
-						title_placeholder={'asdasfa'}
 				/>
 				</Container>
-			</form>
 			</div>
 		</main>
 	);
