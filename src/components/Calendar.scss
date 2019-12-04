@@ -14,12 +14,14 @@
   margin-right: 3em;
   margin-left: 3em;
   margin-top: -10vh;
+
   button {
+    border-radius: 1em;
     background-color: white;
     color: #091A27;
   }
   button:hover {
-    background-color: white;
+    background-color: rgba(177,177,177,0.5788690476190477);
     color: #091A27;
   }
   .fc-today-button{
