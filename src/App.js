@@ -73,6 +73,7 @@ function App() {
   }, [])
 
   const colours = ['red', 'blue', 'yellow', 'purple', 'green'];
+  const [viewHeight, setViewHeight] = useState(475)
 
   console.log(state)
 
@@ -117,6 +118,8 @@ function App() {
         {categoryList}
         {notesList}
       <PrivateRoute path="/main" component={MainPage}
+      viewHeight={viewHeight}
+      setViewHeight={setViewHeight}
       colours={colours}
       navButton={navButton}
       deleteCategory={deleteCategory}
