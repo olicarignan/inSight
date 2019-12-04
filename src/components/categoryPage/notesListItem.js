@@ -17,9 +17,7 @@ export default function NotesListItem(props) {
   return (
     <main className="note_card" onClick={console.log('open note')}>
     <section className="left-side__card"> 
-    <h2>
-      <Link className='title' to={`/notes/note/${props.id}`}>{props.title}</Link>
-    </h2>
+      <Link className='title' to={`/notes/note/${props.id}`}><h2>{props.title}</h2></Link>
     <p>{props.content}</p>
     </section>
     <section className="right-side__card">
