@@ -1,10 +1,10 @@
-##inSight
+## inSight
 
 a two-in-one calendar and rich text editor app that takes care of organizing your files. Aimed at students and professionals, designed to take away the hassle of using multiple platforms and to focus on your productivity.
 
 ---
 
-###features
+### features
 
 * fully functional user authentication with JWT token.
 
@@ -17,7 +17,7 @@ a two-in-one calendar and rich text editor app that takes care of organizing you
 * Intuitive and minimalistic design.
 
 ---
-###Setup
+### Setup
 install all dependencies with ```npm install```
 
 **Running React Server**
@@ -26,7 +26,7 @@ npm start
 ```
 ---
 
-###Screenshots
+### Screenshots
 
 **login page**
 !["login page"](https://github.com/olicarignan/inSight/blob/master/public/screenshots/Screen%20Shot%202019-12-06%20at%202.46.05%20PM.png?raw=true)
@@ -50,7 +50,7 @@ npm start
 !["text editor"](https://github.com/olicarignan/inSight/blob/master/public/screenshots/text-editor.png?raw=true)
 
 ---
-##Tech stack
+## Tech stack
 * React
 * Sass
 * Bootstrap
