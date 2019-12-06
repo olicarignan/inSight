@@ -73,7 +73,7 @@ function App() {
   }, [])
 
   const colours = ['red', 'blue', 'yellow', 'purple', 'green'];
-  const [viewHeight, setViewHeight] = useState(475)
+  const [viewHeight, setViewHeight] = useState(520)
 
   console.log(state)
 

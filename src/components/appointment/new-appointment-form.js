@@ -63,6 +63,7 @@ export default function NewAppointment(props) {
 						onSubmit={(event) => {
 							newAppointment(event);
 							props.setShow(false)
+							// props.setToggle()
 						}}
 					>
   <div className="form-label-group">
@@ -211,8 +212,9 @@ export default function NewAppointment(props) {
 							<label for="user_id">User id</label>
 						</div> */}
 						<hr className="my-4" />
+						<div className='button-wrapper'>
 						<button className="btn btn-lg btn-primary btn-block text-uppercase" type="submit">
-							Save Appointment
+							Confirm
 						</button>
 						<button
 							className="btn btn-lg btn-danger btn-block text-uppercase"
@@ -220,6 +222,7 @@ export default function NewAppointment(props) {
 						>
 							Cancel
 						</button>
+						</div>
 						</div>
 					</form>
 				</div>

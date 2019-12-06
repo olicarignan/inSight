@@ -42,6 +42,7 @@ export default function MainPage(props) {
         />
         <div className="calendar-div">
           <Calendar
+          setToggle={props.setToggle}
           viewHeight={props.viewHeight}
           setViewHeight={props.setViewHeight}
           categories={props.categories}

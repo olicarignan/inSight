@@ -49,7 +49,8 @@ export default function Calendar(props) {
   const HandleEventClick = (info) => {
     let eventInfo = info.event;
     // console.log(eventInfo.extendedProps.category_name)
-    console.log(eventInfo)
+
+    console.log(eventInfo.start.toUTCString())
     Swal.fire({
       title: eventInfo.title,
       html:
@@ -60,7 +61,7 @@ export default function Calendar(props) {
       <td>Start Time</td>
       <td><strong>
       ` +
-      eventInfo.start +
+      eventInfo.start.toUTCString() +
         `
       </strong></td>
       </tr>
@@ -68,7 +69,7 @@ export default function Calendar(props) {
       <td>End Time</td>
       <td><strong>
       ` +
-      eventInfo.end +
+      eventInfo.end.toUTCString() +
         `
       </strong></td>
       </tr>
@@ -155,6 +156,7 @@ export default function Calendar(props) {
           <NewAppointment
             // setEventState={setEventState}
             // eventState={eventState}
+            setToggle={props.setToggle}
            categories={props.categories}
            setShow={setShow}
            addAppointment={props.addAppointment}
@@ -170,7 +172,7 @@ export default function Calendar(props) {
   return (
     <div className="calendar">
     <FullCalendar
-    height={props.viewHeight}
+    height={520}
      windowResize={console.log("window size changed", window.innerWidth)}
      timeZone={"EST"}
      eventClick={HandleEventClick}
@@ -181,7 +183,7 @@ export default function Calendar(props) {
       left: 'prev,next today',
      }}
      allDaySlot={false}
-     aspectRatio={2}
+     aspectRatio={1}
      plugins={[ dayGridPlugin, interactionPlugin, timeGridPlugin ]}
      weekends={true}
      dateClick={() => handleDateClick()}

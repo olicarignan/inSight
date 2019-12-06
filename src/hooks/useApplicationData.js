@@ -144,7 +144,7 @@ export default function useApplicationData() {
 	}
 
 	function setToggle(category) {
-
+    
     let filteredAppointments = state.appointments.filter(appointment => appointment.category_id === category.id)
                                                 .map(appointment => {
                                                     console.log('inside map', appointment.toggle);

@@ -153,6 +153,11 @@ element.style {
   width: 1em; /* Also needed for space (tweak if needed) */
 }
 
+.button-wrapper{
+  display: flex;
+  justify-content: space-evenly;
+}
+
 
 
 

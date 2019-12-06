@@ -17,12 +17,13 @@
   margin-top: -10vh;
 
   button {
+    font-family: rubik;
     border-radius: 1em;
     background-color: white;
     color: #091A27;
   }
   button:hover {
-    background-color: rgba(177,177,177,0.5788690476190477);
+    background-color: rgba(221, 221, 221, 0.579);
     color: #091A27;
   }
   .fc-today-button{
@@ -37,19 +38,45 @@
 
 
 }
+
+.swal2-actions{
+  display: flex !important;
+  justify-content: space-evenly !important;
+}
+
+.cancel-button-class{
+  border-radius: 5em !important;
+  background-color: transparent !important;
+  border: solid #091A27 !important;
+  color: #091A27 !important;
+}
+
+.confirm-button-class{
+  border-radius: 5em !important;
+  background-color: #091A27 !important;
+}
 .fc-content {
-  z-index: -1;
-  margin-top: -4em !important;
-  padding-top: 3em;
-  padding-left: 1em;
-  height: 1.5em !important;
+  // z-index: -1;
+  // margin-top: -2em !important;
+  // padding-top: 1em;
+  // padding-left: 1em;
+  // height: 1.5em !important;
 }
 
 .fc-day-number{
   z-index: 1000 !important;
-  margin-right: 5em;
-  margin-top: 1em;
+  margin-top: 1.5em;
+  margin-right: 6em;
   font-weight: 1000;
+}
+
+.fc-title {
+  font-family: rubik;
+  font-weight: 500;
+}
+
+.fc-time {
+  margin-left: 0.5em;
 }
 
 .fc-day-top {
@@ -62,7 +89,9 @@
 }
 
 .fc-head-container {
-  margin-top: -5em !important;
+  font-family: rubik;
+  margin-top: 5em !important;
+  padding-top: 3em !important;
 }
 
 .fc-today {
@@ -115,6 +144,7 @@
 }
 
 h2 {
+  font-family: rubik;
   color: white;
 }
 
