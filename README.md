@@ -17,8 +17,19 @@ a two-in-one calendar and rich text editor app that takes care of organizing you
 * Intuitive and minimalistic design.
 
 ---
+###Setup
+install all dependencies with ```npm install```
+
+**Running React Server**
+```bash
+npm start
+```
+---
 
 ###Screenshots
+
+**login page**
+!["login page"](https://github.com/olicarignan/inSight/blob/master/public/screenshots/Screen%20Shot%202019-12-06%20at%202.46.05%20PM.png?raw=true)
 
 **main page**
 !["main page"](https://github.com/olicarignan/inSight/blob/master/public/screenshots/Main-page.png?raw=true)
@@ -37,3 +48,19 @@ a two-in-one calendar and rich text editor app that takes care of organizing you
 
 **text editor**
 !["text editor"](https://github.com/olicarignan/inSight/blob/master/public/screenshots/text-editor.png?raw=true)
+
+---
+##Tech stack
+* React
+* Sass
+* Bootstrap
+* Knex.js
+* PostgreSQL
+* Node.js
+* Express
+* Axios
+
+**APIs**
+
+* Fullcalendar
+* Dante2
