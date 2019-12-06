@@ -51,13 +51,11 @@ function App() {
 
   useEffect(() => {
     authUser(token).then(res => {
-      console.log(res)
       const categories = axios.get(`/api/categories/${res.id}`);
       const appointments = axios.get(`/api/appointments/${res.id}`);
       const notes = axios.get(`/api/notes/${res.id}`);
 
     Promise.all([categories, appointments, notes]).then(all => {
-      console.log(all)
       dispatch({
         type: SET_APPLICATION_DATA,
         categories: all[0].data,
@@ -75,7 +73,6 @@ function App() {
   const colours = ['red', 'blue', 'yellow', 'purple', 'green'];
   const [viewHeight, setViewHeight] = useState(520)
 
-  console.log(state)
 
   const categoryToggleState = state.appointments.map(appointment => {
     

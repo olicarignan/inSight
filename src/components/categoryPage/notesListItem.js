@@ -10,12 +10,11 @@ import {
 import Axios from "axios";
 
 export default function NotesListItem(props) {
-  console.log(props)
   let [year, month, day] = props.date.split('-')
   day = day.slice(0, 2);
 
   return (
-    <main className="note_card" onClick={console.log('open note')}>
+    <main className="note_card">
     <section className="left-side__card"> 
       <Link className='title' to={`/notes/note/${props.id}`}><h2>{props.title}</h2></Link>
     <p>{props.content}</p>

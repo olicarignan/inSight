@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 import './appointment-info-card.scss';
 
 export default function AppointmentInfoCard(props) {
-	console.log(props.eventInfo)
-	console.log(props.HandleEventClick)
 	return (
 		<body>
 			<div class="container">

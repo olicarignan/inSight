@@ -21,7 +21,6 @@ export default function RegisterPage(props) {
 				password
 			};
 			return props.addUser(newUser).then(() => {
-				console.log('yay it worked');
 				setLoggedIn(true);
 			});
 		}

@@ -5,7 +5,6 @@ import NewCategory from './newCategory/newCategory';
 
 export default function SideBar (props) {
 
-  console.log(props)
 
   return (
     <aside className="sidebar">

@@ -35,7 +35,6 @@ export default function Nav (props) {
       <a className="userButton" href="#" data-event='click' data-tip data-for="logout">{user.first_name}
       <ReactTooltip place="bottom" id="logout" clickable={true} effect="solid" isCapture='true'>
       <button className="logout" onClick={() => {
-        console.log('sup')
         userLogout()}}><a className="logout" href="#">logout</a></button>
       </ReactTooltip>
       </a>

@@ -9,7 +9,6 @@ import styled from "tachyons-components";
 import axios from 'axios';
 
 export default function Editor(props) {
-	console.log(props);
 
 
 	const Container = styled("div")`
@@ -19,17 +18,14 @@ export default function Editor(props) {
   useEffect(() => {
     axios.get(`/api/notes/${props.user.id}/category/${props.category_id}`)
        .then(() => {
-         console.log('got it')
        })
 
   }, [])
 
 
   let saveHandler = (editorContext, content) => {
-    console.log(content, editorContext)
     axios.post(`/api/notes/${props.user.id}/category/${props.category_id}`, editorContext.editorContent)
               .then(res => {
-                console.log('saved')
               })
   
   }

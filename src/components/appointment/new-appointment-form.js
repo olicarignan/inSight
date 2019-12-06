@@ -16,7 +16,6 @@ export default function NewAppointment(props) {
 	const [ appointment_small_note, setappointment_small_note ] = useState('');
 	const [ user_id, setUserId ] = useState('');
 
-	console.log(props)
 	function newAppointment(event) {
 		event.preventDefault();
 
@@ -38,10 +37,7 @@ export default function NewAppointment(props) {
 				appointment_small_note,
 				allday: false
 			};
-			console.log(appointment)
-			return props.addAppointment(appointment).then((res) => {
-				console.log('it worked new appointment form', res);
-			}).catch(e => console.log(e))
+			return props.addAppointment(appointment)
 		}
 
 		const categoryOptions = props.categories.map(category => {

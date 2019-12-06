@@ -20,7 +20,6 @@ export default function useApplicationData() {
 
   function getAppointmentsForUser(user) {
     return axios.get("/api/appointments", user.id).then(res => {
-      console.log(res);
     });
 	}
 	
@@ -36,7 +35,7 @@ export default function useApplicationData() {
 
 	function deleteCategory(category) {
 		return axios.delete(`/api/categories/${state.user.id}/categories/${category.id}`)
-                .then(res => {console.log(category.category_name, ' category deleted')
+                .then(res => {
                 dispatch({type: SET_DELETE_CATEGORY, category_id: category.id})})
 								.catch(error => console.log(error))
   }
@@ -45,14 +44,12 @@ export default function useApplicationData() {
     return axios.delete(`/api/notes/${state.user.id}/categories/${category_id}/${note_id}`)
          .then(res => {
            dispatch({type: SET_DELETE_NOTE, note_id: note_id})
-           console.log('note deleted')})
+           })
   }
 
 	function deleteAppointment(appointment_id) {
-		console.log(appointment_id);
 		return axios.delete(`/api/appointments/${state.user.id}/appointment/${appointment_id}`)
 		            .then(res => {
-									console.log(res, ' appointment deleted')
 								})
 								.catch(error => console.log(error))
 	}
@@ -60,7 +57,6 @@ export default function useApplicationData() {
 
   function addAppointment(appointment) {
 
-		console.log(appointment.user_id)
     return axios.post(`/api/appointments/${appointment.user_id}`, appointment).then(res => {
         dispatch({type: SET_ADD_APPOINTMENT, appointment: res.data[0]})
         const updatedAppointments = [...state.appointments]
@@ -137,8 +133,6 @@ export default function useApplicationData() {
 					loading: false
 				});
 				return res.data
-      } else {
-        console.log("something wrong");
       }
     });
 	}
@@ -147,12 +141,9 @@ export default function useApplicationData() {
     
     let filteredAppointments = state.appointments.filter(appointment => appointment.category_id === category.id)
                                                 .map(appointment => {
-                                                    console.log('inside map', appointment.toggle);
                                                     appointment.toggle =  !appointment.toggle;
-                                                    console.log('inside map2', appointment.toggle);
                                                     return appointment
                                                   })
-    console.log(filteredAppointments)
     axios.put(`/api/appointments/${state.user.id}/category/${category.id}/toggle`, filteredAppointments)
          .then(res => setCalendarEvents(state.appointments, state.categories)).catch(e => console.log(e))
 	}
@@ -184,7 +175,6 @@ export default function useApplicationData() {
 					title: appointment.appointment_name,
 					start: new Date(appointment.start_date),
 					end: new Date(appointment.end_date),
-					// allDay: appointment.allDay,
 					groupId: appointment.category_id,
           toggle: appointment.toggle
 				}
@@ -192,26 +182,8 @@ export default function useApplicationData() {
           return {}
         }
       })
-      console.log(calendarEvents)
       dispatch({type:SET_CALENDAR_EVENTS, calendarEvents})
     }
-
-  // useEffect(() => {
-
-  //   //console.log(state);
-  //   const categories = axios.get("/api/categories");
-  //   const appointments = axios.get("/api/appointments");
-  //   const notes = axios.get("/api/notes");
-
-  //   Promise.all([categories, appointments, notes]).then(all => {
-  //     dispatch({
-  //       type: SET_APPLICATION_DATA,
-  //       categories: all[0].data,
-  //       appointments: all[1].data,
-  //       notes: all[2].data
-	// 		});
-  //   });
-  // }, []);
 
   return {
     state,
