@@ -13,7 +13,6 @@ import {
 export default function ShowNotes (props) {
 
 
-  console.log(props)
   props.setNavButton('back to main')
 
 

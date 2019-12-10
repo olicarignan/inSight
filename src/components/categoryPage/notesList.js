@@ -6,7 +6,6 @@ export default function NotesList(props) {
 
   const notes = props.notes;
 
-  console.log(props)
 
   const notesList = notes.map( note => {
     if (note.category_id === props.category.id) {

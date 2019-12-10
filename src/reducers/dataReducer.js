@@ -15,7 +15,6 @@ export const SET_DELETE_NOTE = 'SET_DELETE_NOTE';
 
 export default function dataReducer (state, action)  {
 
-  console.log(action)
 
   switch (action.type) {
     case SET_APPLICATION_DATA:

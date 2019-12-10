@@ -37,7 +37,8 @@ export default function useApplicationData() {
 		return axios.delete(`/api/categories/${state.user.id}/categories/${category.id}`)
                 .then(res => {
                 dispatch({type: SET_DELETE_CATEGORY, category_id: category.id})})
-								.catch(error => console.log(error))
+								.catch(error => {
+                  throw new Error(error)})
   }
   
   function deleteNote(category_id, note_id) {
@@ -51,7 +52,8 @@ export default function useApplicationData() {
 		return axios.delete(`/api/appointments/${state.user.id}/appointment/${appointment_id}`)
 		            .then(res => {
 								})
-								.catch(error => console.log(error))
+								.catch(error => {
+                  throw new Error(error)})
 	}
 
 
@@ -85,7 +87,7 @@ export default function useApplicationData() {
         }
       })
       .catch(err => {
-        console.log(err, "err");
+        throw new Error(err);
       });
   }
 
@@ -145,8 +147,9 @@ export default function useApplicationData() {
                                                     return appointment
                                                   })
     axios.put(`/api/appointments/${state.user.id}/category/${category.id}/toggle`, filteredAppointments)
-         .then(res => setCalendarEvents(state.appointments, state.categories)).catch(e => console.log(e))
-	}
+         .then(res => setCalendarEvents(state.appointments, state.categories)).catch(e => {
+           throw new Error(e))
+	}}
 
 	
 	function setCalendarEvents(appointments, categories) {
